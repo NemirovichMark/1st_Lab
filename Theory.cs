@@ -4,6 +4,10 @@ namespace _1st_Lab
 {
     class Program
     {
+        public Program()
+        {
+        }
+
         static void Main(string[] args)
         {
             #region Booleans
