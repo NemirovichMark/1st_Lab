@@ -1,0 +1,150 @@
+#region task4
+Console.WriteLine("Task Four");
+double x4 = Convert.ToInt32(Console.ReadLine());
+double s4, c4;
+s4 = 0;
+int i4;
+if (x4 != 0)
+{
+    for (i4 = 0; i4 < 9; i4++)
+    {
+        c4 = Math.Cos((1 + i4) * x4) / (Math.Pow(x4, i4));
+        s4 = s4 + c4;
+    }
+    Console.WriteLine(s4);
+}
+else
+{
+    Console.WriteLine("YOU ARE LOSE");
+}
+#endregion
+Console.WriteLine(" ");
+#region task9
+Console.WriteLine("Task Nine");
+int i9, f9;
+f9 = 1;
+double s9 = 0;
+for (i9 = 1; i9 <= 6; i9++)
+{
+    f9 = f9 * i9;
+    s9 = s9 + (Math.Pow(-1, i9) * Math.Pow(5, i9)) / f9;
+}
+Console.WriteLine(s9);
+#endregion
+Console.WriteLine(" ");
+#region task15
+Console.WriteLine("Task Fifteen");
+int i15, a15, b15, c15, d15, n15, m15;
+a15 = 1;
+b15 = 1;
+c15 = 2;
+d15 = 1;
+n15 = 0;
+m15 = 0;
+for (i15 = 3; i15 <= 5; i15++)
+{
+    n15 = a15 + c15;
+    m15 = b15 + d15;
+    a15 = c15;
+    b15 = d15;
+    c15 = n15;
+    d15 = m15;
+    if (i15 == 5)
+    {
+        Console.WriteLine("Fifth term of the progression " + n15 + "/" + m15);
+    }
+}
+#endregion
+Console.WriteLine(" ");
+#region task16
+Console.WriteLine("Task Sixteen");
+int i16;
+ulong s16, x16, n16, m16;
+x16 = 1;
+s16 = 0;
+for (i16 = 1; i16 <= 64; i16++)
+{
+    s16 = s16 + x16;
+    x16 = x16 * 2;
+    if (i16 == 64)
+    {
+        n16 = s16 / 15; //s15 в граммах
+        m16 = s16 % 15; //погрешность
+        Console.WriteLine("The board will be covered by " + n16 + " grams of grains with an accuracy of a gram");
+    }
+}
+#endregion
+Console.WriteLine(" ");
+#region task18
+Console.WriteLine("Task Eighteen");
+int k18 = 10, i18;
+for (i18 = 3; i18 <= 24; i18 = i18 + 3)
+{
+    k18 = k18 * 2;
+    Console.WriteLine("In " + i18 + " hours there will be " + k18 + " cells");
+}
+#endregion
+Console.WriteLine(" ");
+#region task2in2
+Console.WriteLine("Task Two at level 2");
+int p22, n22 = 1;
+for (p22 = 1; p22 <= 30000; p22 = p22 * n22)
+{
+    n22 = n22 + 3;
+}
+Console.WriteLine("Max n = " + (n22 - 3));
+#endregion
+Console.WriteLine(" ");
+#region task4in2
+Console.WriteLine("Task Four at level 2");
+Console.WriteLine("Write x, |x| < 1");
+double x42 = Convert.ToDouble(Console.ReadLine());
+double s42 = 1;
+int i42;
+for (i42 = 0; Math.Pow(x42, i42) >= 0.0001; i42 = i42 + 2)
+{
+    s42 = s42 + Math.Pow(x42, i42);
+}
+Console.WriteLine(s42);
+#endregion
+Console.WriteLine(" ");
+#region task7in2
+Console.WriteLine("Task Seven at level 2");
+double p72 = 10, s72 = 0;
+for (int i72 = 1; i72 < 10; i72++)
+{
+    s72 = s72 + p72;
+    if (i72 == 7)
+    {
+        Console.WriteLine("a) In 7 days the athlete will run " + s72 + " km");
+        break;
+    }
+    p72 = p72 + (p72 / 10);  
+}
+p72 = 10;
+s72 = 0;
+for (int i72 = 1; i72 < 10; i72++)
+{
+    s72 = s72 + p72;
+    if (s72 >= 100)
+    {
+        Console.WriteLine("b) In " + i72 + " days the athlete will run more than 100 km");
+        break;
+    }
+    p72 = p72 + (p72 / 10);
+}
+p72 = 10;
+s72 = 0;
+for (int i72 = 1; i72 < 10; i72++)
+{
+    s72 = s72 + p72;
+    if (p72 >= 20)
+    {
+        Console.WriteLine("c) In " + i72 + " days the athlete will run more the 20 km per day");
+        break;
+    }
+    p72 = p72 + (p72 / 10);
+}
+Console.WriteLine();
+#endregion
+Console.WriteLine(" ");
