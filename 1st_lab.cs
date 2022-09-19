@@ -1,4 +1,3 @@
-
 #region lvl1task4
 double x = Convert.ToDouble(Console.ReadLine());
 double S = Math.Cos(x);
@@ -9,7 +8,7 @@ if (x != 0)
     {
         S += Math.Cos(i * x) / Math.Pow(x, i - 1);
     }
-    Console.WriteLine(S);
+    Console.WriteLine($"lvl1Task4 - {S}");
 }
 else
 {
@@ -34,9 +33,9 @@ static int Fact(int n)
 
 for (int i = 1; i < 7; i++)
 {
-    S1 += Math.Pow(-1,i)*Math.Pow(5,i)/Fact(i);
+    S1 += Math.Pow(-1, i) * Math.Pow(5, i) / Fact(i);
 }
-//Console.WriteLine(S1);
+Console.WriteLine($"lvl1Task9 - {S1}");
 #endregion
 
 #region lvl1Task16
@@ -46,21 +45,21 @@ for (int i = 0; i < 64; i++)
     corn += Math.Pow(2, i);
 }
 corn /= 15000;
-Console.WriteLine($"Requires {corn} a kilogram of grain");
+Console.WriteLine($"lvl1Task16 - Requires {corn} a kilogram of grain");
 #endregion
 
 #region lvl1Task18
 int cell_count = 10;
-for (int i = 3; i <= 24; i+=3)
+for (int i = 3; i <= 24; i += 3)
 {
     cell_count *= 2;
-    Console.WriteLine(cell_count);
+    Console.WriteLine($"lvl1Task18 - {cell_count}");
 }
 #endregion
 
 #region lvl1Task15
-int first_numerator=1, second_numerator=2, temp_numerator = 0;
-int first_unnumerator=1, second_unnumerator=1, temp_unnumerator = 0;
+int first_numerator = 1, second_numerator = 2, temp_numerator = 0;
+int first_unnumerator = 1, second_unnumerator = 1, temp_unnumerator = 0;
 for (int i = 0; i < 3; i++)
 {
     temp_numerator = second_numerator;
@@ -71,9 +70,10 @@ for (int i = 0; i < 3; i++)
     second_unnumerator += first_unnumerator;
     first_unnumerator = temp_unnumerator;
 }
-Console.WriteLine($"{second_numerator}/{second_unnumerator}");
+Console.WriteLine($"lvl1Task15 - {second_numerator}/{second_unnumerator}");
 
 #endregion
+
 
 #region lvl2Task2
 int number = 1;
@@ -83,7 +83,7 @@ while (p < 30000)
     number += 3;
     p *= number;
 }
-Console.WriteLine(number-3);
+Console.WriteLine($"lvl2Task2 - {number - 3}");
 #endregion
 
 #region lvl2Task4
@@ -105,7 +105,7 @@ if (x1 != 0 & x1 < 1 & x1 > -1)
         s += x1;
         n += 1;
     } while (x1 > eps);
-    Console.WriteLine(s);
+    Console.WriteLine($"lvl2Task4 {s}");
 }
 else
 {
@@ -122,7 +122,7 @@ for (int i = 1; i < 7; i++)
     way_a *= 1.1;
     total_way += way_a;
 }
-Console.WriteLine(total_way);
+Console.WriteLine($"lvl2Task8(a) - {total_way}");
 #endregion
 
 #region lvl2Task7(b)
@@ -135,7 +135,7 @@ do
     way_b += way_per_day;
     day_count_b += 1;
 } while (way_b < 100);
-Console.WriteLine(day_count_b);
+Console.WriteLine($"lvl2Task8(b) - {day_count_b}");
 #endregion
 
 #region lvl2Task7(c)
@@ -146,11 +146,12 @@ while (way_c < 20)
     way_c *= 1.1;
     day_count_c += 1;
 }
-Console.WriteLine(day_count_c);
+Console.WriteLine($"lvl2Task8(c) - {day_count_c}");
 #endregion
 
 
 #region lvl3Task1
+Console.WriteLine("lvl3Task1:");
 double absol_3 = 0.0001;
 int i_3 = 0;
 double s_3 = 0;
@@ -166,13 +167,14 @@ for (double x_3 = 0.1; x_3 <= 1; x_3 += 0.1)
         }
         i_3 += 1;
     }
-    
+
 }
 
 #endregion
 
 
 #region lvl3Task4
+Console.WriteLine("lvl3Task4:");
 double absol_4 = 0.0001;
 int i_4 = 0;
 double s_4 = 0;
@@ -180,10 +182,10 @@ for (double x_4 = 0.1; x_4 <= 1; x_4 += 0.1)
 {
     while (true)
     {
-        s_4 = ((2*i_4)+1)*Math.Pow(x_4,2*i_4)/Fact(i_4);
+        s_4 = ((2 * i_4) + 1) * Math.Pow(x_4, 2 * i_4) / Fact(i_4);
         if (s_4 < absol_4)
         {
-            Console.WriteLine($"S = {s_4}\nf(x) = {(1+(2*x_4*x_4))*Math.Pow(Math.Exp(x_4),2)}\n");
+            Console.WriteLine($"S = {s_4}\nf(x) = {(1 + (2 * x_4 * x_4)) * Math.Pow(Math.Exp(x_4), 2)}\n");
             break;
         }
         i_4 += 1;
