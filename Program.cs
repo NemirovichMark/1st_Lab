@@ -4,16 +4,6 @@ namespace _1stLab
 {
     class Program
     {
-        static int fact(int g)
-        {
-            int result;
-            result = 1;
-            for (int i = 1; i <= g; i++)
-            {
-                result *= i;
-            }
-            return result;
-        }
         static void Main(string[] args)
         {
             #region Task 4
@@ -37,9 +27,16 @@ namespace _1stLab
             #region Task 9
 
             double s9 = 0;
+            double fact = 1;
             for (int n = 1; n <= 6; n = n + 1)
             {
-                s9 += (Math.Pow(-1, n) * Math.Pow(5, n)) / (fact(n));
+                fact = 1;
+                for (int i = 1; i <= n; i++)
+                {
+                    fact *= i;
+                }
+                s9 += (Math.Pow(-1, n) * Math.Pow(5, n)) / fact;
+
             }
             Console.WriteLine($"Task 9: S = {s9}\n");
             #endregion
@@ -156,27 +153,37 @@ namespace _1stLab
 
             double Day_1_Distance = 10;
             double s7 = 0;
-            double DistanceFor_7_Days = 0;
+            double AllDistance = 0;
+            double DistanceFor7Days = 0;
             int nday = 1;
 
             for (; nday <= 6; nday += 1)
             {
                 s7 = Day_1_Distance + (Day_1_Distance * 0.1);
                 Day_1_Distance = s7;
-                DistanceFor_7_Days += s7;
+                AllDistance += s7;
             }
 
-            DistanceFor_7_Days = DistanceFor_7_Days + 10;
+            DistanceFor7Days = AllDistance + 10;
 
-            Console.WriteLine($"Tasks 7,8: а) {DistanceFor_7_Days}");
+            Console.WriteLine($"Tasks 7,8: а) {DistanceFor7Days}");
 
+            Day_1_Distance = 10;
+            AllDistance = 0;
+            s7 = 0;
+            nday = 1;
 
-            if (DistanceFor_7_Days < 100)
+            while (AllDistance < 100)
             {
-                nday = nday + 1;
-                Console.WriteLine($"Tasks 7,8: б) {nday}");
+
+                s7 = Day_1_Distance + (Day_1_Distance * 0.1);
+                Day_1_Distance = s7;
+                AllDistance += s7;
+                nday += 1;
+
             }
 
+            Console.WriteLine($"Tasks 7,8: б) {nday}");
 
             Day_1_Distance = 10;
             nday = 1;
@@ -215,13 +222,19 @@ namespace _1stLab
                 for (int i = 1; Math.Abs(a1) > 0.0001; i++)
                 {
                     znak = -znak;
-                    a1 = znak * Math.Pow(x1, 2 * i) / (fact(2 * i));
+                    fact = 2;
+
+                    if (2 * i > 2)
+                    {
+                        fact *= (2 * i) * (2 * i - 1);
+                    }
+                    a1 = znak * Math.Pow(x1, 2 * i) / (fact);
                     s1 = s1 + a1;
 
                 }
                 y1 = Math.Cos(x1);
 
-                Console.WriteLine($"x={x1} \t y={Math.Round(y1, 3)} \t s={Math.Round(s1, 3)}");
+                Console.WriteLine($"x={Math.Round(x1, 3)} \t y={Math.Round(y1, 3)} \t s={Math.Round(s1, 3)}");
 
             }
             Console.WriteLine();
@@ -234,19 +247,24 @@ namespace _1stLab
 
             Console.WriteLine($"Task 8 (lvl_3):");
 
-            for (x8 = 0.1; x8 <= 1; x8 += 0.1)
+            for (x8 = 0.1; x8 <= 1 + 0.0001; x8 += 0.05)
             {
                 s8 = 1;
                 a8 = 1;
+                fact = 1;
                 for (int i = 1; Math.Abs(a8) > 0.0001; i += 1)
                 {
-                    a8 = Math.Pow(2 * x8, i) / (fact(i));
+                    if (i > 1)
+                    {
+                        fact *= i * (i - 1);
+                    }
+                    a8 = Math.Pow(2 * x8, i) / (fact);
                     s8 += a8;
                 }
 
                 y8 = Math.Pow(Math.E, 2 * x8);
 
-                Console.WriteLine($"x={x8} \t y={Math.Round(y8, 3)} \t s={Math.Round(s8, 3)}");
+                Console.WriteLine($"x={Math.Round(x8, 3)} \t y={Math.Round(y8, 3)} \t s={Math.Round(s8, 3)}");
             }
             Console.WriteLine();
 
