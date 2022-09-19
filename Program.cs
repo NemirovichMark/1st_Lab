@@ -22,16 +22,24 @@ namespace _1st_Lab
             Task10();
         }
         #region Task1
-        public static void Task1(double x)
+        public static void Task1()
         {
+            double.TryParse(Console.ReadLine(), out double x);
             double element;
             double sum = 0;
-            for(int i = 1; i < 10; i++)
+            if (x != 0)
             {
-                element = Math.Cos(i * x / 180 * Math.PI) / Math.Pow(x, i - 1);
-                sum += element;
+                for (int i = 1; i < 10; i++)
+                {
+                    element = Math.Cos(i * x / 180 * Math.PI) / Math.Pow(x, i - 1);
+                    sum += element;
+                }
+                Console.WriteLine($"Sum = {sum}");
             }
-            Console.WriteLine($"Sum = {sum}");
+            else
+            {
+                Console.WriteLine("Wrong input, try again");
+            }
         }
         #endregion
         #region Task2
