@@ -1,0 +1,187 @@
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // 1st lvl
+            Console.WriteLine("1st lvl:\n\n");
+            #region 4
+            Console.WriteLine("№4:\n");
+            double s = 0;
+            Console.WriteLine("Enter the X:");
+            double x = Convert.ToDouble(Console.ReadLine());
+            for (int i = 1; i < 10; i++)
+            {
+                s += Math.Cos(x * i)/Math.Pow(x, i - 1);
+            }
+            Console.WriteLine("S = " + s);
+            #endregion
+
+            #region 9
+            Console.WriteLine("\n\n№9:\n");
+            double k = 0;
+            double n = 1;
+            for (int i = 1; i < 7; i++)
+            {
+                n *= i;
+                k += Math.Pow(-1, i) * Math.Pow(5, i) / n;
+            }
+            Console.WriteLine("S = " + k);
+            #endregion
+
+            #region 15
+            Console.WriteLine("\n\n№15:\n");
+            n = 1;
+            double m = 1;
+            double a = 2, b = 1;
+            double s1 = 0;
+            double s2 = 0;
+            s = 0;
+            for (int i = 1; i < 6-2; i++)
+            {
+                s2 = n + m;
+                m = n;
+                n = s2;
+                s1 = a + b;
+                b = a;
+                a = s1;
+            }
+            Console.WriteLine("S = " + s1/s2);
+            #endregion
+
+            #region 16
+            Console.WriteLine("\n\n№16:\n");
+            s = 0;
+            for (int i = 0; i < 64; i++)
+            {
+                s += Math.Pow(2, i);
+            }
+            Console.WriteLine("S = " + (s / 15)/1000 + " kg  (that's accurate, as I discovered)");
+            #endregion
+
+            #region 18
+            Console.WriteLine("\n\n№18:\n");
+            for (int i = 3; i < 25; i += 3)
+            {
+                s = Math.Pow(2, i/3);
+                Console.WriteLine("After " + i + " hours there would be " + s + " cells");
+            }
+            #endregion
+
+            // 2nd lvl
+            Console.WriteLine("\n\n\n2nd lvl:");
+
+            #region 2
+            Console.WriteLine("\n\n№2:\n");
+            s = 1;
+            double p = 1;
+            while (s < 30000)
+            {
+                p += 3;
+                s *= p;
+            }
+            Console.WriteLine("The last numb is " + (p-3));
+            #endregion
+
+            #region 4
+            Console.WriteLine("\n\n№4:\n");
+            s = 1;
+            p = 0;
+            x = Convert.ToDouble(Console.ReadLine());
+            if (x <= -1 || x >= 1)
+            {
+                Console.WriteLine("Nope");
+            }
+            else
+            {
+                while (Math.Pow(x, p) >= 0.0001)
+                {
+                    p += 2;
+                    s += Math.Pow(x, p);
+                }
+                Console.WriteLine("S = " + s);
+            }
+            #endregion
+
+            #region 7-8
+            Console.WriteLine("\n\n№7-8:\n");
+            double d = 10;
+            double cnt = 1;
+            k = 0;
+            s = 10;
+            while (d <= 20)
+            {
+                cnt += 1;
+                d *= 1.10;
+                s += d;
+                if (cnt == 7)
+                {
+                    Console.WriteLine("a) S = " + s);
+                }
+                if (s >= 100 && k == 0)
+                {
+                    Console.WriteLine("b) At the " + cnt + " day");
+                    k = 1;
+                }
+            }
+            Console.WriteLine("c) At the " + cnt + " day");
+
+            #endregion
+    
+            // 3rd lvl
+            Console.WriteLine("\n\n\n3rd lvl:");
+            #region 1
+
+            double F(double n)
+            {
+                if (n == 1) return 1;
+                return n * F(n - 1);
+            }
+
+            Console.WriteLine("\n\n№1:\n");
+            double e, y;
+            for (int i = 1; i <= 10; i += 1)
+            {
+                e = 1;
+                s = 1;
+                x = Convert.ToDouble(i)/10;
+                while ( Math.Abs(Math.Pow(-1, e) * Math.Pow(x, 2 * e) / F(e * 2)) >= 0.0001)
+                {
+                    s += Math.Pow(-1, e) * Math.Pow(x, 2 * e) / F(e * 2);
+                    e += 1;
+                }
+                Console.WriteLine("S" + i + " = " + s);
+                y = Math.Cos(x);
+                Console.WriteLine("y = " + y + "\n");
+            }
+            Console.WriteLine("WOW");
+            #endregion
+
+            #region 5
+            Console.WriteLine("\n\n№5:\n");
+            double PI = 3.1415926535897932384626433832795028841971;
+            Console.WriteLine();
+            double j;
+            a = 0;
+            for (j = PI/5; j <= PI; j += PI/25)
+            {
+                e = 1;
+                s = 0;
+                x = j;
+                while (Math.Abs(Math.Pow(-1, e) * Math.Cos(e * x) / Math.Pow(e, 2)) >= 0.0001)
+                {
+                    s += Math.Pow(-1, e) * Math.Cos(e * x) / Math.Pow(e, 2);
+                    e += 1;
+                }
+                a += 1;
+                Console.WriteLine("S" + a + " = " + s);
+                y = (Math.Pow(x,2) - (Math.Pow(PI, 2)/3))/4;
+                Console.WriteLine("y = " + y + "\n");
+            }
+            #endregion
+        }
+    }
+}
