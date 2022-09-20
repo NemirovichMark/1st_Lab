@@ -1,3 +1,4 @@
+// See https://aka.ms/new-c
 #region lvl1task4
 double x = Convert.ToDouble(Console.ReadLine());
 double S = Math.Cos(x);
@@ -21,22 +22,16 @@ else
 #region lvl1Task9
 double S1 = 0;
 
-static int Fact(int n)
-{
-    int result = 1;
-    for (int i = 2; i <= n; i++)
-    {
-        result *= i;
-    }
-    return result;
-}
+int fact0 = 1;
 
 for (int i = 1; i < 7; i++)
 {
-    S1 += Math.Pow(-1, i) * Math.Pow(5, i) / Fact(i);
+    fact0 *= i;
+    S1 += Math.Pow(-1, i) * Math.Pow(5, i) / fact0;
 }
 Console.WriteLine($"lvl1Task9 - {S1}");
 #endregion
+
 
 #region lvl1Task16
 double corn = 1;
@@ -154,13 +149,20 @@ Console.WriteLine($"lvl2Task8(c) - {day_count_c}");
 Console.WriteLine("lvl3Task1:");
 double absol_3 = 0.0001;
 int i_3 = 0;
+double c_3 = 0;
 double s_3 = 0;
+int fact = 1;
 for (double x_3 = 0.1; x_3 <= 1; x_3 += 0.1)
 {
+    i_3 = 0;
+    fact = 1;
     while (true)
     {
-        s_3 = Math.Pow(-1, i_3) * Math.Pow(x_3, 2 * i_3) / Fact(2 * i_3);
-        if (s_3 < absol_3)
+        fact *= 2 * i_3;
+        c_3 = Math.Pow(-1, i_3) * Math.Pow(x_3, 2 * i_3) / fact;
+        s_3 += c_3;
+
+        if (c_3 < absol_3)
         {
             Console.WriteLine($"S = {s_3}\nf(x) = {Math.Cos(x_3)}\n");
             break;
@@ -178,12 +180,18 @@ Console.WriteLine("lvl3Task4:");
 double absol_4 = 0.0001;
 int i_4 = 0;
 double s_4 = 0;
+double c_4;
+int fact1 = 1;
 for (double x_4 = 0.1; x_4 <= 1; x_4 += 0.1)
 {
+    i_4 = 0;
+    fact1 = 1;
     while (true)
     {
-        s_4 = ((2 * i_4) + 1) * Math.Pow(x_4, 2 * i_4) / Fact(i_4);
-        if (s_4 < absol_4)
+        fact *= i_3;
+        c_4 = ((2 * i_4) + 1) * Math.Pow(x_4, 2 * i_4) / fact1;
+        s_4 += c_4;
+        if (c_4 < absol_4)
         {
             Console.WriteLine($"S = {s_4}\nf(x) = {(1 + (2 * x_4 * x_4)) * Math.Pow(Math.Exp(x_4), 2)}\n");
             break;
