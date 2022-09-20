@@ -1,0 +1,242 @@
+using System;
+
+namespace lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region 1st part
+            #region № 4
+            {
+                Console.WriteLine($"4 Answer");
+                double x = int.Parse(Console.ReadLine());
+                double s = Math.Cos(x);
+                for (int n = 2; n <= 9; n = n + 1)
+                {
+                    if (Math.Pow(x, n - 1) != 0)
+                    {
+                        s = Math.Cos(x * n) / Math.Pow(x, n - 1) + s;
+                        Console.WriteLine(s);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Math.Pow(x, n - 1) = 0");
+                    }
+                }
+                #endregion
+            }
+            #region № 9
+            {
+                Console.WriteLine($"9 Answer");
+                double s = 0;
+                for (int i = 1; i <= 6; i++)
+                {
+                    int c = 1;
+                    for (int j = 1; j<=i; j++)
+                    {
+                        c *= j;
+                    }
+                    s = Math.Pow(-1, i) * Math.Pow(5, i) / c + s;
+                }
+                Console.WriteLine(s);
+            }
+            #endregion
+            #region №15
+            {
+                Console.WriteLine($"15 Answer");
+                double fchisl = 1, schisl = 2, fznam = 1, sznam = 1, sum = 0;
+
+                for (int i = 3; i <= 5; i++)
+                {
+                    sum = fchisl + schisl;
+                    fchisl = schisl;
+                    schisl = sum;
+                    sum = fznam + sznam;
+                    fznam = sznam;
+                    sznam = sum;
+
+                }
+                Console.WriteLine(schisl / sznam);
+                #endregion
+            }
+            #region № 16
+            {
+                Console.WriteLine($"16 Answer");
+                double i = 0, n = 1;
+                while (i < 64)
+                {
+                    i = i + 1;
+                    n = n * 2;
+                }
+                Console.WriteLine($"number of kilograms {(n / 15) / 1000}");
+                #endregion
+            }
+            #region №18
+            {
+                Console.WriteLine($"18 Answer");
+                int d = 10;
+                for (int i = 3; i <= 24; i = i + 3)
+                {
+                    d = d * 2;
+                    Console.WriteLine($"After {i} {d}");
+                }
+                #endregion
+            }
+            #endregion
+            #region 2nd part
+            #region №2
+            {
+                Console.WriteLine($"2nd Answer");
+                double p = 1, n = 1;
+                int L = 30000;
+                while (n * p < L)
+                {
+                    p = p * n;
+                    if (p * n < L)
+                    {
+                        n += 3;
+                    }
+                }
+                Console.WriteLine(n);
+                #endregion
+            }
+            #region №4
+            {
+                Console.WriteLine($"4 Answer");
+                double s = 1, p = 0, x = Convert.ToDouble(Console.ReadLine());
+                if (x <= -1 || x >= 1)
+                {
+                    Console.WriteLine("|x|>1");
+                }
+                else
+                {
+                    while (Math.Pow(x, p) >= 0.0001)
+                    {
+                        p += 2;
+                        s += Math.Pow(x, p);
+                    }
+                    Console.WriteLine("S = " + s);
+                }
+                #endregion
+            }
+            #region №7 а)
+            {
+                Console.WriteLine($"7 a) Answer");
+                double s = 0;
+                int counter = 0;
+                for (double km = 10; km < 10000; km = km * 1.1)
+                {
+                    if (counter != 7)
+                    {
+                        counter += 1;
+                        s += km;
+                    }
+                    else
+                    {
+                        Console.WriteLine(s);
+                        break;
+                    }
+
+
+                }
+                #endregion
+            }
+            #region №7 б)
+            {
+                Console.WriteLine($"7 б) Answer");
+                double s = 0;
+                int counter = 0;
+                for (double km = 10; km < 10000; km = km * 1.1)
+                {
+                    if (s < 100)
+                    {
+                        counter += 1;
+                        s += km;
+                    }
+                    else
+                    {
+                        Console.WriteLine(counter);
+                        break;
+                    }
+
+
+                }
+                #endregion
+            }
+            #region №7 в)
+            {
+                Console.WriteLine($"7 в) Answer");
+                int counter = 0;
+                for (double km = 10; km < 10000; km = km * 1.1)
+                {
+                    if (km < 20)
+                    {
+                        counter += 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine(counter);
+                        break;
+                    }
+
+                }
+                #endregion
+            }
+            #endregion
+            #region 3rd part
+            #region №1
+            {
+                Console.WriteLine($"1st Answer");
+                double summa, g, i0;
+                for (double x = 0.1; x <= 1 + 0.0001; x += 0.1)
+                {
+                    summa = 1;
+                    g = 1;
+                    i0 = 2;
+                    for (int i = 1; Math.Abs(g) >= 0.0001; i++)
+                    {
+                        if (i > 2)
+                        {
+                            i0 = i0 * (i0 * (i - 1));
+                        }
+                        g = (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / i0);
+                        summa += g;
+                    }
+                    double y = Math.Cos(x);
+                    Console.WriteLine($"x = {x} y = {y} Sum = {summa}");
+
+                }
+                #endregion
+            }
+            #region № 2
+            {
+                Console.WriteLine($"2nd Answer");
+                double x, summ, d, y;
+                for (x = 0.1; x <= 0.8 + 0.0001; x += 0.1)
+                {
+                    summ = 1;
+                    d = 1;
+                    for (int i = 1; Math.Abs(d) >= 0.0001; i++)
+                    {
+                        d = (Math.Pow(x, i) * Math.Sin(i * Math.PI / 4));
+                        summ += d;
+                    }
+                    y = (x * Math.Sin(Math.PI / 4) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x));
+                    Console.WriteLine($"S = {summ} y = {y} x = {x}");
+                }
+                #endregion
+            }
+
+            #endregion
+
+
+
+
+
+
+
+
+        }
+    }
+}   
