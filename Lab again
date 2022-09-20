@@ -1,0 +1,199 @@
+#region // level 1 Task 4
+
+double x = Convert.ToDouble(Console.ReadLine());
+double s = 0, a;
+int i;
+if (x != 0)
+{
+    for (i = 1; i <= 9; i = i + 1)
+    {
+        a = Math.Cos(i * x) / Math.Pow(x, i - 1);
+        s = s + a;
+    }
+}
+Console.WriteLine("s={0}", s);
+
+#endregion
+
+#region // level 1 Task 9
+
+double s = 0, a;
+int i, p = 1;
+for (i = 1; i <= 6; i = i + 1)
+{
+    p = p * i;
+    a = Math.Pow(-1, i) * Math.Pow(5, i) / p;
+    s = s + a;
+}
+
+Console.WriteLine("s={0}", s);
+
+#endregion
+
+#region // level 1 Task 15
+
+Console.WriteLine("Enter first numerator");
+int num1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter first denumerator");
+int denum1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter second numerator");
+int num2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter second denumerator");
+int denum2 = Convert.ToInt32(Console.ReadLine());
+int i, curnum = 0, curdenum = 0;
+int n = 5;
+
+for (i = 1; i <= n - 2; i = i + 1)
+{
+    curnum = num1 + num2;
+    curdenum = denum1 + denum2;
+    num1 = num2;
+    denum1 = denum2;
+    num2 = curnum;
+    denum2 = curdenum;
+}
+
+Console.WriteLine($"for 5th sequence member numerator is {curnum} and denumerator is {curdenum}");
+#endregion
+
+#region //level 1 Task 16
+double s = 0.0, a;
+int i;
+for (i = 0; i <= 63; i = i + 1)
+{
+    a = Math.Pow(2, i);
+    s = s + a;
+}
+Console.WriteLine("number of grains={0}", s);
+Console.WriteLine("grain weight in kilograms={0}", s / 15000);
+#endregion
+
+#region // level 1 Task 18
+int n = 10;
+int i;
+for (i = 3; i <= 24; i = i + 3)
+{
+    n = n * 2;
+    Console.WriteLine($"number of cells through {i} hours = {n}");
+}
+
+#endregion
+
+#region // level 2 Task 2
+int p = 1, i = 1;
+int L = 30000;
+while (p * i < L)
+{
+    p = p * i;
+    if (p * i < L)
+    {
+        i = i + 3;
+    }
+}
+Console.WriteLine(i);
+#endregion
+
+#region // level 2 Task 4
+
+const double eps = 0.0001;
+double s = 1.0, a = 0.0;
+double x = Convert.ToDouble(Console.ReadLine());
+int n = 1;
+do
+{
+    if (Math.Abs(x) < 1)
+    {
+        a = Math.Pow(x, n);
+        s = s + a;
+        n = n * 2;
+    }
+} while (Math.Abs(a) > eps);
+Console.WriteLine($"Summ = {s}");
+
+#endregion
+
+#region // level 2 Task 7-8a
+
+double km = 10.0, sum = 0.0;
+int n = 7;
+int day;
+for (day = 1; day <= n; day++)
+{
+    sum = sum + km;
+    km = km * 1.1;
+}
+Console.WriteLine(sum);
+
+#endregion
+
+#region // level 2 Task 7-8b
+
+double km = 10.0, sum = 0.0;
+int day = 0;
+while (sum < 100)
+{
+    sum = sum + km;
+    km = km * 1.1;
+    day += 1;
+
+}
+Console.WriteLine(day);
+
+#endregion
+
+#region // level 2 Task 7-8v
+
+double km = 10.0;
+int day = 1;
+while (km <= 20)
+{
+    km = km * 1.1;
+    day += 1;
+
+}
+Console.WriteLine(day);
+
+#endregion
+
+
+#region // level 3 Task 1
+const double xh = 0.1, xk = 1, h = 0.1;
+int i = 1, f=1;
+double s = 0, eps = 0.0001, x;
+x = xh;
+for (x = xh; x <= xk; x = x + h)
+{
+    while (true)
+    {
+        s = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / f * (2 * i);
+        if (s < eps)
+        {
+            Console.WriteLine($"S={s}\nf(x) = {Math.Cos(x)}\n");
+            break;
+        }
+        i += 1;
+
+    }
+}
+#endregion
+
+#region // level Task 8
+const double xh = 0.1, xk = 1, h = 0.05;
+int i = 1, f = 1;
+double s = 0, eps = 0.0001, x;
+x = xh;
+for (x = xh; x <= xk; x = x + h)
+{
+    while (true)
+    {
+        s = Math.Pow(2 * x, i) / f * i;
+        if (s < eps)
+        {
+            Console.WriteLine($"S={s}\nf(x) = {Math.Exp(2 * x)}\n");
+            break;
+        }
+        i += 1;
+
+    }
+}
+#endregion
