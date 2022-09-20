@@ -6,6 +6,7 @@ namespace lab_1
     {
         static void Main(string[] args)
         {
+            //#region 1st part
             //#region № 4
             //Console.WriteLine($"1st Answer");
             //double x = int.Parse(Console.ReadLine());
@@ -34,9 +35,9 @@ namespace lab_1
             //Console.WriteLine(s);
             //#endregion
             //#region №15
-            //double fchisl = 1, schisl = 2, fznam = 1, sznam = 1, sum = 0; 
+            //double fchisl = 1, schisl = 2, fznam = 1, sznam = 1, sum = 0;
 
-            //for (int i = 3; i<=5; i++ )
+            //for (int i = 3; i <= 5; i++)
             //{
             //    sum = fchisl + schisl;
             //    fchisl = schisl;
@@ -60,19 +61,21 @@ namespace lab_1
             //#endregion
             //#region №18
             //int d = 10;
-            //for (int i = 3; i<=24; i = i + 3)
+            //for (int i = 3; i <= 24; i = i + 3)
             //{
             //    d = d * 2;
             //    Console.WriteLine($"After {i} {d}");
             //}
             //#endregion
+            //#endregion
+            //#region 2nd part
             //#region №2
-            //double  p = 1, n = 1;
+            //double p = 1, n = 1;
             //int L = 30000;
             //while (n * p < L)
             //{
             //    p = p * n;
-            //    if (p * n < L) 
+            //    if (p * n < L)
             //    {
             //        n += 3;
             //    }
@@ -147,9 +150,36 @@ namespace lab_1
             //        break;
             //    }
 
+            //}
+            //#endregion
+            //#endregion
+            //#region 3rd part
+            //#region
+            //double Factorial(double i)
+            //{
+            //    if (i == 1)
+            //    {
+            //        return 1;
+            //    }
+            //    return i * Factorial(i - 1);
+            //}
+            //double summa, g, i0;
+            //for (double x = 0.1; x<=1+0.0001; x+= 0.1)
+            //{
+            //    summa = 1;
+            //    g = 1;
+            //    i0 = 2;
+            //    for (int i = 1; Math.Abs(g)>=0.0001; i++)
+            //    {
+            //        g = (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / Factorial(2 * i));
+            //        summa += g;
+            //    }
+            //    double y = Math.Cos(x);
+            //    Console.WriteLine($"x = {x} y = {y} Sum = {summa}");
 
+            //}
 
-
+            //#endregion
 
 
 
