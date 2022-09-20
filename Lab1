@@ -1,0 +1,264 @@
+using System;
+
+
+namespace _1st_Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region Level1__Task4
+            static void L1N4()
+            {
+                int i = 0;
+                double s = 0;
+                double x;
+                double znam = 1;
+                bool norm = double.TryParse(Console.ReadLine(), out x);
+                if (norm)
+                {
+                    double chisl = x;
+                    for (i = 1; i <= 9; i = i + 1)
+                    {
+                        s = s + Math.Cos(chisl) / znam;
+                        chisl += x;
+                        znam = Math.Pow(x, i);
+                    }
+                    Console.WriteLine(s);
+                }
+                else
+                {
+                    Console.WriteLine("Вы ввели что-то не правильное");
+                }
+                
+                
+            }
+            #endregion
+            #region Level1__Task9
+            static void L1N9()
+            {
+                int i = 0;
+                double s = 0;
+                int fact = 0;
+                for (i = 1; i <= 6; i = i + 1)
+                {
+                    fact = fact + i;
+                    Console.WriteLine(fact);
+                    s =s +  (Math.Pow(-1,i) * Math.Pow(5, i))/ fact;
+                }
+                Console.WriteLine(s);
+            }
+            #endregion
+            #region Level1__Task15
+            static void L1N15()
+            {
+                int i = 0;
+                int ch1 = 1, zn1 = 1, ZnamFinal = 1, ChislFinal = 2, ch3 = 0, zn3 = 0; 
+                // ch1, zn1, ch3, zn3 are just helping me 
+                // ch - means chislitel'
+                // zn - means znamenatel'
+                for (i = 1; i <= 3; i = i + 1)
+                {
+                    ch3 = ChislFinal;
+                    ChislFinal = ChislFinal + ch1;
+                    ch1 = ch3;
+                    
+                    zn3 = ZnamFinal;
+                    ZnamFinal = ZnamFinal + zn1;
+                    zn1 = zn3;
+
+                }
+                Console.WriteLine($"{ChislFinal}/{ZnamFinal}");
+            }
+            #endregion
+            #region Level1__Task16
+            static void L1N16()
+            {
+                int i = 0;
+                double s = 1;
+                double sum = 0;
+                // Ну, красивое сичло без Е получить нельзя, просто потому что даже
+                // UINT64 не способен вместить в себя столько. Печалька
+                for (i = 1; i <= 64; i = i + 1)
+                {
+                    s = s * 2;
+                    sum += s;
+                }
+                Console.WriteLine($"Всего зерен: {sum} грамм.");
+            }
+            #endregion
+            #region Level1__Task18
+            static void L1N18()
+            {
+                int i;
+                int s = 10;
+                for (i = 0; i <= 24; i = i + 3)
+                {
+                    s *= 2;
+                }
+                Console.WriteLine(s);
+            }
+            #endregion
+            #region Level2__Task2
+            static void L2N2()
+            {
+                int n = 1;
+                int L = 1;
+                int d; 
+                do
+                {
+                    n = n + 3;
+                    L *= n ;
+                    d = L * (n + 3);
+                } while (d < 30000);
+                Console.WriteLine($"n: {n}");
+            }
+            #endregion
+            #region Level2__Task4
+            static void L2N4()
+            {
+                double s = 1;
+                int i = 0;
+                double xn;
+                double b = 1; ;
+                Console.WriteLine("Введите x, (|x| < 1)");
+                bool norm = double.TryParse(Console.ReadLine(), out xn);
+                if (norm)
+                {
+                    if ((xn * xn) < 1)
+                    {
+                        while (b > 0.0001)
+                        {
+                            xn *= xn;
+                            b = xn * xn;
+                            s += xn;
+                        }
+
+                        Console.WriteLine($"s: {s}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы ввели странное число");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Вы ввели странное число");
+                }
+                
+            }
+            #endregion
+            #region Level2__Task7
+            static void L2N7()
+            {
+                int i2 = 1;
+                int i3 = 1;
+                double s = 0;
+                double s2 = 10, L2 = 0; // For Punkt_b
+                double s1 = 10, L1 = 0; // For Punkt_a
+                double s3 = 10, L3 = 0; // For Punkt_c
+
+                #region Punkt_a
+                for (int i = 1; i <= 6; i = i + 1)
+                {
+                    L1 += s1;
+                    s1 = s1 + s1 * 0.1;
+                    
+                }
+                Console.WriteLine($"За 7 дней спортсмен пробежит: {L1}км");
+                #endregion
+                #region Punkt_b
+                while (L2 < 100)
+                {
+                    L2 += s2;
+                    s2 = s2 + s2 * 0.1;
+                    i2 += 1;
+                }
+                Console.WriteLine($"Спортсмен пробежит 100км за {i2 - 1} дней/день");
+                #endregion
+                #region Punkt_с
+                while (s3 < 20)
+                {
+                    L3 += s3;
+                    s3 = s3 + s3 * 0.1;
+                    i3 += 1;
+                    //Console.WriteLine($"{i3} {L3} {s3}");
+                }
+                Console.WriteLine($"Спортсмен будет преодалевать 20км за день на {i3} день");
+                #endregion
+            }
+            #endregion
+            #region Level3__Task1
+            static void L3N1()
+            {
+                double s, a, x, y;
+                const double xlow = 0.1, xhigh = 1.0, h = 0.1;
+                
+                for (x = xlow; x <= (xhigh + 0.0001); x += h)
+                {
+                    s = 1; a = 1; int i = 1;
+                    do
+                    {
+                        a *= -((x * x) / (4 * i * i - 2* i));
+                        i += 1;
+                        s += a;
+                    } while (Math.Abs(a) >= 0.0001);
+                    y = Math.Cos(x);
+                    Console.WriteLine("x={0:f4} s={1:f4} y={2:f4}", x, s, y);
+                }
+                
+            }
+
+            #endregion
+            #region Level3__Task5
+            static void L3N5()
+            {
+                double s, a, x, y;
+                double xlow = Math.PI / 5, xhigh = Math.PI, h = Math.PI / 25;
+
+                for (x = xlow; x <= (xhigh + 0.0001); x += h)
+                {
+                    s = 1; a = 1; int i = 2;
+                    do
+                    {
+                        //Console.WriteLine($"{x}, {a}, {i}");
+                        a *= -(Math.Cos(x*i)*(i * i - 2 * i + 1) / (i * i * Math.Cos(x * i -x)));
+                        i += 1;
+                        s += a;
+                    } while (Math.Abs(a) >= 0.0001);
+                    y = (x*x - (Math.PI * Math.PI / 3)) / 4;
+                    Console.WriteLine("x={0:f4} s={1:f4} a={2:f4} y={3:f4}", x, s, a, y);
+                }
+
+             
+            }
+
+            #endregion
+            
+
+            L1N4();
+            L1N9();
+            L1N15();
+            L1N16();
+            L1N18();
+            L2N2();
+            L2N4();
+            L2N7();
+            L3N1();
+            L3N5();
+
+            //L1N4();
+            //L1N9();
+            //L1N15();
+            //L1N16();
+            //L1N18();
+            //L2N2();
+            //L2N4();
+            //L2N7();
+            //L3N1();
+            //L3N5();
+            // Its writen here, so you can undo a comment and do only 1 task at a time
+
+        }
+    }
+}
