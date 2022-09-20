@@ -1,0 +1,30 @@
+ using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace _1st_Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double summa = 0;
+            string vod = Console.ReadLine();
+            double x = Convert.ToInt32(vod);
+            x = x * 0.0175;
+            if (x == 0)
+            {
+                Console.WriteLine(0);
+            }
+            else
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    summa = summa + (Math.Cos(x * (1 + j))) / (Math.Pow(x, j));
+                }
+            }
+            Console.WriteLine(summa);
+        }
+    }
+}

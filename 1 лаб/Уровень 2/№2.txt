@@ -1,0 +1,19 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        double prois = 1;
+        double L = 30000;
+        double k = 1;
+        double n = 0;
+        for (int i = 1; prois * k < L; i++)
+        {
+            k = k + 3;
+            n = k;
+            prois = prois * k;
+        }
+        Console.WriteLine(prois);
+        Console.WriteLine(n);
+    }
+}

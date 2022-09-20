@@ -1,0 +1,27 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        double x = Convert.ToDouble(Console.ReadLine());
+        double eps = 0.0001;
+        double summa = 1;
+        double n = 1;
+        double i = 1;
+        if (x != 0)
+        {
+            if (x > -1 || x < 1)
+            {
+                while (n > eps)
+                {
+                    n = Math.Pow(x, i * 2);
+                    if (n < eps) { Console.WriteLine(summa); }
+                    summa = summa + n;
+                    i++;
+                }
+            }
+            else { Console.WriteLine(0); }
+        }
+        else {Console.WriteLine(0);}
+    }
+}

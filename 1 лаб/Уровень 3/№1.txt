@@ -1,0 +1,40 @@
+using System;
+using System.Globalization;
+
+class Program
+{
+    static void Main()
+    {
+        double summa = 0;
+        double fact = 1;
+        double chlenpos = 0;
+        double x = 0.1;
+        for (int i = 0; i < 10000000; i++)
+        {
+            fact = 1;
+            for (int j = 1; j <= i*2; j++)
+            {
+                fact = fact * j;
+            }
+            if (i == 0)
+            {
+                chlenpos = Math.Pow(-1, i) * (Math.Pow(x, 2 * i) / fact);
+                summa = summa + chlenpos;
+                if (Math.Abs(chlenpos) < 0.0001) { break; }
+            }
+            else
+            {
+                chlenpos = Math.Pow(-1, i) * (Math.Pow(x, 2 * i) / fact);
+                summa = summa + chlenpos;
+                if (Math.Abs(chlenpos) < 0.0001) { break; }
+            }
+             x += 0.1;
+        }
+        double radian = x * 0.0175;
+        double cosinus = Math.Cos(radian);
+        double raznica = cosinus - summa;
+        Console.WriteLine(summa);
+        Console.WriteLine(raznica);
+        Console.WriteLine(x);
+    }
+}

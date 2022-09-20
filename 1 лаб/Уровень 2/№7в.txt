@@ -1,0 +1,18 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        double tekday = 0;
+        //double summa = 0;
+        double day1 = 10;
+        double nday = 0;
+        tekday = day1;
+        for (int i = 1 + 1; tekday <= 20; i++)
+        {
+            tekday = tekday * 1.1;
+            nday = i;
+        }
+        Console.WriteLine(nday);
+    }
+}

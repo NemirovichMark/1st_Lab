@@ -1,0 +1,26 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        double chis1 = 1;
+        double znam1 = 1;
+        double chis2 = 2;
+        double znam2 = 1;
+        double chis3 = 0;
+        double znam3 = 0;
+        double element = 0;
+        for (int i = 1; i <= 2; i++)
+        {
+            chis3 = chis1 + chis2;
+            znam3 = znam1 + znam2;
+            chis1 = chis2;
+            znam1 = znam2;
+            chis2 = chis3;
+            znam2 = znam3;
+        }
+        element = chis3 / znam3;
+        Console.WriteLine(element);
+    }
+
+}
