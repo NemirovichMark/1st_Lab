@@ -14,7 +14,7 @@ namespace _1st
             double m;
             if (x == 0)
             {
-                Console.WriteLine("ban blyat");
+                Console.WriteLine("ban");
             }
             else
             {
