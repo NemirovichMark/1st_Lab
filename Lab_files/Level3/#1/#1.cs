@@ -21,15 +21,19 @@ namespace Laboratory
             double a = 0.1, b = 1, h = 0.1;
             double x = a, sigma = 0;
             double s = ((Math.Pow(-1.00, i)) * Math.Pow(x, (2*i)));
+            Console.WriteLine($"i = {i}, y(cos(x)) = {Math.Cos(x)}, current = {s}");
+            x += h;
+            i += 1;
 
-            while ((Math.Abs(s) >= 0.0001) || (x > b))
+            while ((Math.Abs(s) >= 0.0001) || (x <= b))
             {
-                Console.WriteLine($"i = {i}, y(cos(x)) = {Math.Cos(x)}");
                 sigma += s;
                 s = (((Math.Pow(-1.00, i)) * Math.Pow(x, (2*i))) / Factorial(2*i));
+                Console.WriteLine($"i = {i}, y(cos(x)) = {Math.Cos(x)}, current = {s}");
                 x += h;
                 i += 1;
             }
+            Console.WriteLine($"Final sum = {sigma}");
         }
     }
 }
