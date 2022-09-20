@@ -1,25 +1,233 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1st_Lab", "1st_Lab.csproj", "{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {128847E4-9BF1-431A-9B44-9A15B4196B54}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace Lab_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string vvod;
+            #region 1 level 4
+
+            double delit = 1, s4 = 0;
+            Console.WriteLine("Введите чсло х (!= 0) для 4 задания 1го уровня");
+            vvod = Console.ReadLine();
+            if (double.TryParse(vvod,out double x14))
+            {
+                if (x14 != 0)
+                {
+                    if (delit == 1)
+                    {
+                        for (int i = 1; i <= 9; i = i + 1)
+                        {
+                            s4 = s4 + Math.Cos(x14 * i) / delit;
+                            delit = delit * x14;
+                        }
+                        Console.WriteLine($"Ответ на 4й номер 1го уровня - {s4}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Пожалуйста, измените delit на 1");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Значение х не может быть равным нулю");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Введите значения состоящее только из цифр");
+            }
+            #endregion
+            
+            #region 1 level 9 
+                double s9 = 0;
+                int n = -1, faktorial = 1, paterka = 5;
+                if (faktorial == 1 && paterka == 5 && n == -1)
+                {
+                    for (int i = 1; i <= 6; i++)
+                    {
+                        s9 = s9 + (n * paterka / faktorial);
+                        n = n * -1;
+                        faktorial = faktorial * (i + 1);
+                        paterka = paterka * 5;
+                    }
+                    Console.WriteLine($"Ответ на 9й номер 1го уровня - {s9}");
+                }
+                else
+                {
+                    Console.WriteLine("Измените переменные faktorial = 1, paterka = 5, n = -1");
+                }
+            #endregion
+
+            #region 1 level 15
+            int chisl = 1, znam = 1, znam_zap;
+            if (chisl == 1 && znam == 1)
+            {
+                for (int i = 1; i <= 4; i++)
+                {
+                    znam_zap = znam;
+                    znam = chisl;
+                    chisl = chisl + znam_zap;
+                }
+                Console.WriteLine($"Ответ на 15й номер 1го уровня - {chisl}/{znam} ");
+            }
+            else
+                Console.WriteLine("Измените переменные chisl на 1 и znam аналогично ");
+            #endregion
+
+            #region 1 level 16
+            double gramm = 0, kletka = 1;
+            if (gramm == 0 && kletka == 1)
+            {
+                for (int i = 1; i <= 64; i = i + 1)
+                {
+                    gramm = gramm + kletka/15000000;
+                    kletka = kletka * 2;
+                }
+
+                Console.WriteLine($"Ответ на 16й номер 1го уровня (в тоннах) - {gramm}");
+            }
+            else Console.WriteLine("Проверьте, чтобы gramm = 0 и kletka = 1");
+            #endregion
+
+            #region 1 level 18
+            int kletok = 10;
+            if (kletok >= 0)
+            {
+                Console.WriteLine("Ответ на 18 номер 1го уровня:");
+                for (int i = 3; i <= 24; i = i + 3)
+                {
+                    kletok = kletok * 2;
+                    Console.WriteLine($"Через {i} часа будет {kletok} клеток");
+                }
+            }
+            else
+                Console.WriteLine("Количество амёб не может быть отрицательным");
+            #endregion
+
+            #region 2 level 2
+            int p = 1;
+            n = 1;
+            const int l = 30000;
+            if (p == 1 && n == 1)
+            {
+                do
+                {
+                    n = n + 3;
+                    p = p * n;
+
+                }
+                while (p <= l);
+                Console.WriteLine($"Ответ на 2 номер 2го уровня - {n-3}");
+            }
+            else
+                Console.WriteLine("Проверьте: р = 1 и n = 1");
+            #endregion
+
+            #region 2 level 4
+            const double e = 0.0001;
+            double slagaemoe = 1, s24 = 0;
+            Console.WriteLine("Введите значение |х| < 1");
+            vvod = Console.ReadLine();
+            if (double.TryParse(vvod,out double x24))
+            {
+                if (Math.Abs(x24) < 1)
+                {
+                    while (slagaemoe > e)
+                    {
+                        s24 = s24 + slagaemoe;
+                        slagaemoe = slagaemoe * x24 * x24;
+                    }
+                    Console.WriteLine($"Ответ на 4й номер 2го уровня - {s24}");
+                }
+                else Console.WriteLine("Введите значение |х| < 1");
+            }
+            else Console.WriteLine("Введите значение |х| < 1, используя цифры");
+
+
+            #endregion
+
+            #region 2 level 7-8(а,б,в)
+            const double yvelich = 1.1;
+            double probejal = 10, vsego = 10;
+            if (probejal >= 0 && vsego == probejal)
+            {
+                #region a
+                for (int i = 2; i <= 7; i++)
+                {
+                    vsego = vsego + probejal * yvelich;
+                    probejal = probejal * yvelich;
+                }
+                Console.WriteLine($"Ответ на номера 7-8 2го уровня (а) - {vsego}");
+            }
+            else Console.WriteLine("Кол-во км не может быть отрицательным");
+            #endregion
+                #region б
+            int days = 1;
+                probejal = 10; vsego = 10;
+                if (probejal >= 0 && vsego == probejal && days == 1)
+                {
+                    while (vsego < 100)
+                    {
+                        vsego = vsego + probejal * yvelich;
+                        probejal = probejal * yvelich;
+                        days++;
+                    }
+                    Console.WriteLine($"Ответ на намера 7-8 2го уровня (б) - {days}");
+                }
+                else Console.WriteLine("Проверьте, что probejal >= 0, vsego = probejal, days = 1");
+            #endregion
+                #region в
+                days = 1;probejal = 10; vsego = 10;
+            if (probejal >= 0 && vsego == probejal && days == 1)
+            {
+                while (probejal < 20)
+                {
+                    vsego = vsego + probejal*yvelich;
+                    probejal = probejal * yvelich;
+                    days++;
+                }
+                Console.WriteLine($"Ответ на намера 7-8 2го уровня (б) - {days}");
+            }
+            else Console.WriteLine("Проверьте, что probejal >= 0, vsego = probejal, days = 1");
+            #endregion
+            #endregion
+
+            #region 3 level 1
+            const double a = 0.1, b = 1, h = 0.1, ogran = 0.0001; double y,s31 = 0; int i31 = 0;
+            for (double x = a; x <= b; x = x + h)
+            {
+                Console.WriteLine("y = f(x)");
+                y = Math.Cos(x);
+                Console.WriteLine($"{y} = f({x})");
+                double s_s = 1;
+                while (Math.Abs(s_s) >= ogran)
+                {
+                    i31 = i31 + 1;
+                    s31 = s31 + s_s;
+                    s_s = -s_s * x*x/((2*i31-1)*2*i31);
+                }
+            }
+            Console.WriteLine($"Ответ на 1й номер 3го уровня - {s31}");
+            #endregion
+
+            #region 3 level 6
+            const double a6 = 0.1, b6 = 1, h6 = 0.1, ogran6 = 0.0001; double y6, s36 = 0; int i36 = 1;
+            for (double x = a6; x <= b6; x = x + h6)
+            {
+                Console.WriteLine("y = f(x)");
+                y6 = ( 1 + x*x*Math.Atan(x))/2 - 0.5*x;
+                Console.WriteLine($"{y6} = f({x})");
+                double s_s = x*x*x/5;
+                while (Math.Abs(s_s) >= ogran6)
+                {
+                    i36 = i36 + 1;
+                    s36 = s36 + s_s;
+                    s_s = -s_s * x * x * (2*i36 -3) / (2*i36 + 1);
+                }
+            }
+            Console.WriteLine($"Ответ на 6й номер 3го уровня - {s36}");
+            #endregion
+        }
