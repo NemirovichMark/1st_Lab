@@ -19,6 +19,12 @@ namespace _1st_Lesson
                 return;
             }
 
+            if(x == 0)
+            {
+                Console.WriteLine("не определеность");
+                return;
+            }
+
             arg = x;
 
             for (int i = 0; i < 9; ++i)
@@ -48,16 +54,20 @@ namespace _1st_Lesson
         }
         static void exercise_1_15()
         {
-            double[] args1 = new double[5] { 1, 2, 0, 0, 0 };
-            double[] args2 = new double[5] { 1, 1, 0, 0, 0 };
+            double arg1 = 2, pr1 = 1;
+            double arg2 = 1, pr2 = 1;
 
             for (int i = 2; i < 5; ++i)
             {
-                args1[i] = args1[i - 1] + args1[i - 2];
-
-                args2[i] = args2[i - 1] + args2[i - 2];
+                double new1,new2;
+                new1 = arg1 + pr1;
+                new2 = arg2 + pr2;
+                pr1 = arg1;
+                pr2 = arg2;
+                arg1 = new1;
+                arg2 = new2;
             }
-            Console.WriteLine(args1[4] / args2[4]);
+            Console.WriteLine(arg1 / arg2);
 
         }
         static void exercise_1_16()
@@ -178,6 +188,34 @@ namespace _1st_Lesson
 
         }
 
+        static void exercise_3_1()
+        {
+            Console.WriteLine("3_1");
+            double eps = 0.0001;
+            double h = 0.1, a = 0.1, b = 1;
+            for (double x = a; x <= b; x += h)
+            {
+                double y = Math.Cos(x);
+                int z = 1;
+                double arg = 1;
+                double sum = 1;
+
+                for (int i = 1; Math.Abs(arg) >= eps; ++i)
+                {
+                    double fact = 1;
+                    for (int j = 2; j <= i * 2; ++j)
+                    {
+                        fact *= j;
+                    }
+                    z *= -1;
+                    arg = z * Math.Pow(x, 2 * i) / fact;
+                    sum += arg;
+                }
+
+                Console.WriteLine($"y = {y} s = {sum}");
+            }
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             #region exercise 1_4
@@ -210,6 +248,10 @@ namespace _1st_Lesson
 
             #region exercise 2_7 - 2_8
             exercise_2_7();
+            #endregion
+
+            #region exercise 3_1
+            exercise_3_1();
             #endregion
 
             #region exercise 3_5
