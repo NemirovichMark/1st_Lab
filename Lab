@@ -168,7 +168,6 @@ namespace lab_1
             //{
             //    summa = 1;
             //    g = 1;
-            //    i0 = 2;
             //    for (int i = 1; Math.Abs(g)>=0.0001; i++)
             //    {
             //        g = (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / Factorial(2 * i));
@@ -178,6 +177,21 @@ namespace lab_1
             //    Console.WriteLine($"x = {x} y = {y} Sum = {summa}");
 
             //}
+            //#region № 2
+            //double x, summ, d, y; 
+            //for (x = 0.1; x <= 0.8 + 0.0001; x+=0.1)
+            //{
+            //    summ = 1;
+            //    d = 1;
+            //    for (int i = 1; Math.Abs(d)>=0.0001; i++)
+            //    {
+            //        d = (Math.Pow(x, i) * Math.Sin(i * Math.PI / 4));
+            //        summ += d;
+            //    }
+            //    y = (x * Math.Sin(Math.PI / 4) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x));
+            //    Console.WriteLine($"S = {summ} y = {y} x = {x}");
+            //}
+            //#endregion
 
             //#endregion
 
