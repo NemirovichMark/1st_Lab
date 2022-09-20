@@ -1,6 +1,8 @@
-﻿using System;
+using System;
+using System.ComponentModel;
+using System.Threading.Channels;
 
-namespace _1st_Lab
+namespace _1st_Lab_3_Level
 {
     class Program
     {
@@ -42,8 +44,9 @@ namespace _1st_Lab
             #region 5TASK_3Level
             
             const double aa = Math.PI / 5, bb = Math.PI, hh = Math.PI / 25;
+            double step = (bb - aa) / hh;
             double x1 = aa;
-            for (int n = 0; n < 20; n++)
+            for (int n = 0; n < step; n++)
             {
                 q = 1;
                 s = 0;
@@ -59,7 +62,7 @@ namespace _1st_Lab
                     p = -p;
             
                 } while (Math.Abs(q) >= eps);
-                double y = (Math.Pow(x1, 2) - (Math.Pow(Math.PI, 2) / 3)) / 4;
+                double y = ((x1 * x1) - (Math.PI * Math.PI) / 3) / 4;
                 Console.WriteLine($"s: {s}, y: {y}, x: {x1}");
                 x1 += hh;
             }
@@ -72,16 +75,25 @@ namespace _1st_Lab
             #region 4Task_1Level
             
             int f, c1, z1, c2, z2, c, zn;
+            double z;
             Console.WriteLine("Введите x:");
             double.TryParse(Console.ReadLine(), out x);
-            double z = (1 / x);
-            for (int n = 1; n <= 9; n++)
+            if (x == 0)
             {
-                q = Math.Cos(x * n) / (z * Math.Pow(x, n));
-                s += q;
+                Console.WriteLine("S cannot be counted");
             }
+            else
+            {
+                z = (1 / x);
+                for (int n = 1; n <= 9; n++)
+                {
+                    q = Math.Cos(x * n) / (z * Math.Pow(x, n));
+                    s += q;
+                }
 
-            Console.WriteLine($"Итоговая сумма: {s}");
+                Console.WriteLine($"Итоговая сумма: {s}");
+            }
+            
             #endregion
 
             q = 0;
@@ -137,6 +149,7 @@ namespace _1st_Lab
             }
 
             Console.WriteLine($"Зерен - {ss / 15} грамм");
+            //ответ не точный, так как число не влезает даже в UINT64
 
             #endregion
             Console.WriteLine("-----18 Task-----");
