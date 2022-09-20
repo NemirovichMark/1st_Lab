@@ -7,29 +7,36 @@ namespace _1st
     {
         static void Main()
         {
-
             #region lvl1 - 4
             Console.WriteLine("enter x");
             long x = int.Parse(Console.ReadLine());
             double s = Math.Cos(x);
             double m;
-            for (m = 1; m < 9; m++)
+            if (x == 0)
             {
-                s += Math.Cos((m + 1) * x) / Math.Pow(x, m);
-
+                Console.WriteLine("ban blyat");
             }
-            Console.WriteLine(s);
+            else
+            {
+                for (m = 1; m < 9; m++)
+                {
+                    s += Math.Cos((m + 1) * x) / Math.Pow(x, m);
+                }
+                Console.WriteLine(s);
+            }
             #endregion
 
- 
+
+
             #region lvl1 - 9
 
             double s = 0;
             int m;
+            double e = 1;
             for (m = 1; m < 7; m++)
             {
-                s += Math.Pow(-1, m) * Math.Pow(5, m) /Fact(m) ;
-
+                e *= m;
+                s += Math.Pow(-1, m) * Math.Pow(5, m) / e;
             }
             Console.WriteLine(s);
 
@@ -38,10 +45,18 @@ namespace _1st
             #region lvl1 - 15
 
             double s;
-            int m = 6;
-            s = Fibonachi(m) / Fibonachi(m-1);
-            Console.WriteLine(s);
-
+            double ver = 0, niz = 0;
+            double ver1 = 2, niz1 = 1, niz2 = 1, ver2 = 1;
+            for (int i = 1; i < 4; i++)
+            {
+                ver = ver1 + ver2;
+                niz = niz1 + niz2;
+                ver2 = ver1;
+                ver1 = ver;
+                niz2 = niz1;
+                niz1 = niz;
+            }
+            Console.WriteLine(niz / ver);
             #endregion
 
             #region lvl1 - 16
@@ -58,7 +73,7 @@ namespace _1st
             #region lvl1 - 18
 
             int d = 10;
-            for (int i = 3; i < 25; i+=3)
+            for (int i = 3; i < 25; i += 3)
             {
                 d = d * 2;
                 Console.WriteLine(" количество амёб " + d + " прошедшее время(часы) " + i);
@@ -71,18 +86,19 @@ namespace _1st
             int n;
             for (n = 1; p * n < 30000; n += 3)
             {
-                p *= n;   
+                p *= n;
             }
-            Console.WriteLine(n-3);
+            Console.WriteLine(n - 3);
             #endregion
 
+            
             #region lvl2 4
             double x, s = 1;
 
             x = Convert.ToDouble(Console.ReadLine());
 
-            if (x >= 1)
-                Console.WriteLine("x>=1");
+            if (Math.Abs(x) >= 1)
+                Console.WriteLine("|x| >= 1");
             else
             {
                 for (int i = 1; (x / (2 * i)) > 0.0001; i++)
@@ -91,9 +107,10 @@ namespace _1st
                 }
                 Console.WriteLine("s = {0}", s);
 
-            }    
-                #endregion
+            }
+            #endregion
 
+            
             #region lvl2 7-8
             double d_1_dist = 10;
             double s7;
@@ -129,16 +146,21 @@ namespace _1st
             Console.WriteLine($"кол-во дней до 20+км/день {nd}");
             #endregion
 
-
+            
             #region lvl3 1
             for (double x = 0.1; x <= 1; x += 0.1)
             {
-                double s = 0;
-                int i = 0;
+                double s = 1;
+                int i = 1;
+                double i0 = 2;
                 while (true)
                 {
+                    if (i > 2)
+                    {
+                        i0 = i0 * (i0 * (i - 1));
+                    }
                     double a = 0;
-                    a = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / Fact(2 * i);
+                    a = (Math.Pow(-1, i) * Math.Pow(x, 2 * i) / i0);
                     if (Math.Abs(a) < 0.0001)
                     {
                         break;
@@ -155,12 +177,16 @@ namespace _1st
             {
                 double s = 0;
                 int i = 0;
-                double e = 2.71828182845905;
-                double z = Math.Pow(e, x);
+                double z = Math.Pow(Math.E, x);
+                double i0 = 2;
                 while (true)
                 {
+                    if (i > 2)
+                    {
+                        i0 = i0 * (i0 * (i - 1));
+                    }
                     double a = 0;
-                    a = (2*i + 1)* Math.Pow(x,2*i)/Fact(i);
+                    a = (2 * i + 1) * Math.Pow(x, 2 * i) / i0;
                     if (Math.Abs(a) < 0.0001)
                     {
                         break;
@@ -170,10 +196,9 @@ namespace _1st
                 }
 
                 double y = ((1 + 2 * Math.Pow(x, 2)) * Math.Pow(z, 2));
-                Console.WriteLine($"X: {x}; S: {s};  Y: {y};");;
+                Console.WriteLine($"X: {x}; S: {s};  Y: {y};"); ;
             }
             #endregion
-
         }
 
         public static double Fact(int n)
