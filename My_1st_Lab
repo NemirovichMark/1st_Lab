@@ -148,3 +148,53 @@ for (int i72 = 1; i72 < 10; i72++)
 Console.WriteLine();
 #endregion
 Console.WriteLine(" ");
+#region task1in3
+Console.WriteLine("Task One at level 3");
+const double absol13 = 0.0001, a13 = 0.1, b13 = 1, h13 = 0.1;
+double s13 = 0, c13 = 0, x13;
+int i13, fact;
+for (x13 = a13; x13<= b13; x13 = x13 + h13)
+{
+    i13 = 0;
+    fact = 1;
+    while (true)
+    {
+        fact = fact * 2 * i13;
+        c13 = (Math.Pow(-1, i13) * Math.Pow(x13,2 * i13)) /  fact;
+        s13 = s13 + c13;
+        if (c13 < absol13)
+        {
+            //Console.WriteLine(s13); я не поняла надо ли выводить сумму
+            Console.WriteLine(Math.Cos(x13));
+            break;
+        }
+        i13 = i13 + 1;
+    }
+}
+#endregion
+Console.WriteLine(" ");
+#region task1in3
+Console.WriteLine("Task Nine at level 3");
+const double absol93 = 0.0001, a93 = 0.1, b93 = 0.5, h93 = 0.05;
+double s93 = 0, c93 = 0, x93;
+int i93, p93;
+for (x93 = a93; x93 <= b93; x93 = x93 + h93)
+{
+    i93 = 0;
+    while (true)
+    {
+        p93 = 2 * i93 + 1;
+        c93 = (Math.Pow(-1, i93) * Math.Pow(x93, p93)) / p93;
+        s93 = s93 + c93;
+        if (c93 < absol93)
+        {
+            //Console.WriteLine(s93); я не поняла надо ли выводить сумму
+            Console.WriteLine(Math.Atan(x93));
+            break;
+        }
+        i93 = i93 + 1;
+    }
+}
+#endregion
+
+
