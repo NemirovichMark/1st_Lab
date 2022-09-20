@@ -1,25 +1,188 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32901.215
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programs", "Programs\Programs.csproj", "{649838A8-8D6B-48AA-9041-8FE55776DC24}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{649838A8-8D6B-48AA-9041-8FE55776DC24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{649838A8-8D6B-48AA-9041-8FE55776DC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{649838A8-8D6B-48AA-9041-8FE55776DC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{649838A8-8D6B-48AA-9041-8FE55776DC24}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A85E0B14-6A86-42FA-BC05-540E1631AAA9}
-	EndGlobalSection
-EndGlobal
+// Лабораторная работа № 1
+static int Fact(int n) 
+    { 
+        if (n == 1) return 1; 
+        return n * Fact(n - 1); 
+    }
+
+// Уровень 1
+// Номер 4
+/*#region
+using System;
+double s = 0;
+double x = Convert.ToDouble(Console.ReadLine());
+for (int i = 1; i <= 9; i++)
+{
+    s = s + Math.Cos(i * x) / Math.Pow(x, i - 1);
+}
+Console.WriteLine(s);
+#endregion*/
+
+// Номер 9
+/*#region
+int Factorial(int i)
+{
+    if (i == 1) return 1;
+    return i * Factorial(i - 1);
+}
+double s = 0;
+for (int i = 1; i <= 6; i++)
+{
+    s = s + Math.Pow(-1, i) * Math.Pow(5, i) / Factorial(i);
+}
+Console.WriteLine(s);
+#endregion*/
+
+// Номер 15
+/*#region
+List<double> arr = new List<double>();
+arr.Add(1);
+arr.Add(2);
+
+List<double> arr2 = new List<double>();
+arr2.Add(1);
+arr2.Add(1);
+
+for(int i = 1; i < 4; i++)
+{
+    arr.Add(arr[i - 1] + arr[i]);
+    arr2.Add(arr2[i - 1] + arr2[i]);
+    //Console.WriteLine($"{arr[i + 1]} / {arr2[i + 1]}");
+}
+Console.WriteLine($"{arr[4]} / {arr2[4]}");
+#endregion*/
+
+// Номер 16
+/*#region
+double s = Math.Pow(2, 63);
+Console.WriteLine($"Кол-во зерна {s}, вес {s / 15}");
+#endregion*/
+
+// Номер 18
+/*#region
+int k = 10;
+for(int i = 3; i <= 24; i += 3)
+{
+    k *= 2;
+    Console.WriteLine($"Через {i} ч. {k} клеток");
+}
+#endregion*/
+
+// Уровень 2
+// Номер 2
+/*#region
+int p = 1;
+int L = 30000;
+int i = 1;
+while(p <= L)
+{
+    p *= i;
+    if (p > L)
+    {
+        break;
+    }
+    i += 3;
+}
+Console.WriteLine(i);
+#endregion*/
+
+// Номер 4
+/*#region
+using System.Security.Cryptography;
+double e = 1.0, s = 0;
+int i;
+Console.WriteLine("Введите |X| < 1");
+double x = Convert.ToDouble(Console.ReadLine());
+if (x >= 0 && x < 1)
+{
+    for(i = 0; e >= 0.0001; i = i + 2)
+    {
+        s += Math.Pow(x, i);
+        e = Math.Pow(x, i);
+    }
+} else
+{
+    Console.WriteLine("Не соответствует условию");
+}
+Console.WriteLine(s);
+#endregion*/
+
+// Номер 8а
+/*#region
+double s = 10.0;
+for(int i = 2; i <= 7; i++)
+{
+    s = s + (s * 0.1);
+    Console.WriteLine(s);
+}
+Console.WriteLine(s);
+#endregion*/
+
+// Номер 8б
+/*#region
+double s = 10.0;
+int i = 1;
+while(s < 100)
+{
+    s = s + (s * 0.1);
+    i++;
+}
+Console.WriteLine(i);
+#endregion*/
+
+// Номер 8в
+/*#region
+double s = 10.0, e = 0;
+int i = 1;
+while (e <= 20)
+{
+    e = s * 0.1;
+    s = s + (s * 0.1);
+    i++;
+}
+Console.WriteLine(i);
+#endregion*/
+
+// Уровень 3
+// Номер 1
+/*#region
+double b = 1.0;
+double s = 0.0, e, y = 0.0;
+int i = 1;
+for (double x = 0.1; x <= 1; x += 0.1)
+{
+    do
+    {
+        y = Math.Cos(x);
+        e = Math.Pow(-1, i) * ((Math.Pow(x, 2 * i)) / Fact(2 * i));
+        i++;
+    }
+    while (e >= 0.0001);
+    {
+        s += e;
+        Console.WriteLine(s);
+    }
+}
+#endregion*/
+
+// Номер 4
+/*#region
+double y = 0.0, s = 0.0, e = 0.0;
+int i = 1;
+for (double x = 0.1; x <= 1; x += 0.1)
+{
+    do
+    {
+        double z = Math.Pow(Math.E, x);
+        y = ((1 + 2 * Math.Pow(x, 2)) * Math.Pow(z, 2));
+        e = (2 * i + 1) * Math.Pow(x, 2 * i) / Fact(i);
+        i++;
+    }
+    while (e > 0.0001);
+    {
+        s += e;
+        Console.WriteLine(s);
+    }
+}
+
+#endregion*/
