@@ -1,5 +1,163 @@
-You can make fork of this repository:
-https://github.com/NemirovichMark/1st_Lab
-And find task here:
-https://lms.misis.ru/courses/18063/files?preview=3472463
-I will create a branch for your answer soon.
+using System;
+
+namespace _1st_Lesson
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // level 1
+            // #4
+            Console.WriteLine("#4");
+            int x = int.Parse(Console.ReadLine());
+            double s = 0;
+            int stepen = 1;
+            if (x != 0)
+            {
+                for (int i = 1; i < 10; i = i + 1)
+                {
+                    s = s + Math.Cos(i*x) / stepen;
+                    stepen = stepen * x;
+                }
+                Console.WriteLine(s);
+            }
+            else 
+            {
+                Console.WriteLine("In the example, we divide by x in different degrees, do not enter 0");
+            } 
+            
+            // #9
+            Console.WriteLine("#9");
+            s = 0;  // фаил один а переменные одинаковые в задании
+            int f = 1;
+            int proizved = 1;
+            for (int i = 1; i < 7; i = i + 1)
+            {
+                proizved = proizved * ((-1)*5);
+                f = f * i;
+                s = s + (proizved / f);
+            }
+            Console.WriteLine(s);
+            
+            
+            // #15
+            Console.WriteLine("#15");
+            double ch1 = 1;
+            double ch2 = 2;
+            double ch, z;
+            for (int i = 3; i < 6; i = i + 1)
+            {
+                ch = ch2;
+                ch2 = ch1 + ch2;
+                ch1 = ch;
+                z = ch1;
+            }
+            Console.WriteLine(ch2 / ch1);
+            
+            
+            // #16
+            Console.WriteLine("#16");
+            double count = 1;
+            for (int i = 2; i < 65; i = i+1)
+            {
+                count = count + count * i;
+            }
+            Console.WriteLine(count / 15);
+            Console.WriteLine("Точно посчитать можно, но цифры запредельные, 2^64 + что-то это много");
+            
+            
+            // #18
+            Console.WriteLine("#18");
+            count = 10;
+            for (int i = 3; i < 25; i = i + 3)
+            {
+                count = count * 2;
+                Console.Write("Через ");
+                Console.Write( i );
+                Console.Write(" часов: ");
+                Console.WriteLine(count);
+            }
+            
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            
+            // level 2
+            // #2
+            Console.WriteLine("level 2");
+            Console.WriteLine("#2");
+            int p = 1;
+            int n = 1;
+            do
+            {
+                p = p * n;
+                n = n + 3;
+            }
+            while (p < 30001);
+            Console.WriteLine(n);
+            
+            
+            // #4
+            Console.WriteLine("#4");
+            Console.WriteLine("Введите 0 < x < 1");
+            double xx = double.Parse(Console.ReadLine()); 
+            s = 1;
+            if (xx > 0 & xx < 1)
+            {
+                double xx1 = 1;
+                while (xx1 >= 0.0001)
+                {
+                    xx1 = xx1 * xx * xx;
+                    s = s + xx1;
+                    
+                }
+                Console.WriteLine(s);
+            }
+            else
+            {
+                Console.WriteLine("Введенное значение не соответствует требованиям");
+            }
+            
+            
+            
+            // #7/8
+            Console.WriteLine("#7/8");
+            // a)
+            Console.WriteLine("a)");
+            double way = 0;
+            double way1 = 10;
+            for (int i = 1; i < 8; i = i + 1)
+            {
+                way = way + way1;
+                way1 = way1 * 1.1;
+            }
+            Console.WriteLine(way);
+            
+            // б)
+            Console.WriteLine("б)");
+            way = 0;
+            way1 = 10;
+            int col = 0;
+            while( way < 100 )
+            {
+                way = way + way1;
+                way1 = way1 * 1.1;
+                col = col + 1;
+            }
+            Console.WriteLine(col);
+            
+            
+            // в)
+            Console.WriteLine("в)");
+            way1 = 10;
+            col = 0;
+            while( way1 <= 20 )
+            {
+                way1 = way1 * 1.1;
+                col = col + 1;
+            }
+            Console.WriteLine(col);
+            
+        }
+    }
+}
