@@ -10,7 +10,6 @@ class Program
         {
             summa = summa * 2;
         }
-        summa = summa + 1;
         summa = summa / 15;
         Console.WriteLine(summa);
 
