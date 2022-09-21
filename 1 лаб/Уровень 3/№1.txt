@@ -1,40 +1,43 @@
 using System;
 using System.Globalization;
+using System.Runtime.Serialization;
+using System.Security;
 
 class Program
 {
     static void Main()
     {
-        double summa = 0;
-        double fact = 1;
-        double chlenpos = 0;
-        double x = 0.1;
-        for (int i = 0; i < 10000000; i++)
+        double t = 1;
+        for (double x = 0.1; x < 1; x = x + 0.1)
         {
-            fact = 1;
-            for (int j = 1; j <= i*2; j++)
+            double summa = 0;
+            double eps = 0.0001;
+            double peremen;
+            double fakt = 1;
+            for (int i = 0; i < 99999; i++)
             {
-                fact = fact * j;
+                fakt = fakt * i;
+                if (fakt == 0)
+                {
+                    fakt = 1;
+                    peremen = Math.Pow(-1, i) * (Math.Pow(x, i * 2) / fakt);
+                    summa = summa + peremen;
+                    if (Math.Abs(peremen) < eps) { break; }
+                }
+                else
+                {
+                    peremen = Math.Pow(-1, i) * (Math.Pow(x, i * 2) / fakt * 2);
+                    summa = summa + peremen;
+                    if (Math.Abs(peremen) < eps) { break; }
+                }
             }
-            if (i == 0)
-            {
-                chlenpos = Math.Pow(-1, i) * (Math.Pow(x, 2 * i) / fact);
-                summa = summa + chlenpos;
-                if (Math.Abs(chlenpos) < 0.0001) { break; }
-            }
-            else
-            {
-                chlenpos = Math.Pow(-1, i) * (Math.Pow(x, 2 * i) / fact);
-                summa = summa + chlenpos;
-                if (Math.Abs(chlenpos) < 0.0001) { break; }
-            }
-             x += 0.1;
+            double y;
+            double rad = x * 0.0175;
+            double raznica;
+            y = Math.Cos(rad);
+            raznica = y - summa;
+            Console.WriteLine(summa);
+            Console.WriteLine(raznica);
         }
-        double radian = x * 0.0175;
-        double cosinus = Math.Cos(radian);
-        double raznica = cosinus - summa;
-        Console.WriteLine(summa);
-        Console.WriteLine(raznica);
-        Console.WriteLine(x);
     }
 }
