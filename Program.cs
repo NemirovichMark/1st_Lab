@@ -6,14 +6,12 @@ namespace _1stlab
     {
         static int factorial(int n)
         {
-            if (n == 1)
+            int fac = 1;
+            for (int i = 1; i <= n; i++)
             {
-                return 1;
+                fac *= i;
             }
-            else
-            {
-                return n * factorial(n - 1);
-            }
+            return fac;
         }
 
         static void Main(String[] args)
@@ -22,11 +20,18 @@ namespace _1stlab
             Console.WriteLine("Enter x:");
             double x = Convert.ToInt32(Console.ReadLine());
             double s = 0;
-            for (int i = 1; i < 10; i++)
+            if (x != 0)
             {
-                s += (Math.Cos(i * x) / Math.Pow(x, i - 1));
+                for (int i = 1; i < 10; i++)
+                {
+                    s += (Math.Cos(i * x) / Math.Pow(x, i - 1));
+                }
+                Console.WriteLine(s);
             }
-            Console.WriteLine(s);
+            else
+            {
+                Console.WriteLine("Wrong input... (x != 0)");
+            }
             #endregion
 
             #region lvl1_task9
@@ -69,14 +74,11 @@ namespace _1stlab
             #region lvl2_task2
             int l = 30000;
             int p = 1;
-            int pow = 4;
-            while (p < l)
+            for (int pow = 1; pow * p < l; pow += 3)
             {
                 p *= pow;
-                pow += 3;
             }
-            pow -= 6;
-            Console.WriteLine(pow);
+            Console.WriteLine(p);
             #endregion
 
             #region lvl2_task4
