@@ -199,14 +199,11 @@ namespace _1st_Lesson
                 int z = 1;
                 double arg = 1;
                 double sum = 1;
-
+                double fact = 1;
                 for (int i = 1; Math.Abs(arg) >= eps; ++i)
                 {
-                    double fact = 1;
-                    for (int j = 2; j <= i * 2; ++j)
-                    {
-                        fact *= j;
-                    }
+
+                    fact *= (2*i-1)*i*2;
                     z *= -1;
                     arg = z * Math.Pow(x, 2 * i) / fact;
                     sum += arg;
