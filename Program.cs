@@ -143,7 +143,7 @@ namespace _1stlab
                 fac = 1;
                 do
                 {
-                    fac *= i;
+                    fac *= ((2 * i - 1) * i * 2);
                     term = Math.Pow(-1, i) * Math.Pow(xx, i * 2) / (fac * 2);
                     s += term;
                     i++;
@@ -153,7 +153,7 @@ namespace _1stlab
                 sum += s;
                 Console.WriteLine($"x: {xx}, y: {y}, s: {s}");
             }
-            Console.WriteLine("Sum: " + sum);
+            Console.WriteLine("Sum: " + Math.Round(sum, 3));
             #endregion
 
             #region lvl3_task7
@@ -171,7 +171,7 @@ namespace _1stlab
                 fac = 1;
                 do
                 {
-                    fac *= i;
+                    fac *= ((2 * i - 1) * i * 2);
                     term = Math.Pow(xx, i * 2) / (fac * 2);
                     s += term;
                     i++;
