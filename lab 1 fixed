@@ -115,7 +115,7 @@ namespace _1st_Lab
             }
             Console.ReadKey();
             #endregion
-            #region task 2.8.a
+            #region task 2.8.A
 
             double d = 10;
             double doroga = 10;
