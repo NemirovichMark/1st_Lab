@@ -297,6 +297,11 @@ namespace _1st_Lab
             {
                 double result = 0;
                 double.TryParse(Console.ReadLine(), out double x1);
+                if (x1 == 0)
+                {
+                    Console.WriteLine("you mustn't use 0");
+                    return;
+                }
                 for (int i = 0; i <= 8; i++)
                 {
                     int j = i + 1;
@@ -307,11 +312,12 @@ namespace _1st_Lab
             }
             static void task_1_9()
             {
+                double fac =1;
                 double result = 0;
                 for (int i = 1; i <= 6; i++)
                 {
-
-                    int fac = 1 * i;
+                   
+                    fac = fac * i;
                     result = result + Math.Pow(-1, i) * Math.Pow(5, i) / fac;
 
                 }
@@ -482,7 +488,8 @@ namespace _1st_Lab
                 }
 
              
-            }           
+            }
+            
         }
     }
 }
