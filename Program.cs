@@ -4,16 +4,6 @@ namespace _1stlab
 {
     class Program
     {
-        static int factorial(int n)
-        {
-            int fac = 1;
-            for (int i = 1; i <= n; i++)
-            {
-                fac *= i;
-            }
-            return fac;
-        }
-
         static void Main(String[] args)
         {
             #region lvl1_task4
@@ -26,7 +16,7 @@ namespace _1stlab
                 {
                     s += (Math.Cos(i * x) / Math.Pow(x, i - 1));
                 }
-                Console.WriteLine(s);
+                Console.WriteLine(Math.Round(s, 3));
             }
             else
             {
@@ -36,11 +26,13 @@ namespace _1stlab
 
             #region lvl1_task9
             s = 0;
+            int fac = 1;
             for (int i = 1; i < 7; i++)
             {
-                s += (Math.Pow(-1, i) * Math.Pow(5, i) / factorial(i));
+                fac *= i;
+                s += (Math.Pow(-1, i) * Math.Pow(5, i) / fac);
             }
-            Console.WriteLine(s);
+            Console.WriteLine(Math.Round(s));
             #endregion
 
             #region lvl1_task15
@@ -50,7 +42,7 @@ namespace _1stlab
                 num += den;
                 den = num - den;
             }
-            Console.WriteLine(num / den);
+            Console.WriteLine(Math.Round(num / den, 3));
             #endregion
 
             #region lvl1_task16
@@ -59,7 +51,7 @@ namespace _1stlab
             {
                 s += Math.Pow(2, i);
             }
-            Console.WriteLine(s / 15);
+            Console.WriteLine(Math.Round(s / 15, 3));
             #endregion
 
             #region lvl1_task18
@@ -92,7 +84,7 @@ namespace _1stlab
                 {
                     s += Math.Pow(x2, i);
                 }
-                Console.WriteLine(s);
+                Console.WriteLine(Math.Round(s, 3));
             }
             else
             {
@@ -111,7 +103,7 @@ namespace _1stlab
                 length *= multiplier;
                 s += length;
             }
-            Console.WriteLine(s);
+            Console.WriteLine(Math.Round(s, 3));
 
             // b
             s = 0;
@@ -144,18 +136,22 @@ namespace _1stlab
             double sum = 0;
             for (double xx = a; xx <= b; xx += h)
             {
+                xx = Math.Round(xx, 3);
                 s = 0;
                 int i = 1;
                 double term = 0;
+                fac = 1;
                 do
                 {
-                    term = Math.Pow(-1, i) * Math.Pow(xx, i * 2) / factorial(i * 2);
+                    fac *= i;
+                    term = Math.Pow(-1, i) * Math.Pow(xx, i * 2) / (fac * 2);
                     s += term;
                     i++;
                 } while (term >= 0.0001);
-                double y = Math.Cos(xx);
+                double y = Math.Round(Math.Cos(xx), 3);
+                s = Math.Round(s, 3);
                 sum += s;
-                Console.WriteLine($"x: {x}, y: {y}, s: {s}");
+                Console.WriteLine($"x: {xx}, y: {y}, s: {s}");
             }
             Console.WriteLine("Sum: " + sum);
             #endregion
@@ -168,18 +164,22 @@ namespace _1stlab
             sum = 0;
             for (double xx = a; xx <= b; xx += h)
             {
+                xx = Math.Round(xx, 3);
                 s = 0;
                 int i = 1;
                 double term = 0;
+                fac = 1;
                 do
                 {
-                    term = Math.Pow(xx, i * 2) / factorial(i * 2);
+                    fac *= i;
+                    term = Math.Pow(xx, i * 2) / (fac * 2);
                     s += term;
                     i++;
                 } while (term >= 0.0001);
-                double y = (Math.Exp(xx) + Math.Exp(-1 * xx)) / 2;
+                double y = Math.Round((Math.Exp(xx) + Math.Exp(-1 * xx)) / 2, 3);
+                s = Math.Round(s, 3);
                 sum += s;
-                Console.WriteLine($"x: {x}, y: {y}, s: {s}");
+                Console.WriteLine($"x: {xx}, y: {y}, s: {s}");
             }
             Console.WriteLine("Sum: " + sum);
             #endregion
