@@ -134,16 +134,17 @@ Console.WriteLine(i);
 // Уровень 3
 // Номер 1
 /*#region
-double b = 1.0;
+double b = 1.0, fact = 1;
 double s = 0.0, e, y = 0.0;
 int i = 1;
 for (double x = 0.1; x <= 1; x += 0.1)
 {
     do
     {
-        fact = fact * 2 * i
+        double k = 2 * i;
+        fact = fact * k;
         y = Math.Cos(x);
-        e = Math.Pow(-1, i) * ((Math.Pow(x, 2 * i)) / fact;
+        e = Math.Pow(-1, i) * ((Math.Pow(x, 2 * i)) / fact);
         i++;
     }
     while (e >= 0.0001);
