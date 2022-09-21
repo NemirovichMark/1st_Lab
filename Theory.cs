@@ -17,7 +17,7 @@ namespace lab1s
             double s = 0, grade=0;
             if (x <= 0)
             {
-                Console.WriteLine($"Enter normal numbers");
+                Console.WriteLine($"Enter normal number");
             }
             else
             {
