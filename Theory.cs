@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace _1st_Lab
 {
@@ -6,290 +6,244 @@ namespace _1st_Lab
     {
         static void Main(string[] args)
         {
-            #region Booleans
-            bool truth = true, failure;
-            failure = false;
-            truth = 5 > 2;
-            truth = (1 == 0) || ((1 > 0) && true);
-            failure = !truth;
-
-            // For better interface presentation you can use \t - tabulation, (variable, +-constant) - padding left and right respectively and \n - new line transition
-            Console.WriteLine($"True is {truth,10}. \ttab adding\tfalse is {failure,-10}! \njump to next line");
-            #endregion
-
-            #region Loops
-
-            #region Do
-            // If you sure that at least 1 time process should be done, but you don't know how much times, use "do...while" 
-
-            double age = 0.0;
-            int counter = 0;
-            Random randomMonthAdd = new Random(); // at the start of the program new sequence will be generated
-            do
+            #region task4
+            double x;
+            bool result = double.TryParse(Console.ReadLine(),out x);
+            double s = 0;
+            double c = 1.0;
+            if (result)
             {
-                var rand = randomMonthAdd.NextDouble(); // add random (pseudo-random) value between 0 and 1
-                age += rand;
-                counter++;
-
-            } while (age < 18); // when condition will be executed the program will go ahead (down)
-            Console.WriteLine($"{counter} in do cycle");
-
-            #endregion
-
-            #region While
-            // If you don't know how much times the program should be repeated (but it can be zero), use "while"
-            counter = 0;
-            while (age < 25)
-            {
-                age *= 1.01;
-                counter++;
-            }
-            Console.WriteLine($"{counter} in while cycle");
-
-            #endregion
-
-            #region For
-            // If you know how much times the program should be repeated use "for"
-            counter = 100;
-            for (int i = 0; i < counter.ToString().Length; i += (2 * 1)) // condition can be number or function or empty, step can be any that type allow you
-            {
-                age += i / 100.0; // if you want cast int to double, type number with .0 addition
-                counter -= i;
-            }
-            Console.WriteLine($"{counter} in for cycle");
-
-            #endregion
-
-            #region Foreach
-
-            // when we have collections and operations don't include index, we can run over all collection with cycle "foreach"
-
-            // to get string from any variable we can with method nameof
-            // to get type specification from any type we can with method typeof
-            // often it is better than use general strings that means name or type of the variable
-            counter = 0;
-            string variableName = nameof(counter);
-            foreach (char letter in variableName)
-            {
-                counter++;
-            }
-            Console.WriteLine($"{counter} in foreach cycle");
-
-            #endregion
-
-            #endregion
-
-            #region Advices For Smart Students
-
-            #region First advice: calculated condition
-            // Make calculation in condition every time is bad practice (counter.ToString().Length contain above 20 lines of code actually).
-            // so if calculation in the cycle don't make affect on condition, make it before start the cycle!
-            counter = 0;
-            var lengthOfWord = counter.ToString().Length;
-            for (int i = 0; i < lengthOfWord; i += (2 * 2)) // condition can be number or function or empty, step can be any that type allow you
-            {
-                age += i / 100.0; // if you want cast int to double, type number with .0 addition
-                counter++;
-            }
-            Console.WriteLine($"Read first advice above how to get counter = {counter}");
-
-            #endregion
-
-            #region Second advice: several conditions
-            // If you have 2 or more conditions that allow you to leave the cycle or another program can stop your cycle, you can use "break" key word
-            // or type all your conditions in the cycle declaration
-            counter = 100;
-            age = 0.0;
-            while (counter > 0 || age < 100)
-            {
-                age++;
-                counter--;
-                if ((int)age == counter)
+                for (int i = 1; i <= 9; i++)
                 {
-                    break;
-                }
-            }
-
-            /* It can be helpful if you use "eternal" cycles like:
-             * while (true)
-             * for(;;)     - yes, you can leave params empty in for cycle
-             */
-
-            Console.WriteLine($"Read second advice above how to get counter = {counter}");
-
-            #endregion
-
-            #region Third advice: make pause by cycle
-            // pause or wasted cycle)
-            int correctNumber = 0;
-            while (Int32.TryParse(Console.ReadLine(), out correctNumber) == false)
-            {
-                ;
-            }
-            // this is very good defense from fools, but be aware that it can hang your program up and fool would be you :(
-
-            Console.WriteLine($"Read third advice above how to get correct number = {correctNumber}");
-
-            #endregion
-
-            #region Fourth advice: miss some calculations
-            // mostly it is using in for or foreach cycles. You can jump to the next loop if some condition execude
-
-            counter = 0;
-            foreach (char letter in "Abracadabra")
-            {
-                if (letter == 'a')
-                {
-                    continue;
-                }
-                counter++;
-            }
-            Console.WriteLine($"Read fourth advice above how to get counter = {counter}");
-
-            #endregion
-
-            #region Fifth advice: be careful with nested cycles
-            /* When we use break or continue in the nested cycle, it have an affect only in the nested cycle
-             * Sometimes it should have an affect on the external cycle
-             * In that case use boolean flag
-             */
-            counter = 100;
-            age = 0.0;
-            bool death = false;
-            int lenght = typeof(int).ToString().Length;
-            while (true)
-            {
-                counter--;
-                for (int i = 0; i < lenght; i++)
-                {
-                    age += (1 + i) / 10.0;
-                    if (age > counter)
+                    if (c!=0)
                     {
-                        death = true;
+                        s = s + Math.Cos(x * i) / c;
+                        c = c * x;
                     }
-                }
-                if (death)
-                {
-                    break;  // system add you a prompt what cycle will be effected
-                }
-            }
-
-            Console.WriteLine($"Read fifth advice above how to get counter = {counter}");
-
-            #endregion
-
-            #endregion
-
-            #region Recursive function
-
-            // It means that any result we get can be used after in the calculation
-
-            age = 10;
-            age = age + 15; // instead age = 10 + 15;
-
-            /* Often it can be used in cycles and big formulas
-             * because cycle have time difficult as O(n). If we will do calculation for each member it would be as O(n1) + O(n2) + ...
-             * or worse if we use nested cycles: O(n^2) and more
-             */
-            // For example: find sum of function: n*x + Sqrt(n)^x + x^ln(n)
-            int n = 0;
-            int x = 0;
-            while (n <= 0 || x <= 0)
-            {
-                Console.WriteLine("Введите n");
-                Int32.TryParse(Console.ReadLine(), out n);
-                Console.WriteLine("Введите x");
-                Int32.TryParse(Console.ReadLine(), out x);
-            }
-            double sum = 0.0;
-            for (int i = 0; i < n; i++)
-            {
-                sum += i * x + Math.Sqrt(i) + Math.Pow(x, Math.Log(n));
-            }
-            Console.WriteLine($"Сумма {sum} функции n*x + Sqrt(n)^x + x^ln(n) до {n}-ого члена");
-            // Time complexity of this algorithm is O(n)
-
-
-            // Attention! Do not do so!
-            sum = 0.0;
-            double firstMember = 0.0;
-            double secondMember = 0.0;
-            double thirdMember = 0.0;
-            for (int i = 0; i < n; i++)
-            {
-                firstMember += i * x;
-            }
-            for (int i = 0; i < n; i++)
-            {
-                secondMember += Math.Sqrt(i);
-            }
-            for (int i = 0; i < n; i++)
-            {
-                thirdMember += Math.Pow(x, Math.Log(n));
-            }
-            sum = firstMember + secondMember + thirdMember;
-            // Time complexity of this algorithm is 3 * O(n)
-
-            // Time complexity of this algorithm yet O(n). Do you understand why?
-            for (int i = 0; i < n; i++)
-            {
-                firstMember += i * x;
-                secondMember += Math.Sqrt(i);
-                thirdMember += Math.Pow(x, Math.Log(n));
-                sum += firstMember + secondMember + thirdMember;
-            }
-
-            // It is very important for nested cycles
-            // Look at 1.12 example in the book 2100
-            // If we would use straight (monkey) coding it would be awful as for us so for computer
-            // Newer do so!!!! 3 level of cycle very bad practice!
-            double previousSum;
-            double e;
-            int memberNumber = 0, factorial = 0;
-            for (double i = 0.2; i <= 1; i += 0.2)
-            {
-                sum = 1.0;
-                e = 1.0;
-                memberNumber = 1;
-                do
-                {
-                    previousSum = sum;
-                    factorial = 1;
-                    for (int j = 1; j <= memberNumber; j++) // Such factorial calculation very difficult for PC and number can be very big (more than 2^32)
+                    else
                     {
-                        factorial *= (2 * j);
+                        Console.WriteLine("Enter another number");
+                        break;
                     }
-                    sum += Math.Pow(-1, memberNumber - 1) * ((2 * memberNumber - 1) * Math.Pow(i, 2 * memberNumber) / factorial);
-                    e = sum - previousSum;
-                    memberNumber++;
-                } while (Math.Abs(e) >= 0.0001);
-                Console.WriteLine($"Прирост суммы {sum:f4} стал очень мал при {memberNumber} для x = {i}"); // Formatting :f4 - 4 digit after ,
+    
+                }
+                Console.WriteLine($"Answer for the 4th task {s}");
             }
-            Console.WriteLine();
-
-            // So what we have to do? Find dependence and use it.
-            // For this example:
-            double c;
-            double a;
-
-            for (double i = 0.2; i <= 1; i += 0.2)
+            else
             {
-                a = 0;
-                c = -1;
-                sum = 1;
-                double j = 1;
-                do
-                {
-                    c = -c * i * i / ((2 * j - 1) * (2 * j)); // Value of new number
-                    a = c * (2 * j - 1); // Multiplied on coefficient
-                    sum += a;
-                    j++;
-                } while (Math.Abs(a) >= 0.0001);
-                Console.WriteLine($"Прирост суммы {sum:f4} стал очень мал при {j} для x = {i}");
+                Console.WriteLine("Operation is not available");
             }
-            // We have less nested cycles and program works faster (for large n) but a little bit less correct on the rounding
+            #endregion
+            #region Task9
+            {
+                int k = -1;
+                double l = 5;
+                double n = 1;
+                double ss = 0;
+                int i = 1;
+                for (int i9=1;i9<=6;i9+=1)
+                {
+                    ss += k * l / n;
+                    i++;
+                    n = n * i;
+                    k = -k;
+                    l *= l;
+                }
+                Console.WriteLine($"Answer for the 9th task {ss}");
 
+            }
+            #endregion
+            # region Task15
+            {
+                int ch1 = 1;
+                int zn1 = 1;
+                int ch2 = 2;
+                int zn2 = 1;
+                int chis;
+                int znam;
+                for (int turn=0; turn<=3;turn++)
+                {
+                    chis = ch1;
+                    znam = zn1;
+                    ch1 = ch2;
+                    zn1 = zn2;
+                    zn2 += znam;
+                    ch2 += chis;
+                }
+                Console.WriteLine("Ans for 15 task:");
+                Console.WriteLine($"Numerator:{ch1} ,Denominator:{zn1}");
+            }
+            #endregion
+            #region Task16
+            {
+                ulong sum = 0;
+                ulong v = 1;
+                for (int gg = 0; gg <= 64; gg=gg+1)
+                {
+                    sum += v;
+                    v = v * 2;
+                }
+                sum = sum / 15;
+                Console.WriteLine($"Answer for the 16th task {sum}");
+            }
+            #endregion
+            #region Task18
+            {
+                Console.WriteLine("Answers for 18th Task");
+                int kolvo = 10;
+                for (int hour=3; hour<=24; hour+=3)
+                {
+                    kolvo = kolvo * 2;
+                    Console.WriteLine("hour={0:f2}\tkolvo={1:f2}",hour,kolvo);
+                }
+
+            }
+            #endregion
+            #region Task2.2
+            int per =1;
+            int j = 0;
+            int t = 1;
+            int L = 30000;
+            while (per<=L)
+            {
+                per = per * t;
+                if (per > L)
+                {
+                    j = t - 3;
+                }
+                else
+                {
+                    j = t;
+                    t += 3;
+                }    
+            }
+            Console.WriteLine($"Answer for the 2.2 task is {j}");
+            #endregion
+            #region Task2.4
+            {
+                double x1;
+                bool success = double.TryParse(Console.ReadLine(),out x1);
+                double e = 0.0001;
+                double sum = 1;
+                if (success)
+                {
+                    while (x1 > e)
+                    {
+                        if (x1 > e)
+                        {
+                            x1 = x1 * x1;
+                            sum += x1;
+                        }
+                        else
+                        {
+                            sum = sum - x1;
+                        }
+                    }
+
+                    Console.WriteLine($"Answer for the 2.4 task is {sum}");
+                }
+                else
+                {
+                    Console.WriteLine("BAD VALUE");
+                }
+            }
+            #endregion
+            #region Task2.(7-8)
+            {
+                double a0 = 10;
+                double summary = 0;
+                int km = 20;
+                int answer = 1;
+                int mar = 100;
+                for (int y = 1; y <= 7; y++)
+                {
+                    summary += a0;
+                    a0 = 1.1 * a0;
+                    //Console.WriteLine(a0);//Почему в конце числа еще цифры
+
+                }
+                Console.WriteLine($"Route for 7 days is {summary}");
+                summary = 0;
+                a0 = 10;
+                int day = 0;
+                while (summary < mar)
+                {
+                    summary += a0;
+                    a0 = 1.1 * a0;
+                    day += 1;
+                }
+                Console.WriteLine($"Will run more than 100km after {day}");
+                a0 = 10;
+                while (a0<=km)
+                {
+                    a0 = a0 * 1.1;
+                    answer += 1;  
+                }
+                Console.WriteLine($"Will run more than 20km per day after {answer}");
+            }
+            #endregion
+            #region Task3.1
+            {
+                const double a = 0.1;
+                const int b = 1;
+                double h = 0.1;
+                double steps,y;
+                double lose = 0.0001;
+                double x11 = a;
+                steps = (b - a) / h+1;
+                for (int r=0;r<steps;r++)
+                {
+                    int fst = 1;
+                    int i = 0;
+                    double scn;
+                    s = 0;
+                    double fac=1;
+                    do
+                    {
+                        scn =fst* Math.Pow(x11, 2 * i) / fac;
+                        s += scn;
+                        i += 1;
+                        fac *= ((2 * i - 1) * 2 * i);
+                        fst = -fst;
+
+                    } while (Math.Abs(scn) > lose);
+                    y = Math.Cos(x11);
+                    Console.WriteLine("x11={0:f4} s={1:f4} y={2:f4}", x11, s, y);
+                    x11 = x11 + h;
+                }
+                Console.WriteLine("end of 3.1 Task");
+            }
+            #endregion
+            #region Task3.6
+            {
+                const double a6 = 0.1;
+                const int b6 = 1;
+                const double h6 = 0.05;
+                int repets = (int)((b6 - a6) / h6 + 1);
+                double x6 = a6;
+                double eps6 = 0.0001;
+                double y6;
+                for (int qw=0;qw<repets;qw++)
+                {
+                    int kf = 1;
+                    int i6 = 1;
+                    double s6 = 0;
+                    double isk6;
+                    do
+                    {
+                        isk6 = kf * (Math.Pow(x6, 2 * i6 + 1) / (4 * i6 * i6 - 1));
+                        s6 += isk6;
+                        i6++;
+                        kf = -kf;
+                    } while (Math.Abs(isk6) > eps6);
+                    y6 = ((1 + x6 * x6) * Math.Atan(x6) - x6) / 2;
+                    Console.WriteLine("x6 {0:f4} s6 {1:f4} y6 {2:f4}", x6, s6, y6);
+                    x6 = x6 + h6;
+                }
+            }
             #endregion
         }
+
+
     }
 }
