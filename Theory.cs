@@ -15,8 +15,17 @@ namespace _1st_Lab
             {
                 for (int i = 1; i <= 9; i++)
                 {
-                    s = s + Math.Cos(x * i) / c;
-                    c = c * x;
+                    if (c!=0)
+                    {
+                        s = s + Math.Cos(x * i) / c;
+                        c = c * x;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Enter another number");
+                        break;
+                    }
+    
                 }
                 Console.WriteLine($"Answer for the 4th task {s}");
             }
