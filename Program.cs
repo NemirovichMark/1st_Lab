@@ -8,36 +8,31 @@ namespace _1st_Lab
         {
 
             #region Task_1_4
-            double s = 0;
+            Console.WriteLine("enter x");
             double x = Convert.ToDouble(Console.ReadLine());
-            for (int j = 1; j <= 8; j++)
+            double s = Math.Cos(x);
+            if (x == 0)
             {
-                s += Math.Cos(x * j) / (Math.Pow(x, j - 1)); 
+                Console.WriteLine("x can't be 0");
             }
-            Console.WriteLine(s);
+            else
+            {
+                for (int j = 1; j <= 8; j++)
+                {
+                    s += Math.Cos(x * (j + 1)) / Math.Pow(x, j);
+                }
+                Console.WriteLine(s);
+            }
             #endregion
             
             #region Task_1_9
             double s = 0;
-            
-            static int Factorial(int n)
-            {
-                    if (n == 1) return 1;
-                    return n * Factorial(n - 1);
-            }
-        
+            double n = 1;
             for (int j = 1; j <= 6; j++)
             {
-                if (j % 2 == 0)
-                {
-                    s += Math.Pow(5, j) / Factorial(j);
-                }
-                else
-                {
-                    s -= Math.Pow(5, j) / Factorial(j);
-                }
+                n *= j;
+                s += Math.Pow(-1, j) * Math.Pow(5, j) / n;
             }
-            
             Console.WriteLine(s);
             #endregion
             
@@ -63,15 +58,11 @@ namespace _1st_Lab
             #endregion
             
             #region Task_1_18
-            static int ameba(int n)
+            int n = 10;
+            for (int i = 3; i <= 24; i += 3)
             {
-                if (n == 0) return 10;
-                return 2 * ameba(n - 3);
-            }
-
-            for (int i = 0; i <= 24; i += 3)
-            {
-                Console.WriteLine($"quantity of cells after {i} hours: {ameba(i)}");
+                n *= 2;
+                Console.WriteLine($"quantity of cells after {i} hours: {n}");
             }           
             #endregion
             
@@ -109,90 +100,64 @@ namespace _1st_Lab
             if (absX < 1) Console.WriteLine(s);
             #endregion
             
-            #region Task_2_7-8
+            #region Task_2_7
             double FirstDayPath = 10;
+            double cur = FirstDayPath;
             double s = 0;
             double a;
             double n = 1.1;
 
-            double Path(int days)
-            {
-                if (days == 1) return FirstDayPath;
-                return Path(days - 1) * n;
-            }
-
             for (int i = 1; i <= 7; i ++)
-            {
-                s += Path(i);
+            {               
+                s += cur;
+                cur *= n;
             }
 
             Console.WriteLine($"path after 7 days: {s}");
             s = 0;
+            cur = FirstDayPath;
             int j = 1;
 
-            while (true)
+            while (s < 100)
             {
-                a = Path(j);
-                s += a;
-                if (s >= 100)
-                {
-                    Console.WriteLine($"100 km in total after: {j} days");
-                    break;
-                }
+                s += cur;
+                cur *= n;
                 j++;
             }
+            Console.WriteLine($"100 km in total after: {j - 1} days");
 
             int k = 1;
-
-            while (true)
+            cur = FirstDayPath;
+            while (cur <= 20)
             {
-                a = Path(k);
-                if (a > 20)
-                {
-                    Console.WriteLine($"20 km in 1 day after: {k} days");
-                    break;
-                }
+                cur *= n;
                 k++;
             }
+            Console.WriteLine($"20 km in 1 day after: {k} days");
             #endregion
             
             #region Task_3_1
-            double e = 0.0001;
+            double e = 0.0001;  
             double y;
-            int i = 0;
-            double s = 0;
-            int c = 0;
 
-            static int Factorial(int n)
+            for (double a = 0.1; a < 1; a += 0.1)
             {
-                if (n == 0) return 1;
-                if (n == 1) return 1;
-                return n * Factorial(n - 1);
-            }
-
-            double k;
-            while (c != 1)
-            {
-                for (double a = 0.1; a < 1; a += 0.1)
+                int c = 1;
+                double x;
+                int i = 0;
+                double s = 0;
+                double fac = 1;
+                do
                 {
-                    k = Math.Pow(a, 2 * i) / Factorial(2 * i);
-                    y = Math.Cos(a);
-                    Console.WriteLine($"x = {a}; s = {s};  y = {y}; k = {k}");
-                    if (Math.Abs(k) < e) c = 1;
-                    if (c == 1) break;
-                    if (i % 2 == 0)
-                    {
-                        s += k;
-                    }
-                    else
-                    {
-                        s -= k;
-                    }
-                }
-                
-                i++;
+                    x = c * Math.Pow(a, 2 * i) / fac;
+                    s += x;
+                    i ++;
+                    fac *= ((2 * i - 1) * 2 * i);
+                    c = -c;
+                } while (Math.Abs(x) > e);
+                y = Math.Cos(a);
+                Console.WriteLine($"x = {a}; s = {s};  y = {y}");
             }
-            Console.WriteLine(s);
             #endregion
             
             #region Task_3_6
