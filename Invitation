@@ -58,13 +58,15 @@ namespace _1st_Lesson
             // #16
             Console.WriteLine("#16");
             double count = 1;
+            double kletka = 1;
             for (int i = 2; i < 65; i = i+1)
             {
-                count = count + count * i;
+                kletka = kletka * 2;
+                count = count + kletka;
             }
-            Console.WriteLine(count / 15);
-            Console.WriteLine("Точно посчитать можно, но цифры запредельные, 2^64 + что-то это много");
-            
+            Console.Write(count/15);
+            Console.WriteLine(" грамм зерна");
+            Console.WriteLine("Точно посчитать можно, но цифры запредельные, 2^64 + что-то это много");            
             
             // #18
             Console.WriteLine("#18");
@@ -83,19 +85,18 @@ namespace _1st_Lesson
             Console.WriteLine(" ");
             
             // level 2
-            // #2
+           // #2
             Console.WriteLine("level 2");
             Console.WriteLine("#2");
             int p = 1;
             int n = 1;
             do
             {
-                p = p * n;
                 n = n + 3;
+                p = p * n;
             }
             while (p < 30001);
-            Console.WriteLine(n);
-            
+            Console.WriteLine(n);            
             
             // #4
             Console.WriteLine("#4");
@@ -157,7 +158,67 @@ namespace _1st_Lesson
                 col = col + 1;
             }
             Console.WriteLine(col);
+            // level 3
+            Console.WriteLine("level 3");
+            // #1
+            Console.WriteLine("#1");
+            for (double xxx = 0.1; xxx <= 1; xxx = xxx + 0.1)
+            {
+                double sum1 = 1;
+                double sum2;
+                double sum = 1;
+                int znak = -1;
+                int factor = 1;
+                int factor1 = 1;
+                int ii = 1;
+                do
+                {
+                    factor1 = factor1 + 1;
+                    factor = factor * factor1; 
+                    if (ii * 2 == factor1) 
+                    {
+                        sum1 = znak * sum1 * (xxx * xxx / factor);
+                        sum = sum + sum1;
+                        ii = ii + 1;
+                    }
+                    sum2 = sum1;
+                    if (sum2 < 0)
+                    {
+                        sum2 = 0 - sum2;
+                    }
+                }
+                while (sum2 < 0.0001);
+                Console.Write(sum);
+                Console.Write("   ==   ");
+                Console.WriteLine(Math.Cos(xxx));
+            }
+
             
+            // #9
+            Console.WriteLine("#9");
+            for (double xxxx = 0.1; xxxx <= 0.5; xxxx = xxxx + 0.05)
+            {
+                double sum1 = xxxx;
+                double sum2;
+                double sum = 0;
+                int znak = 1;
+                int iii = 0;
+                do
+                {
+                    sum = sum + sum1;
+                    sum1 = znak * sum1 * ((xxxx*xxxx)/(iii * 2 + 1));
+                    iii = iii + 1;
+                    sum2 = sum1;
+                    if (sum2 < 0)
+                    {
+                        sum2 = 0 - sum2;
+                    }
+                }
+                while (sum2 < 0.0001);
+                Console.Write(sum);
+                Console.Write("   ==   ");
+                Console.WriteLine(Math.Atan(xxxx));
+            }      
+
         }
     }
-}
