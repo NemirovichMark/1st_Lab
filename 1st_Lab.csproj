@@ -6,4 +6,11 @@
     <RootNamespace>_1st_Lab</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Theory.cs" />
+    <Compile Remove="Lab_files\Level1\15\15.cs" />
+    <Compile Remove="Lab_files\Level1\4\4.cs" />
+    <Compile Remove="Lab_files\Level3\#1\#1.cs" />
+    <Compile Remove="Lab_files\Level1\9\9.cs" />
+  </ItemGroup>
 </Project>
