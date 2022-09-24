@@ -12,7 +12,6 @@ namespace LaboratoryL1N18
             {
                 cells = cells * 2;
                 Console.WriteLine(cells);
-
             }
         }
     }
