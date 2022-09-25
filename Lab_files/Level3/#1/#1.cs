@@ -9,21 +9,17 @@ namespace LaboratoryL3N1
             int i = 0;
             double a = 0.1, h = 0.1;
             double x = a, sigma = 0;
-            double s;
+            double s, s_prev;
             s = ((Math.Pow(-1.00, i)) * Math.Pow(x, (2*i)));
 
             while ((Math.Abs(s) >= 0.0001))
             {
                 sigma += s;
+                s_prev = s;
                 Console.WriteLine($"i = {i}, y(cos(x)) = {Math.Cos(x)}, current = {sigma}");
                 x += h;
                 i += 1;
-                int Factorial = 1;
-                for (int j = 2*i; j >= 1; j--)
-                {
-                    Factorial *= j;
-                }
-                s = (((Math.Pow(-1.00, i)) * Math.Pow(x, (2*i))) / Factorial);
+                s = -s_prev * ((Math.Pow(x,2)) / ((2*i-1) * (2*i)));
             }
             Console.WriteLine($"Final sum = {sigma}");
         }
