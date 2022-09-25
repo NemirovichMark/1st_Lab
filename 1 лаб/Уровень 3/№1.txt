@@ -16,7 +16,7 @@ class Program
             double fakt = 1;
             for (int i = 0; i < 99999; i++)
             {
-                fakt = fakt * i;
+                fakt = fakt * (2 * i) * ((2 * i) - 1);
                 if (fakt == 0)
                 {
                     fakt = 1;
@@ -26,7 +26,7 @@ class Program
                 }
                 else
                 {
-                    peremen = Math.Pow(-1, i) * (Math.Pow(x, i * 2) / fakt * 2);
+                    peremen = Math.Pow(-1, i) * (Math.Pow(x, i * 2) / fakt);
                     summa = summa + peremen;
                     if (Math.Abs(peremen) < eps) { break; }
                 }
@@ -36,8 +36,8 @@ class Program
             double raznica;
             y = Math.Cos(rad);
             raznica = y - summa;
-            Console.WriteLine(summa);
-            Console.WriteLine(raznica);
+            Console.WriteLine(" Sum " + " = " + summa);
+            Console.WriteLine("Tochnost " + " = " + raznica);
         }
     }
 }
