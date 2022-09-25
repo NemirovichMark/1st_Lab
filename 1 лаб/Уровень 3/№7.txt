@@ -5,34 +5,38 @@ class Program
 {
     static void Main()
     {
-        double summa = 0;
-        double fact = 1;
-        double chlenpos = 0;
+        double eps = 0.0001;
         double x = 0.1;
-        for (int i = 0; i < 10000000; i++)
+        double fakt = 1;
+        double peremen = 0;
+        double summa = 0;
+        double k = 1;
+        for (x = 0.1; x <= 1.05; x = x + 0.05)
         {
-            fact = 1;
-            for (int j = 1; j <= i*2; j++)
+            for (int i = 0; i < 10000000; i++)
             {
-                fact = fact * j;
+                if (i == 0)
+                {
+                    fakt = 1;
+                    peremen = Math.Pow(x, i * 2) / fakt;
+                    summa = summa + peremen;
+                    if (Math.Abs(peremen) < eps) { break; }
+                }
+                else
+                {
+                    fakt = fakt * 2 * i * ((2 * i) - 1);
+                    peremen = Math.Pow(x, i * 2) / fakt;
+                    summa = summa + peremen;
+                    if (Math.Abs(peremen) < eps) { break; }
+                }
             }
-            if (i == 0)
-            {
-                chlenpos = (Math.Pow(x, 2 * i) / fact);
-                summa = summa + chlenpos;
-                if (Math.Abs(chlenpos) < 0.0001) { break; }
-            }
-            else
-            {
-                chlenpos = (Math.Pow(x, 2 * i) / fact);
-                summa = summa + chlenpos;
-                if (Math.Abs(chlenpos) < 0.0001) { break; }
-            }
-             x += 0.05;
+            double y = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x)) / 2;
+            double raznica = y - summa;
+            Console.WriteLine(k);
+            k += 1;
+            Console.WriteLine("Summa " + " = " + summa);
+            summa = 0;
+            Console.WriteLine("Raznica " + " = " + raznica);
         }
-        double funkcia = ((Math.Pow(Math.E, x) + Math.Pow(Math.E, -x)) / 2); // уравнение "у"
-        double raznica = funkcia - summa;
-        Console.WriteLine(summa);
-        Console.WriteLine(raznica);
-        Console.WriteLine(x);
-        Console.WriteLine(funkcia);
+    }
+}
