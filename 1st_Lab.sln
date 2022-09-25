@@ -1,25 +1,214 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1st_Lab", "1st_Lab.csproj", "{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {128847E4-9BF1-431A-9B44-9A15B4196B54}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Lab1Level.Ex4();
+            //Lab1Level.Ex9();
+            //Lab1Level.Ex15();
+            //Lab1Level.Ex16();
+            //Lab1Level.Ex18();
+            //Lab2Level.Ex2();
+            //Lab2Level.Ex4();
+            //Lab2Level.Ex7and8();
+            Lab3Level.Ex1();
+            //Lab3Level.Ex9();
+        }
+        public class Lab1Level
+        {
+            public static void Ex4()
+            {
+                double s = 0;
+                double x = Convert.ToDouble(Console.ReadLine());// x - radian
+                while (x == 0)
+                {
+                    Console.WriteLine("Enter x that is not 0");
+                    x = Convert.ToDouble(Console.ReadLine());
+                }
+                for (int i = 1; i < 10; i++)
+                {
+                    s += Math.Cos(i * x) / Math.Pow(x, i - 1);
+                }
+                Console.WriteLine(s);
+            }
+
+            public static void Ex9()
+            {
+                double s = 0;
+                for (int i = 1; i < 7; i++)
+                {
+                    s += Math.Pow(-1, i) * Math.Pow(5, i) / Factorial(i);
+                }
+                Console.WriteLine(s);
+            }
+
+            public static int Factorial(int n)
+            {
+                int factorial = 1;
+                for (int i = 1; i <= n; i++)
+                    factorial *= i;
+                return factorial;
+            }
+
+            public static void Ex15()
+            {
+                int numTek, divTek;
+                int num1 = 1; int div1 = 1;
+                int num = 2; int div = 1;
+                int i = 2;
+                while (i < 5)
+                {
+                    numTek = num;
+                    divTek = div;
+                    num += num1; num1 = numTek;
+                    div += div1; div1 = divTek;
+                    i += 1;
+                }
+                Console.WriteLine($"{num}/{div}");
+            }
+
+            public static void Ex16()
+            {
+                double res = 0;
+                for (double i = 0; i < 64; i += 1)
+                {
+                    res += Math.Pow(2, i);
+                }
+                Console.WriteLine($"There are {res / 15000} kg");
+            }
+
+            public static void Ex18()
+            {
+                Console.WriteLine("Enter the time multiple 3");
+                int time = Convert.ToInt32(Console.ReadLine());
+                while (time % 3 != 0)
+                {
+                    Console.WriteLine("Enter the time multiple 3");
+                    time = Convert.ToInt32(Console.ReadLine());
+                }
+                int amb = 10;
+                int hour = 0;
+                if (time % 3 == 0)
+                {
+                    for (int i = 1; i <= time / 3; i++)
+                    {
+                        amb *= 2;
+                        hour += 3;
+                        Console.WriteLine($"The amount of amoeba after {hour} hours will be {amb}");
+                    }
+
+                }
+
+            }
+
+        }
+
+        public class Lab2Level
+        {
+            public static void Ex2()
+            {
+                int num = 1;
+                int p = 1;
+                while (p < 3000)
+                {
+                    num += 3;
+                    p *= num;
+                }
+                Console.WriteLine(num - 3);
+            }
+
+            public static void Ex4()
+            {
+                double s = 1;
+                double st = 2, x;
+                Console.Write("Eneter x: ");
+                x = Convert.ToDouble(Console.ReadLine());
+                while (Math.Pow(x, st) >= 0.0001)
+                {
+                    s += Math.Pow(x, st);
+                    st *= 2;
+                }
+                Console.WriteLine(s);
+
+            }
+
+            public static void Ex7and8()
+            {
+                double s = 10;
+                double t = 10;
+                for (int i = 0; i < 6; i++)
+                {
+                    t *= 1.1;
+                    s += t;
+                }
+                Console.WriteLine($"A)His result will be {s} after 7 training days");
+                s = 10;
+                t = 10;
+                int counter = 0;
+                while (s < 100)
+                {
+                    t *= 1.1;
+                    s += t;
+                    counter += 1;
+                }
+                Console.WriteLine($"B)After {counter + 1} days he will run 100 km");
+                s = 10;
+                t = 10;
+                counter = 0;
+                while (t <= 20)
+                {
+                    counter += 1;
+                    t *= 1.1;
+                    s += t;
+                }
+                Console.WriteLine($"After {counter + 1} days he will be able to run more than 20 km a day");
+            }
+        }
+
+        public class Lab3Level
+        {
+            public static void Ex1()
+            {
+                const double e = 0.0001;
+                double res = 1, shag = 1, y = 0; int i = 1;
+                for (double x = 0.1; x <= 1.0001; x += 0.1)
+                {
+                    shag = 1;
+                    i = 1;
+                    res = 1;
+                    do
+                    {
+                        shag = (-shag) * Math.Pow(x, 2) / ((2 * i - 1) * 2 * i);
+                        res += shag;
+                        y = Math.Cos(x);
+                        i += 1;
+                    }
+                    while (Math.Abs(shag) >= e);
+                    Console.WriteLine($"x = {x}\nResult: {res}\nY: {y}\n{new string('_', 100)}");
+                }
+            }
+            public static void Ex9()
+            {
+                const double e = 0.0001;
+                double a = 0.1, b = 0.5, h = 0.05;
+                double res = 1, shag = 1, y = 0; int i = 1;
+                for (double x = a; x <= b; x += h)
+                {
+                    i = 1;
+                    shag = x;
+                    res = x;
+                    y = Math.Atan(x);
+                    while (Math.Abs(shag) >= e)
+                    {
+                        res += shag;
+                        shag *= Math.Pow(-1, i) * Math.Pow(x, 2 * i + 1) / (2 * i + 1);
+                    }
+                    Console.WriteLine($"x = {x}\nResult: {res}\nY: {y}\n{new string('_', 100)}");
+                }
+            }
+        }
+    }
+}
