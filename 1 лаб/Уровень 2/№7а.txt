@@ -1,0 +1,19 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        double day1 = 10;
+        double day7;
+        double tekday = 10;
+        double summa = 0;
+        double procent = 1.1;
+
+        for (int i = 1; i <= 7; i++)
+        {
+            summa = summa + tekday;
+            tekday = tekday * procent;
+        }
+        Console.WriteLine(summa);
+    }
+}

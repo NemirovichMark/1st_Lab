@@ -1,0 +1,17 @@
+using System;
+using System.Diagnostics.CodeAnalysis;
+
+class Program
+{
+    static void Main()
+    {
+        double summa = 1;
+        for (int i = 0; i < 63; i++)
+        {
+            summa = summa * 2;
+        }
+        summa = summa / 15;
+        Console.WriteLine(summa);
+
+    }
+}
