@@ -4,40 +4,20 @@ namespace LaboratoryL1N15
 {
     class Program
     {
-        static int numerator(int n)
-        {
-            if (n == 1)
-            {
-                return 1;
-            }
-            if (n == 2)
-            {
-                return 2;
-            }
-            else
-            {
-                return (numerator(n-1) + numerator(n-2));
-            }
-        }
-
-        static double denominator(int n)
-        {
-            if (n == 1)
-            {
-                return 1;
-            }
-            if (n == 2)
-            {
-                return 1;
-            }
-            else
-            {
-                return (denominator(n-1) + denominator(n-2));
-            }
-        }
         static void Main(string[] args)
         {
-            double answer = (numerator(5) / denominator(5));
+            double[] numerator = new double[5];
+            double[] denominator = new double[5];
+            numerator[0] = 1;
+            numerator[1] = 2;
+            denominator[0] = 1;
+            denominator [1] = 1;
+            for (int i = 2; i < 5; i++)
+            {
+                numerator[i] = numerator[i-1] + numerator[i-2];
+                denominator[i] = denominator[i-1] + denominator[i-2];
+            }
+            double answer = (numerator[4] / denominator[4]);
             Console.WriteLine($"Answer: {answer}");
         }
     }
