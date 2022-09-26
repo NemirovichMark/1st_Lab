@@ -1,0 +1,202 @@
+using System;
+
+namespace Lab1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            #region Task 1.4
+            {
+                
+                double s = 0;
+                int i;
+                if (int.TryParse(Console.ReadLine(), out int x))
+                {
+                    for (i = 1; i <= 9; i++)
+                    {
+                        s += ((Math.Cos(i * x)) / (Math.Pow(x, i - 1)));
+                    }
+                    Console.WriteLine("\nAnswer for Task 1.4\n");
+                    Console.WriteLine(s);
+                }
+                else Console.WriteLine("\nError\n");
+            }
+            #endregion
+            #region Task 1.9
+            {
+                Console.WriteLine("\nAnswer for Task 1.9\n");
+                double s = 0;
+                int i, Fact;
+                Fact = 1;
+                for (i = 1; i <= 6; i++)
+                {
+                    s += (Math.Pow(-1, i) * Math.Pow(5, i) / Fact);
+                    Fact *= i;
+                }
+                Console.WriteLine(s);
+
+            }
+            #endregion
+            #region Task 1.15
+            {
+                Console.WriteLine("\nAnswer for Task 1.15\n");
+                int Znam, Znam1, Znam2, i;
+                double Chisl1, Chisl, Chisl2;
+                Chisl1 = 1.0;
+                Chisl2 = 2.0;
+                Znam1 = 1;
+                Znam2 = 1;
+                Chisl = 0;
+                Znam = 0;
+                for (i = 1; i <= 3; i++)
+                {
+                    Chisl = Chisl1 + Chisl2;
+                    Chisl1 = Chisl2;
+                    Chisl2 = Chisl;
+                    Znam = Znam1 + Znam2;
+                    Znam1 = Znam2;
+                    Znam2 = Znam;
+                }
+                double Ans = Chisl / Znam;
+                Console.WriteLine($"5 Chislitel {Chisl}, 5 Znametatel {Znam} and answer = {Ans}");
+
+            }
+            #endregion
+            #region Task 1.16
+            {
+                Console.WriteLine("\nAnswer for Task 1.16\n");
+                int Chess = 64;
+                double Zerno = 1;
+                double Sum = 0;
+                int Gramm = 15;
+                for (int i = 1; i <= 64; i++)
+                {
+                    Sum += Zerno;
+                    Zerno *= 2;
+                }
+                Sum = Sum / 15000;
+                Console.WriteLine($"Ans {Sum} kg zerna");
+            }
+            #endregion
+            #region Task 1.18
+            {
+                Console.WriteLine("\nAnswer for Task 1.18\n");
+                int Kletok = 10;
+
+                for (int i = 3; i <= 24; i += 3)
+                {
+                    Kletok *= 2;
+                    Console.WriteLine(i + " " + Kletok);
+                }
+                #endregion
+            #region Task 2.2
+            {
+                int Sum = 1;
+                int p = 1;
+                while (Sum <= 30_000)
+                {
+                    p += 3;
+                    Sum *= p;
+                }
+                Console.WriteLine("\nAnswer for Task 2.2\n");
+                Console.WriteLine(p - 3+"\n");
+            }
+            }
+            #endregion
+            #region Task 2.4
+            {
+                
+                double s = 1;
+                int n = 1;
+                if (int.TryParse(Console.ReadLine(), out int x) & Math.Abs(x) < 1)
+                {
+                    while (Math.Pow(x, 2 * n) >= 0.0001)
+                    {
+                        s += Math.Pow(x, 2 * n);
+                        n += 1;
+                    }
+                    Console.WriteLine("\nAnswer for Task 2.4\n");
+                    Console.WriteLine($"{s} {Math.Pow(x, 2 * n)}");
+                }
+                else
+                {
+                    Console.WriteLine("\nAnswer for Task 2.4\n");
+                    Console.WriteLine("ERROR");
+                }
+            }
+            #endregion
+            #region Task 2.7,2.8
+            {
+                Console.WriteLine("\nAnswer for Task 2.7-2.8\n");
+                double Probeg = 10.0;
+                double S = 0;
+                int Days = 0;
+                while (Days != 7)
+                {
+                    Days += 1;
+                    S += Probeg;
+                    Probeg *= 1.1;
+                }
+                Console.WriteLine($"a) Через 7 дней будет {S} км");
+                Probeg = 10.0;
+                S = 0;
+                Days = 0;
+                while (S <= 100)
+                {
+                    Days += 1;
+                    S += Probeg;
+                    Probeg *= 1.1;
+                }
+                Console.WriteLine($"b) Через {Days} дней будет больше 100 км");
+                Probeg = 10.0;
+                Days = 1;
+                while (Probeg <= 20)
+                {
+                    Days += 1;
+                    Probeg *= 1.1;
+                }
+                Console.WriteLine($"c) Через {Days} дней будет больше 20 км в день");
+            }
+            #endregion
+            #region Task 3.1
+            {
+                Console.WriteLine("\nAnswer for Task 3.1\n");
+                for (double x = 0.1; x <= 1; x += 0.1)
+                {
+                    double s = 1.0;
+                    int i = 2;
+                    double a = -((Math.Pow(x, 2)) / 2);
+                    s += a;
+                    while (a * (-x * x / (2 * i * (2 * i - 1)))>0.0001)
+                    {
+                        a *= (-x * x / (2 * i * (2 * i - 1)));
+                        s += a;
+                        i += 1;
+                    }
+                    Console.WriteLine("{0:f3}  {1:f3}",s,Math.Cos(x));
+                }
+            }
+            #endregion
+            #region Task 3.9
+            {
+                Console.WriteLine("\nAnswer for Task 3.9\n");
+                for (double x = 0.1; x <= 0.5; x += 0.05)
+                {
+                    double s = x;
+                    double i = 2.0;
+                    double a = -(x * x * x / 3);
+                    s += a;
+                    while (a * -(x * x * (2 * i - 1) / (2 * (i - 1) - 1)) > 0.0001)
+                    {
+                        a *= a * -(x * x * (2 * i - 1) / (2 * (i - 1) - 1));
+                        s += a;
+                        i += 1;
+                    }
+                    Console.WriteLine("{0:f3}  {1:f3}", s, Math.Atan(x));
+                }
+            }
+            #endregion
+        }
+    }
+}
