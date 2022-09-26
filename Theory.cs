@@ -50,13 +50,13 @@ double n0 = 1;
     Console.WriteLine($"{n1 / d1}");
 #endregion 
 #region ex.16
-double count = 0;
-    for (int i = 1; i < 65; i++, count++)
-    {
-        count *= 2;
-        count += count;
-    }
-    Console.WriteLine($"The king owes the sage {count / 15} grams of grain");
+double count = 1, s = 1;
+for (int i = 0; i < 64; i++)
+{
+    s += Math.Pow(2, i);
+    count += s;
+}
+Console.WriteLine($"The king owes the sage {s / 15} grams of grain");
 #endregion 
 
 #region ex.17 Выполнил по ошибке, но решил оставить
@@ -80,13 +80,13 @@ int s = 10;
 #endregion 
 #region  lev. 2 ex.2
 int p = 1;
-    int n = -2;
+    int n = 1;//Ошибки не увидел, ответ с группой сошелся. Сделал на одну итерацию меньше.
     while (p * n < 30000)
     {
         n += 3;
         p *= n;
     }
-    Console.WriteLine(n);
+    Console.WriteLine($"max n = {n}");
 #endregion 
 #region  ex.4
 Console.WriteLine("Введите число по модулю меньшее еденице, и не ноль");
@@ -159,29 +159,27 @@ double n = 10;
 #endregion 
 
 #region ex. 1
-
 double s, a, x, y, zn ;
 int i = 0;
 double xh = 0.1, xk=1.0, h = 0.1;  
 int n = (int)((xk-xh)/ h );
 x = xh;
 for (int j = 1; j <= n; j++)
-{ 
-    s = 1; a = 1; zn = -1; i = 0;
+{
+    s = 1; a = 1; zn = -1; i = 1;
 
-    while (0.0001 <= Math.Abs(a)) 
+    while (0.0001 < Math.Abs(a))
     {
-        i++;
-        a *= zn*i*i*Math.Pow(x, i)/(2*i);
+        a *= Math.Pow(zn, i) * Math.Pow(x, 2*i) / ((2 * i - 1)*2*i);
         s += a;
-
-    } 
+        i++;
+    }
     y = Math.Cos(x);
-    Console.WriteLine($"{Math.Round(x,2)} {Math.Round(s,3)} {Math.Round(y,3)}");
-
+    Console.WriteLine($"{Math.Round(x, 2)} {Math.Round(s, 3)} {Math.Round(y, 3)}");
     x += h;
-#endregion
 }
+#endregion
+
 #region ex.8
 double x, y, a, s, fact;
 
