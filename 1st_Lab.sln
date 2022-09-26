@@ -1,25 +1,194 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1st_Lab", "1st_Lab.csproj", "{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {128847E4-9BF1-431A-9B44-9A15B4196B54}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Lab1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            #region №1.5
+            {
+                if (int.TryParse(Console.ReadLine(), out int x))
+                {
+                    double s = 0;
+                    for (int i = 0; i < 9; i++)
+                    {
+                        s += ((Math.Cos(x * (i + 1))) / Math.Pow(x, i));
+                    }
+                    Console.WriteLine(s);
+                }
+                else
+                {
+                    Console.WriteLine("Error");
+                }
+            }
+            #endregion
+            #region №1.9
+            {
+                double s = 0;
+                int i, a = 1;
+                int p = -1;
+                for (i = 1; i <= 6; i++)
+                {
+                    s += Math.Pow(p, i) * Math.Pow(5, i) / a;
+                    a *= i;
+                }
+                Console.WriteLine(s);
+            }
+            #endregion
+            #region №1.15
+            {
+                double n = 0.0;
+                double i1 = 1.0;
+                double i2 = 1.0;
+                double i3 = 2.0;
+                double i4 = 1.0;
+                double i5, i6;
+                for (int i = 1; i <= 3; i++)
+                {
+                    i5 = i1 + i3;
+                    i6 = i2 + i4;
+                    n = i5 / i6;
+                    i1 = i3;
+                    i3 = i5;
+                    i2 = i4;
+                    i4 = i6;
+                }
+                Console.WriteLine(n);
+            }
+            #endregion
+            #region №1.16
+            {
+                double sum = 0.0;
+                double s = 1.0;
+                for (int i = 1; i <= 64; i++) 
+                {
+                    s *= 2;
+                    sum += s;
+                }
+                Console.WriteLine($"Всего зерен: {sum}");
+                Console.WriteLine($"Всего грамм: {sum / 15}");
+
+            }
+            #endregion
+            #region №1.18
+            {
+                double n = 0;
+                for (int i = 0; i <= 8; i++) 
+                {
+                    n = 10 * Math.Pow(2, i);
+                    Console.WriteLine(n);
+                }
+            }
+            #endregion
+            #region №2.2
+            {
+                int p = 1;
+                int n = 1;
+                while (p <= 30000) 
+                {
+                    n += 3;
+                    p *= n;
+                }
+                Console.WriteLine(n - 3);
+            }
+            #endregion
+            #region №2.4
+            {
+                double s = 1;
+                double n = 1;
+                if (double.TryParse(Console.ReadLine(), out double x) & Math.Abs(x) < 1)
+                {
+                    while (x >= 0.0001)
+                    {
+                        s += Math.Pow(x, n);
+                        x = Math.Pow(x, n);
+                        n *= 2;
+                    }
+                    Console.WriteLine(s);
+                }
+                else
+                {
+                    Console.WriteLine("Error");
+                }
+            }
+            #endregion
+            #region №2.7,8
+            {
+                int count = 0,count1 = 0;
+                double s1 = 10.0;
+                double s = 10.0;
+                for (int i = 0; i <= 6; i++) 
+                {
+                    s1 *= 1.1;
+                    s += s1;
+                    count += 1;
+                    if (s >= 100)
+                        {
+                        Console.WriteLine($"The athlete will run 100 km {count + 1} in days");
+                        break;
+                        }
+
+                }
+                Console.WriteLine($"In 7 days , the athlete will run {s - s1} km");
+                s1 = 10;
+                while (s1 < 20)
+                {
+                    s1 *= 1.1;
+                    count1 += 1;
+                }
+                Console.WriteLine($"the athlete will run more than 20 km per day on the {count1 + 1}th day") ;
+            }
+            #endregion
+            #region №3.1
+            {
+                Console.WriteLine("answers to number 3.1");
+                double s = 1.0;
+                for (double x = 0.1; x <= 1; x += 0.1)
+                {
+                    x = Math.Round(x,1);
+                    int i = 0;
+                    double t = 0.0;
+                    double del = 1.0;
+                    do
+                    {
+                        t = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / del;
+                        i++;
+                        s += t;
+                        del *= 2 * i * (2 * i - 1);
+                    } while (t >= 0.0001);
+                    double y = Math.Cos(x);
+                    Console.WriteLine($"x = {x};    s = {s:f5};    y = {y}") ;
+                }
+            }
+            #endregion
+            #region №3.9
+            {
+                Console.WriteLine("answers to number 3.9");
+                double s = 1.0;
+                for (double x = 0.1; x <= 0.5; x += 0.05)
+                {
+                    x = Math.Round(x,3);
+                    int i = 0;
+                    double t = 0.0;
+                    do
+                    {
+                        t = Math.Pow(-1,i) * (Math.Pow(x, 2 * i + 1) / (2 * i + 1));
+                        i++;
+                        s += t;
+                    } while (t >= 0.0001);
+                    double y = Math.Atan(x);
+                    Console.WriteLine($"x = {x};    s = {s:f5};    y = {y}");
+                }
+            }
+            #endregion
+
+        }
+    }
+}
