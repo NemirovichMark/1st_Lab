@@ -1,25 +1,166 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1st_Lab", "1st_Lab.csproj", "{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {128847E4-9BF1-431A-9B44-9A15B4196B54}
-	EndGlobalSection
-EndGlobal
+using System;
+
+public class Proga
+{
+    public static double FACTORIAL(double a)
+    {
+        double fff = 1;
+        for (double i = 1; i <= a; i += 1)
+        {
+            fff *= i;
+        }
+        return fff;
+    }
+
+    public static void Main(string[] args)
+    {
+        #region 1lvl_ex4
+        Console.WriteLine("Eneter x");
+        double x, otv = 0;
+        x = Convert.ToDouble(Console.ReadLine()); // считал что Х будет значение в градусах
+        while (x == 0)
+        {
+            Console.WriteLine("Please enter x not 0");
+            x = Convert.ToDouble(Console.ReadLine());
+        }
+        for (int i = 1; i <= 9; i += 1)
+        {
+            double angl = Math.PI * (x) / 180;
+            otv += Math.Cos(angl * i) / Math.Pow(x, i - 1);
+        }
+        Console.WriteLine(otv);
+        #endregion
+
+
+        #region 1lvl_ex9
+        double otv1 = 0, pred = 1;
+        for (double i = 1; i <= 6; i += 1)
+        {
+            pred = -pred * 5 / i;
+            otv1 += pred;
+        }
+        Console.WriteLine(otv1);
+        #endregion
+
+
+        #region 1lvl_ex15
+        double chisl = 1, znam = 1;
+        for (double i = 0; i < 5; i += 1)
+        {
+            chisl = chisl + znam;
+            znam += 1;
+        }
+        #endregion
+
+
+        #region 1lvl_ex16
+        double otv3 = 0;
+        for (double i = 0; i < 64; i += 1)
+        {
+            otv3 += Math.Pow(2, i);
+        }
+        Console.WriteLine($"Amoun of seed is {otv3 / 15000} kg");
+
+        #endregion
+
+
+        #region 1lvl_ex18
+        for (double i = 1; i <= 8; i += 1)
+        {
+            Console.WriteLine($"After {i * 3} hours amount of amoebas wiil be {10 * Math.Pow(2, i)}");
+        }
+        #endregion
+
+
+        #region 2lvl_ex2
+        {
+            int num = 1;
+            int p = 1;
+            while (p < 3000)
+            {
+                num += 3;
+                p *= num;
+            }
+            Console.WriteLine(num - 3);
+        };
+        #endregion
+
+
+        #region 2lvl_ex4
+        double E = 1, stepen = 2, x1;
+        Console.WriteLine("Eneter 1 < x < 1");
+        x1 = Convert.ToDouble(Console.ReadLine());
+        while (Math.Pow(x1, stepen) >= 0.0001)
+        {
+            E += Math.Pow(x1, stepen);
+            stepen *= 2;
+        }
+        Console.WriteLine(E);
+        #endregion
+
+
+        #region 2lvl_ex7-8
+        double way = 10, A = 0, B = 10, C = 10, hod = 0;
+        for (double i = 0; i < 7; i += 1)
+        {
+            A += way * Math.Pow(1.1, i);
+        }
+        Console.WriteLine(A);
+
+        while (B < 100)
+        {
+            B += way * Math.Pow(1.1, hod);
+            hod += 1;
+        }
+        Console.WriteLine(hod + 1);
+
+        hod = 0;
+        while (way * Math.Pow(1.1, hod) <= 10)
+        {
+            C += way * Math.Pow(1.1, hod);
+            hod += 1;
+        }
+        Console.WriteLine(hod + 1);
+        #endregion
+
+
+        #region 3lvl_ex1 
+        double sum = 1, posl = 1, i111 = 1;
+
+        for (double xx = 0.1; xx <= 1; xx += 0.1)
+        {
+            posl = 1;
+            sum = 1;
+            i111 = 1; 
+            while (Math.Abs(posl) >= 0.0001)
+            {
+                posl = (-posl) * Math.Pow(xx, 2) / ((2 * i111 - 1) * 2 * i111);
+                sum += posl;
+                break;
+            }
+            Console.WriteLine($"X is {xx} Y is {Math.Cos(xx)} Sum is {sum}");
+        }
+        #endregion
+
+        Console.WriteLine(" ");
+
+        #region 3lvl_ex3
+        double suma = 1, posla = 1, i33 = 1;
+
+        for (double xx22 = 0.1; xx22 <= 1; xx22 += 0.1)
+        {
+            suma = 0;
+            posla = 1;
+            i33 = 2;
+            while (Math.Abs(posla) >= 0.0001)
+            {
+                posla *= Math.Cos(i33 * xx22) / ((i33 - 1) * i33);
+                suma += posla;
+                break;
+            }
+            Console.WriteLine($"X is {xx22} Y is {Math.Pow(Math.E, Math.Cos(xx22)) * Math.Cos(Math.Sin(xx22))} Sum is {suma}");
+
+        }
+        #endregion
+    }
+}
