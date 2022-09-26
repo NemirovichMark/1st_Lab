@@ -6,4 +6,24 @@
     <RootNamespace>_1st_Lab</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Theory.cs" />
+    <Compile Remove="Lab_files\Level3\#1\#1.cs" />
+    <Compile Remove="Lab_files\Level1\15\15.cs" />
+    <Compile Remove="Lab_files\Level1\16\16.cs" />
+    <Compile Remove="Lab_files\Level1\4\4.cs" />
+    <Compile Remove="Lab_files\Level1\9\9.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Lab_files\Level1\15\15.csproj" />
+    <None Remove="Lab_files\Level1\16\16.csproj" />
+    <None Remove="Lab_files\Level1\4\Level1.csproj" />
+    <None Remove="Lab_files\Level1\9\9.csproj" />
+    <None Remove="Lab_files\Level1\18\" />
+    <None Remove="Lab_files\Level1\18\obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lab_files\Level1\18\" />
+    <Folder Include="Lab_files\Level1\18\obj\" />
+  </ItemGroup>
 </Project>
