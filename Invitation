@@ -85,18 +85,19 @@ namespace _1st_Lesson
             Console.WriteLine(" ");
             
             // level 2
-           // #2
+          // #2
             Console.WriteLine("level 2");
             Console.WriteLine("#2");
             int p = 1;
             int n = 1;
-            do
+            while (p < 30001)
             {
                 n = n + 3;
                 p = p * n;
             }
-            while (p < 30001);
-            Console.WriteLine(n);            
+            
+            Console.WriteLine(p/n); 
+            Console.WriteLine(n - 3);        
             
             // #4
             Console.WriteLine("#4");
@@ -169,31 +170,26 @@ namespace _1st_Lesson
                 double sum = 1;
                 int znak = -1;
                 int factor = 1;
-                int factor1 = 1;
-                int ii = 1;
+                int factor1 = 0;
                 do
                 {
-                    factor1 = factor1 + 1;
-                    factor = factor * factor1; 
-                    if (ii * 2 == factor1) 
-                    {
-                        sum1 = znak * sum1 * (xxx * xxx / factor);
-                        sum = sum + sum1;
-                        ii = ii + 1;
-                    }
+                    factor1 = factor1 + 2;
+                    factor = factor * (factor1 - 1) * (factor1);
+                    sum1 = znak * sum1 * (xxx * xxx / factor);
+                    sum = sum + sum1;
+                    znak = znak * (-1);
+                    
                     sum2 = sum1;
                     if (sum2 < 0)
                     {
-                        sum2 = 0 - sum2;
+                        sum2 = sum2 * (-1);
                     }
                 }
                 while (sum2 < 0.0001);
                 Console.Write(sum);
                 Console.Write("   ==   ");
                 Console.WriteLine(Math.Cos(xxx));
-            }
-
-            
+            }            
             // #9
             Console.WriteLine("#9");
             for (double xxxx = 0.1; xxxx <= 0.5; xxxx = xxxx + 0.05)
@@ -222,3 +218,5 @@ namespace _1st_Lesson
 
         }
     }
+}
+
