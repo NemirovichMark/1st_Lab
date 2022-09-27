@@ -293,3 +293,134 @@ namespace _1st_Lab
         }
     }
 }
+
+#region 4_task 
+int i,x;
+double s;
+  for(x=1;x<=9;x++){
+    s = 0;
+  for (i=1;i<=9;i++){
+        s =+ Math.Cos(i * x) / Math.Pow(x, i - 1);
+            }
+  Console.WriteLine($"x={x}|={s}");
+  }
+#endregion
+
+#region 9_task
+//(-1)^l*5^l/l!+(-1)^(l+1)*5^(l+1)/(l+1)!
+Console.WriteLine("номер 9");
+int l;
+double s1 = -5.0;
+double s2 = -5.0;
+for (l=2; l <= 6; l++)
+{
+    //0 - (-5.0) 1- 25/2 125/6
+    s2 = s2 * (-5) / l;
+    s1 = s1 + s2;
+}
+Console.WriteLine($"s1={s1}");
+#endregion
+
+#region 15_task
+Console.WriteLine("номер 15");
+double ch=1;
+double z=1;
+double s3;
+int k;
+for (k = 2; k <= 5; k++)
+{
+    s3 = ch + z;
+    z = ch;
+    ch = s3;
+}
+Console.WriteLine($"{ch}/{z}");
+#endregion
+
+#region 16_task
+Console.WriteLine("номер 16");
+double kl;
+double zz=1;
+double w=1;
+for (kl=2; kl<=64; kl++)
+{
+    zz = zz * 2;
+    w = zz + w;
+}
+Console.WriteLine($"кол-во зерна={w}");
+Console.WriteLine($"вес зерна в граммах={w / 15 }");
+Console.WriteLine($"вес зерна в килограммах={w / 15 / 1000}");
+#endregion
+
+#region 18_task
+Console.WriteLine("номер 18");
+double am = 10;
+double time;
+for (time = 3; time <= 24; time = time + 3)
+{
+    am = am * 2;
+    Console.WriteLine($"number of amoebas={am}");
+}
+#endregion
+
+
+
+#region 2_task
+Console.WriteLine("номер 2");
+double nn;
+double q;
+double summ=1;
+for (nn=2; nn<=10; nn++)
+{
+    q = 1 / nn;
+    summ = q+summ;
+
+}
+Console.WriteLine($"summ={summ}");
+#endregion
+
+#region 7_task
+Console.WriteLine("номер 7");
+double c;
+double f=1;
+for (c = 2; c <= 6; c++)
+{
+    f = f * c;
+}
+Console.WriteLine($"f={f}");
+#endregion
+
+#region 8_task
+Console.WriteLine("номер 8");
+double p;
+double s9=1;
+double s4 = 1;
+for (p = 2; p <= 6; p++)
+{
+    s4 = s4 * p;
+    s9 = s9 + s4;
+}
+Console.WriteLine($"s1={s9}");
+#endregion
+
+#region 1_task
+Console.WriteLine("номер 1");
+double h;
+double hh = 2;
+for (h = 3; h <= 35; h++) 
+{
+    hh=hh+h;
+}
+Console.WriteLine($"h={hh}");
+#endregion
+
+#region 12_task
+Console.WriteLine("номер 12");
+double m;
+double g=1;
+double v = 70;
+for (m = 1; m <= 10; m++)
+{
+    g = g+(1 / Math.Pow(v, m));
+}
+Console.WriteLine($"сумма={g}при х=70");
+#endregion
