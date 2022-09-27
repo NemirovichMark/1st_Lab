@@ -1,0 +1,201 @@
+using System;
+
+namespace 1st lab
+{
+    class 1st lab
+    {
+        static void Main()
+        {
+#region 1 lvl №4
+            double s = 0, a = 0, x;
+            double.TryParse(Console.ReadLine(), out x);
+            if (x != 0)
+            {
+                for (int i = 1; i <= 9; i++)
+                {
+                    a = Math.Cos(i * x) / Math.Pow(x, i - 1);
+                    s += a;
+                }
+                Console.WriteLine(s);
+            }
+#endregion
+           
+#region lvl 1 №9
+            double s = 0, f;
+            for (int i = 1; i <= 6; i++)
+            {
+                f = 1;
+                for (int n = 1; n <= i; n++)
+                {
+                    f *= i;
+                }
+
+                s = Math.Pow(-1, i) * Math.Pow(5, i) / f;
+            }
+            Console.WriteLine(s);
+#endregion
+
+#region  1 lvl №15
+            int a, b;
+            double c_new, c_last, z_new, z_last, r;
+            b = 3;
+            Int32.TryParse(Console.ReadLine(), out a);
+
+            c_new = 2;
+            c_last = 1;
+            z_new = 1;
+            z_last = 1;
+            r = 0;
+            if (a >= 3)
+            {
+                for (double s = 0; b <= a; b++)
+                {
+                    r = c_new + c_last;
+                    c_last = c_new;
+                    c_new = r;
+
+                    r = z_new + z_last;
+                    z_last = z_new;
+                    z_new = r;
+
+                    s = c_new / z_new;
+                    Console.WriteLine($"{b} member is {s}");
+                }
+                Console.WriteLine(" ");
+            }
+#endregion
+
+#region 1 lvl №16
+            double c = 1;
+            double d = 0;
+            for(int i = 0; i <= 64; i++)
+            {
+                c = Math.Pow(2, i);
+                d += c;
+
+            }
+            double count = d / 15;
+            Console.WriteLine("Task 16 is: " + count);
+#endregion
+
+
+#region 1 lvl №18
+            int n = 10;
+            for (int i = 3; i <= 24; i += 3)
+            {
+                n *= 2;
+                Console.WriteLine("Через {0} часов будет {1} клеток.", i, n);
+            }
+#endregion
+
+#region 2 lvl №4
+            double x;
+            Console.WriteLine("Write the vuale");
+            double.TryParse(Console.ReadLine(), out x);
+            double s = 1;
+            if ((x < 1) && (x > -1) && (x != 0))
+            {
+                double powx = x * x;
+                x = powx;
+                while(x >= 0.0001)
+                {
+                    s += x;
+                    x *= powx;
+
+                }
+                Console.WriteLine("Task 4 is: " + s);
+            }
+#endregion
+
+#region 2 lvl №7-8
+            double d_a = 10.0f;
+            for (int days_a = 1; days_a <= 7; days_a++)
+            {
+                d_a = d_a + d_a * 0.1;
+                
+            }
+            Console.WriteLine("Answer а)" + " " + Math.Round(d_a) + " " + "km");
+
+            double d_b = 10;
+            int days_b = 1;
+            while (d_b <= 100)
+            {
+                d_b = d_b + d_b * 0.1;
+                days_b++;
+            }
+            Console.WriteLine("Answer b)" + " " + days_b + " " + "days");
+
+            double d_c = 10;
+            int days_c = 1;
+            while (d_c <= 20)
+            {
+                d_c = d_c + d_c * 0.1;
+                days_c++;
+            }
+            Console.WriteLine("Answer c)" + " " + days_c + " " + "days");
+#endregion
+#region 2 lvl № 2
+            int p = 1;
+            for (int n = 1; p * n < 30000; n += 3)
+            {
+                p = p * n;
+            }
+            Console.WriteLine(p);
+#endregion
+
+#region 3 lvl № 1
+            double s, a, x, y;
+            double z;
+            double f;
+            z = 1;
+
+            for (x = 0.1; x <= 1; x += 0.1)
+            {
+
+                s = 1;
+                a = 1;
+                z = -1;
+
+                for (int i = 1; Math.Abs(a) > 0.0001; i++)
+                {
+                    z = -z;
+                    f = 2;
+
+                    if (2 * i > 2)
+                    {
+                        f *= (2 * i) * (2 * i - 1);
+                    }
+                    a = z * Math.Pow(x, 2 * i) / (f);
+                    s = s + a;
+
+                }
+                y = Math.Cos(x);
+
+                Console.WriteLine($"x={Math.Round(x, 3)} \t y={Math.Round(y, 3)} \t s={Math.Round(s, 3)}");
+
+            }
+            Console.WriteLine();
+#endregion
+
+#region 3 lvl № 5
+            double x, s, y, a, z;
+            z = -1;
+
+            for (x = Math.PI / 5; x <= Math.PI; x += Math.PI / 25)
+            {
+                a = 1;
+                s = 0;
+
+                for (int i = 1; Math.Abs(a) > 0.0001; i++)
+                {
+
+                    a = Math.Pow(z, i) * Math.Cos(i * x) / (i * i);
+                    s += a;
+
+                }
+
+                y = (x * x - Math.PI * Math.PI / 3) / 4;
+
+                Console.WriteLine($"x = {Math.Round(x, 3)} \t y = {Math.Round(y, 3)} \t s = {Math.Round(s, 3)}");
+            }
+#endregion
