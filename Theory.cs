@@ -25,19 +25,16 @@ namespace _1stLab
 
             #region 9
 
-            double s9 = 0;
-            double fact = 1;
-            for (int n = 1; n <= 6; n = n + 1)
+            int fact = 1, a=1;
+            double sum = 0;
+            for (int z = 1; z <= 6; z++)
             {
-                fact = 1;
-                for (int i = 1; i <= n; i++)
-                {
-                    fact *= i;
-                }
-                s9 += (Math.Pow(-1, n) * Math.Pow(5, n)) / fact;
-
+                counter++;
             }
-            Console.WriteLine($"Task 9: S = {s9}\n");
+            Console.WriteLine($"{counter} in foreach cycle");
+                fact *= z;
+                a *= -5;
+                sum = sum + a / fact;
             #endregion
 
             #region 15
@@ -218,6 +215,37 @@ namespace _1stLab
                 y1 = Math.Cos(x1);
 
                 Console.WriteLine($"x={Math.Round(x1, 3)} \t y={Math.Round(y1, 3)} \t s={Math.Round(s1, 3)}");
+
+            }
+            Console.WriteLine();
+
+            #endregion
+                
+            #region Level 3.4
+            double s6, a6, x6, y6;
+            double p;
+            p = 1;
+
+            Console.WriteLine($"Task 4 (lvl_3):");
+
+            for (x6 = 0.1; x6 <= 1; x6 += 0.1)
+            {
+
+                s6 = 1;
+                a6 = 1;
+
+                for (int i = 1; Math.Abs(a6) > 0.0001; i++)
+                {
+                    p = -p;
+                    double x = i + 1;
+                    double y = (2 * i) + 1;
+                    double z = 4 * i;
+                    a6 = Math.Pow(p, x) * Math.Pow(x6, y) / Math.Pow(z, 2);
+                    s6 += a6;
+                }
+                y6 = ((1 + x6 * x6) * Math.Atan(x6) / 2) - x6 / 2;
+                
+                Console.WriteLine($"x={Math.Round(x6, 3)} \t y={Math.Round(y6, 3)} \t s={Math.Round(s6, 3)}");
 
             }
             Console.WriteLine();
