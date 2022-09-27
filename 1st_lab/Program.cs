@@ -31,10 +31,10 @@ class Program
 		double s_9 = 0;
 		for (int i = 1; i <= 6; i = i + 1)
 		{
-			double fact = 0;
-			for (; fact < i; fact++)
+			double fact = 1;
+			if (i > 1)
 			{
-				fact *= i;
+				fact *= i * (i - 1);
 			}
 			s_9 += (Math.Pow(-1, i) * Math.Pow(5, i)) / fact;
 		}
@@ -90,7 +90,6 @@ class Program
 		{
 			a_18 = count_18 * 2;
 			count_18 = a_18;
-
 			Console.WriteLine($"In {i} hours will be {a_18} cells\n\n");
 		}
 		#endregion
@@ -173,13 +172,13 @@ class Program
 			s_3_1 = 1;
 			a_3_1 = 1;
 			symbol = -1;
+			double fact = 1;
 			for (int i = 1; Math.Abs(a_3_1) > 0.0001; i++)
 			{
 				symbol = -symbol;
-				double fact = 0;
-				for (; fact < i; fact++)
+				if (2 * i > 2)
 				{
-					fact *= i;
+					fact *= (2 * i) * (2 * i - 1);
 				}
 				a_3_1 = symbol * Math.Pow(x_3_1, 2 * i) / fact;
 				s_3_1 = s_3_1 + a_3_1;
@@ -198,12 +197,12 @@ class Program
 		{
 			s_3_8 = 1;
 			a_3_8 = 1;
+			double fact = 1;
 			for (int i = 1; Math.Abs(a_3_8) > 0.0001; i += 1)
 			{
-				double fact = 0;
-				for (; fact < i; fact++)
+				if (i > 1)
 				{
-					fact *= i;
+					fact *= i * (i - 1);
 				}
 				a_3_8 = Math.Pow(2 * x_3_8, i) / fact;
 				s_3_8 += a_3_8;
