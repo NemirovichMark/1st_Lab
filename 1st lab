@@ -1,15 +1,19 @@
     #region
+            #region
             double x = Convert.ToDouble(Console.ReadLine());
             double s = 0, a;
             int n = 1, st = 1;
-            for (n = 1; n < 9; n += 1)
-            {
-                for (st = 1; st < 8; st += 1)
+            if (x != 0) { 
+                for (n = 1; n < 9; n += 1)
                 {
-                    a = Math.Cos(x * n) / (x * st);
-                    s = s + a;
+                    for (st = 1; st < 8; st += 1)
+                    {
+                        a = Math.Cos(x * n) / (x * st);
+                        s = s + a;
+                    }
                 }
-            }
+            Console.WriteLine(s);
+            #endregion
             Console.WriteLine(s);
             #endregion
 
@@ -68,14 +72,13 @@
             Console.WriteLine(m);
             #endregion
 
-            #region
-            int mol = 10, col = 0;
+             #region
+            int k = 10,col;
             int p = 0;
-            for (p = 0; p <= 24; p += 3)
+            for (col=3; col <= 24; col += 3)
             {
-                col = col + mol * 2;
-                mol = mol * 2;
-                Console.WriteLine("After 3 hours there will be " + col);
+                k = k * 2;
+                Console.WriteLine("After " + col+ "hours there will be " + k + "cells");
             }
             #endregion
         }
@@ -157,6 +160,7 @@
 
             #endregion
 
+            
             //LEVEL 3 
             //TASK 1
 
@@ -169,8 +173,8 @@
                 i = i + 1;
                 while (true)
                 {
-                    num = Math.Pow((-1), i) * (Math.Pow(x, 2 * i)) / (2 * i) * m;
-                    m = m * (m + 1);//для вычесления ф
+                    num = Math.Pow((-1), i) * (Math.Pow(x, 2 * i)) /m;
+                    m = m * 2 *i;//для вычесления ф
                     s = s + num;
                     if (num < E)
                     {
@@ -185,15 +189,15 @@
                 //TASK 7
                 #region
                 int b = 1, i = 0;
-                double a = 0.1, h = 0.05, x, s = 0, c, factor = 1, y, num, e = 2;
+                double a = 0.1, h = 0.05, x, s = 0, c, factor = 1, y, num, e = 2.71;
                 const double E = 0.0001;
                 for (x = a; x <= b; x = x + h)
                 {
                     i = i + 1;
                     while (true)
                     {
-                        factor = factor * (factor + 1);
-                        num = (Math.Pow(x, 2 * i)) / ((2 * i) * factor);
+                        factor = factor * 2 *i ;
+                        num = (Math.Pow(x, 2 * i)) / (factor);
                         s = s + num;
                         if (num < E)
                         {
@@ -207,3 +211,5 @@
 
 
             }
+        }
+}
