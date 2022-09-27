@@ -1,0 +1,155 @@
+using System;
+using System.Globalization;
+
+namespace ConsoleApp1 {
+    internal class Program {
+        public static double Fakt(int num)
+        {
+            if (num == 0)
+                return 1;
+            else
+                return num * Fakt(num - 1);
+        }
+        
+        static void Main(string[] args)
+        {
+            #region 1-4
+            double grad = Convert.ToDouble(Console.ReadLine());
+            if (grad == 0)
+            {
+                Console.WriteLine("Wrong grad");
+
+
+            }
+            else {
+                double sum = 0;
+                for (int i = 1; i < 10; i++) {
+                    sum += Math.Cos(grad * i) / Math.Pow(grad, i - 1);
+                }
+            Console.WriteLine(sum);
+            }
+            #endregion
+
+            #region 1-9
+            double sum=0;
+            for (int i = 1; i < 7; i++) { 
+                sum+=Math.Pow(-1,i)*Math.Pow(5,i)/Fakt(i);
+            }
+            Console.WriteLine(sum);
+            #endregion
+
+            #region 1-15
+
+            double chis2 = 2, chis3 = 3, chis4, chis5;
+            double zn2 = 1, zn3 = 2, zn4, zn5;
+            chis4 = chis3 + chis2;
+            zn4 = zn3 + zn2;
+            chis5 = chis4 + chis3;
+            zn5 = zn4 + zn3;
+            double res;
+            res = chis5 / zn5;
+            Console.WriteLine(res);
+
+            #endregion
+            #region 1-16
+
+            double seed=1, result;
+            for (int i = 0; i < 64; i++) {
+                seed = seed + Math.Pow(2, i);
+            }
+            result = seed / 15;
+            Console.WriteLine(result);
+
+            #endregion
+            #region 1-18
+            int cell = 10;
+            for (int i = 3; i < 26; i++) {
+                cell = cell *= 2;
+            }
+            Console.WriteLine("Cells now is"+ cell);
+
+            #endregion
+            #region 2-2
+            int s = 1;
+            for (int i = 1; i < 100000; i+=3) {
+                s *= i;
+                if (s > 30000) {
+                    Console.WriteLine("Last numb is " + (i - 3));
+                    break;
+                }
+            }
+
+            #endregion
+            #region 2-4
+            double numb1, degr = 0, suma=1;
+            numb1=Convert.ToDouble(Console.ReadLine());
+            if (numb1 >= 1 || numb1 <= -1)
+            {
+                Console.WriteLine("Error");
+
+            }
+            else
+            {
+                while(Math.Pow(numb1,degr)>=0.0001){
+                    degr += 2;
+                    suma += Math.Pow(numb1, degr);
+                }
+            }
+            Console.WriteLine("Sum"+suma);
+            #endregion
+            #region 2-4-8-a-b-c
+            int cnt = 1;
+            double way = 10, sumway = 0;
+            while (way < 20) {
+                sumway += way;
+                way*=1.1;
+                if (cnt == 7)
+                {
+                    Console.WriteLine(sumway);
+                }
+                if (sumway > 100 && sumway - (way / 1.1) < 100) {
+                    Console.WriteLine(cnt);   
+                }
+                cnt += 1;             
+            }
+            Console.WriteLine(cnt);
+            #endregion
+            #region 3-1
+            double e, fact, y,summa,x;
+            for (int i = 1; i<11; i++) {
+                fact = 2;
+                summa = 1;
+                e = 1;
+                x = Convert.ToDouble(i)/10;
+                while (Math.Abs(Math.Pow(-1, e) * Math.Pow(x, 2 * e) / fact) >= 0.0001) {
+                    summa += Math.Pow(-1, e) * Math.Pow(x, 2 * e) / fact;
+                    e += 1;
+                    fact*=2*e*(2*e-1);
+                }
+                Console.WriteLine(summa);
+                y = Math.Cos(x);
+                Console.WriteLine(y);
+
+            }
+
+            #endregion
+            #region 3-5
+            double a1 = Math.PI / 5, b1 = Math.PI,h1=Math.PI/25;
+            double summa,promzn,y;
+            for (double i = a1; i <= b1; i += h1) {
+                summa = 0;
+                promzn = 1;
+                for (int j = 1; Math.Abs(promzn) >= 0.0001; j++) { 
+                    promzn= (Math.Pow(-1, j)) * (Math.Cos(j * i) / Math.Pow(j, 2));
+                    summa += promzn;
+
+                }
+                y = (i * i - Math.PI * Math.PI / 3) / 4;
+                Console.WriteLine(summa);
+                Console.WriteLine(y);
+            }
+
+            #endregion
+        }
+    } 
+}
