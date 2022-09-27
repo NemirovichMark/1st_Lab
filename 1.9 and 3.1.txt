@@ -1,0 +1,45 @@
+#region 1 lvl №9            
+double s = 0, f;
+            f = 1;
+            for (int i = 1; i <= 6; i++)
+            {
+                f *= i;
+                
+                s += Math.Pow(-1, i) * Math.Pow(5, i) / f;
+            }
+            Console.WriteLine(s);
+#endregion
+
+
+#regin 3 lvl № 1
+            double s, a, x, y;
+            double z;
+            double f;
+            double dop_num;
+            z = -1;
+
+            for (x = 0.1; x <= 1; x += 0.1)
+            {
+
+                s = 1;
+                a = 1;
+                dop_num = 0;
+
+                for (int i = 1; Math.Abs(a) > 0.0001; i++)
+                {
+                   
+                    f = 2;
+
+                    f *= (i + dop_num) * (i + dop_num + 1);
+                    
+                    a = Math.Pow(z, i) * Math.Pow(x, 2 * i) / (f);
+                    s = s + a;
+                    dop_num++;
+                }
+                y = Math.Cos(x);
+
+                Console.WriteLine($"x={Math.Round(x, 3)} \t y={Math.Round(y, 3)} \t s={Math.Round(s, 3)}");
+
+            }
+            Console.WriteLine();
+#endregion
