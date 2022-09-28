@@ -168,13 +168,23 @@ namespace Lab1
                     int i = 2;
                     double a = -((Math.Pow(x, 2)) / 2);
                     s += a;
-                    while (a * (-x * x / (2 * i * (2 * i - 1)))>0.0001)
+                    double d = (-x * x / (2 * i * (2 * i - 1)));
+                    //while (a * (-x * x / (2 * i * (2 * i - 1)))>0.0001)
+                    //{
+                    //    a *= (-x * x / (2 * i * (2 * i - 1)));
+                    //    s += a;
+                    //    i += 1;
+
+                    //}
+                    do
                     {
-                        a *= (-x * x / (2 * i * (2 * i - 1)));
+                        a *= d;
                         s += a;
                         i += 1;
+                        d = (-x * x / (2 * i * (2 * i - 1)));
                     }
-                    Console.WriteLine("{0:f3}  {1:f3}",s,Math.Cos(x));
+                    while ((a * d) > 0.0001);
+                    Console.WriteLine("{0:f3}  {1:f3}", s, Math.Cos(x));
                 }
             }
             #endregion
@@ -187,12 +197,15 @@ namespace Lab1
                     double i = 2.0;
                     double a = -(x * x * x / 3);
                     s += a;
-                    while (a * -(x * x * (2 * i - 1) / (2 * (i - 1) - 1)) > 0.0001)
+                    double d = -(x * x * (2 * i - 1) / (2 * (i - 1) - 1));
+                    do
                     {
-                        a *= a * -(x * x * (2 * i - 1) / (2 * (i - 1) - 1));
+                        a *= d;
                         s += a;
                         i += 1;
+                        d = -(x * x * (2 * i - 1) / (2 * (i - 1) - 1));
                     }
+                    while ((a * d) > 0.0001) ;
                     Console.WriteLine("{0:f3}  {1:f3}", s, Math.Atan(x));
                 }
             }
