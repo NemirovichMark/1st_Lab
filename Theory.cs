@@ -4,7 +4,7 @@ namespace _1_lab
     {
         static void Main(string[] args)
         {
-            #region Task 1_4
+          #region Task 1_4
 
             Console.Write("Enter a number: ");
             string vvod;
@@ -13,6 +13,11 @@ namespace _1_lab
             double.TryParse(vvod, out x);
             int a = 1;
             double s = 0, slag = 0, kof = 2;
+            if (x == 0)
+            {
+                Console.WriteLine("Error");
+                return;
+            }
             s = Math.Cos(x);
             for (int i = 2; i <= 9; i++)
             {
