@@ -121,6 +121,10 @@ namespace TaskForLab1
                 }
                 Console.WriteLine(rez);
             }
+            else if (xx == 0)
+            {
+                Console.WriteLine(rez);
+            }
             else
             {
                 Console.WriteLine("Error");
