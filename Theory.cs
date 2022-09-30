@@ -290,6 +290,237 @@ namespace _1st_Lab
             // We have less nested cycles and program works faster (for large n) but a little bit less correct on the rounding
 
             #endregion
+            
+                
+            TASKS
+                
+                
+            #region 4
+                        double x = Convert.ToDouble(Console.ReadLine());
+            if (x != 0)
+            {
+                double a, b, S;
+                a = 1;
+                b = 0;
+                S = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                    S += (Math.Cos(a * x) / Math.Pow(x, b));
+                    a++;
+                    b++;
+                }
+                Console.WriteLine(S);
+            }
+            else 
+            {
+                Console.WriteLine("You entered the wrong nuber");
+            }
+            #endregion
+                
+                
+                
+                
+            #region 9
+                
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace ConsoleApp1
+{
+    class Program
+    {
+        {
+            double a, b, S;
+            a = 1;
+            b = 1;
+            int fac = 1;
+            int c = 1;
+            S = 0;
+            for (int i = 0; i < 6; i = i + 1)
+            {
+                S = S + (Math.Pow(-1, a) * Math.Pow(5, b)) / fac;
+                a = a + 1;
+                b = b + 1;
+                c += 1;
+                fac *= c;
+            }
+            Console.WriteLine(S);
+        }
+    }
+}
+            #endregion
+            
+                
+                
+                
+            #region 15
+                
+            int a, b, a1, b1;
+            a = 1; //числитель первого
+            b = 1; //знаменатель первого
+            a1 = 2; //числитель второго
+            b1 = 1; //знаменатель второго
+            for (int i = 0; i < 3; i = i + 1)
+            {
+                int a0 = a1;
+                int b0 = b1;
+                a1 = a + a1;
+                b1 = b + b1;
+                a = a0;
+                b = b0;
+            }
+            Console.WriteLine($"{a1}/{b1}");
+            
+            #endregion
+                
+                
+                
+                
+            #region 18
+                
+            int a = 10;
+            for (int i = 0; i < 8; i = i + 1)
+            {
+                a = a * 2;
+            }
+            Console.WriteLine(a);
+            
+            #endregion
+                
+                
+                
+                
+            #region 2
+            
+            int S, a;
+            S = 1;
+            a = 1;
+            while (S <= 30000)
+            {
+                a = a + 3;
+                S = S * a;
+            }
+            Console.WriteLine(a - 3);
+            
+            #endregion
+            
+                
+                
+                
+            #region 4
+            
+            double x = Convert.ToDouble(Console.ReadLine());
+            double a = 1;
+            double S = 0;
+            double b = 2;
+            if (Math.Abs(x) < 1)
+            {
+                while (a >= 0.0001)
+                {
+                    S = S + a;
+                    a = Math.Pow(x, b);
+                    b = b + 2;
+                }
+                Console.WriteLine(S);
+            }
+            else
+            {
+                Console.WriteLine("You entered the wrong number");
+            }
+ 
+            #endregion
+                
+                
+            
+                
+                
+            #region 7,8
+                
+            double way = 10;
+            double sumway = 0;
+            for (int i = 0; i < 7; i = i + 1)
+            {
+                sumway += way;
+                way *= 1.10;
+            }
+            Console.WriteLine("a)" + sumway);
+ 
+            double days = 0;
+            way = 10;
+            sumway = 0;
+            while (sumway < 100)
+            {
+                sumway += way;
+                way *= 1.10;
+                days += 1;
+            }
+            Console.WriteLine("б)" + days);
+ 
+            days = 0;
+            way = 10;
+            while (way < 20)
+            {
+                way *= 1.10;
+                days += 1;
+            }
+            Console.WriteLine("в)" + days);
+           
+            #endregion
+                
+                
+                
+                
+            #region 1
+                
+            for (double x = 0.1; x <= 1; x += 0.1)
+            {
+                int i = 1;
+                double S = 1;
+                int fac = 2;
+                int n1 = 1;
+                int n2 = 2;
+                double a = 0;
+                do
+                {
+                    a = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / fac;
+                    n1 += 2; n2 += 2;
+                    fac *= n1 * n2;
+                    i++;
+                    S += a;
+                } while (Math.Abs(a) > 0.0001);
+                S -= a;
+                Console.WriteLine("X:" + x + "  SUMM:" + S + "  F(X):" + Math.Cos(x));
+            }
+            
+            #endregion
+                
+                
+                
+                
+           #region 8
+                
+            for (double x = 0.1; x < 1.0001; x += 0.05)
+            {
+                int i = 1;
+                double S = 1;
+                int fac = 1;
+                double a = 0;
+                do
+                {
+                    a = Math.Pow(2*x, i) / fac;
+                    fac *= i;
+                    i++;
+                    S += a;
+                } while (Math.Abs(a) > 0.0001);
+                S -= a;
+                Console.WriteLine("X:" + x + "  SUMM:" + S + "  F(X):" + Math.Cos(x));
+            {  
+            
+           #endregion
+ 
         }
     }
 }
