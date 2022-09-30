@@ -4,8 +4,6 @@ class lub1
 {
     static void Main()
     {
-
-
         #region Lvl1_task4
         double s = 0.0;
         int x = Convert.ToInt32(Console.ReadLine());
@@ -173,6 +171,5 @@ class lub1
         }
         Console.WriteLine("Sum: " + Math.Round(sum11));
         #endregion
-
     }
 }
