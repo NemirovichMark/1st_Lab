@@ -1,0 +1,183 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Task 1.4
+            Console.WriteLine("Task 1.4");
+            c//Угол в градусах
+            double rad = x * Math.PI / 180;//угол в радианах
+            double k = 1;
+            double s = 0;
+            for (int i = 1; i < 10; i++)
+            {
+                s = s + Math.Cos(rad * i) / k;
+                k = k * x;
+            }
+            
+              if (x != 0)
+                {
+                    Console.WriteLine(s);
+                }
+                else
+                {
+                    Console.WriteLine("Wrong");
+                }
+
+            //Task 1.9
+            Console.WriteLine("Task 1.9");
+            s = 0;
+            k = 1;
+            for (int i=1;i<7;i++)
+            {
+                k = k * i;
+                s = s + Math.Pow(-1, i) * Math.Pow(5, i) / k;
+            }
+            Console.WriteLine(s);
+
+            //Task 1.15
+            Console.WriteLine("Task 1.15");
+            double x1 = 1;//числитель 1
+            double x2 = 2;//числитель 2
+            double y1 = 1;//знаменатель 1
+            double y2 = 1;//знаменатель 2
+            s = 0;
+            for (int i=0;i<3;i++)
+            {
+                s = x1 + x2;
+                x1 = x2;
+                x2 = s;
+                s = y1 + y2;
+                y1 = y2;
+                y2 = s;
+            }
+            s = x2 / y2;
+            Console.WriteLine(s);
+
+            //Task 1.16
+            Console.WriteLine("Task 1.16");
+            s = 1;
+            k = 1;
+            for (int i = 1;i< 64;i++)
+            {
+                k = k * 2;
+                s += k;
+            }
+            s = s / 15;
+            Console.WriteLine(s);//грамм
+
+            //Task 1.18
+            Console.WriteLine("Task 1.18");
+            s = 10;
+            for(int i=1;i<9;i++)
+            {
+                s = s * 2;
+                Console.WriteLine($"Через {i * 3} часа: {s}");
+            }
+
+            //Task 2.2
+            Console.WriteLine("Task 2.2");
+            s = 1;
+            double n = 1;
+            while (s<=30000)
+            {
+                n += 3;
+                s = s * n;
+            }
+            Console.WriteLine(n-3);
+
+            //Task 2.4
+            Console.WriteLine("Task 2.4");
+            x = Convert.ToDouble(Console.ReadLine());
+            s = 1;
+            if (x < 1 & x > -1)
+            {
+                while (x >= 0.0001)
+                {
+                    x = x * x;
+                    s += x;
+                }
+                Console.WriteLine(s);
+            }
+            else
+            {
+                Console.WriteLine("Wrong");
+            }
+
+            //Task 2.7(8)
+            Console.WriteLine("Task 2.7(8)");
+            s = 10;
+            k = 10;
+            int l = 1;//дни
+            int g = 1000;
+            while (k<=20)
+            {
+                l++;
+                k = k * 1.1;
+                s += k;
+                if (l==7)
+                {
+                    Console.WriteLine($"а){s}");
+                }
+                if (l<g & s>100)
+                {
+                    g = 0;
+                    Console.WriteLine($"б){l}");
+                }
+            }
+            Console.WriteLine($"в){l}");
+
+            //Task 3.1
+            Console.WriteLine("Task 3.1");
+            int t = 0;
+            double a = 0.1;
+            double b = 1;
+            double h = 0.1;
+            x = 0.1;
+            s = 0;
+            k = 0;
+            double fact = 1;
+            while (x<=b)
+            {
+                fact = fact * 2*t*(2*t-1);
+                k = Math.Pow(-1, t) * Math.Pow(x, 2 * t) / fact;
+                Console.WriteLine($"Шаг {t}, y={Math.Cos(x)}");
+                s += k;
+                x += h;
+                fact = 1;
+                t++;
+            }
+            Console.WriteLine($"Сумма = {s}");
+
+            //Task 3.2
+            Console.WriteLine("Task 3.2");
+            t = 1;
+            a = 0.1;
+            b = 0.8;
+            h = 0.1;
+            x = 0.1;
+            s = 0;
+            k = 0;
+            double y;
+            while (x <= b)
+            {
+                k = Math.Pow(x, t) * Math.Sin(t*Math.PI/4);
+                y = x * Math.Sin(Math.PI / 4) / (1 - 2 * x * Math.Cos(Math.PI / 4) + x * x);
+                Console.WriteLine($"Шаг {t}, y={y}");
+                s += k;
+                x += h;
+                t++;
+            }
+            Console.WriteLine($"Сумма = {s}");
+        }
+    }
+}
