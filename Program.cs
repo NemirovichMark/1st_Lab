@@ -51,7 +51,7 @@ class lub1
 
         #region Lvl1_task18
         int am = 10;
-        for (int h = 0; h < 24; h+=3) 
+        for (int i18 = 0; i18 < 24; i18+=3) 
         {
             am = am * 2;
             Console.WriteLine($"L1,task18 {am}");
