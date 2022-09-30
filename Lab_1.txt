@@ -148,7 +148,7 @@ namespace ConsoleApp3
             double fact = 1;
             while (x<=b)
             {
-                fact = fact * 2*p*(2*p-1);
+                fact = fact * 2*t*(2*t-1);
                 k = Math.Pow(-1, t) * Math.Pow(x, 2 * t) / fact;
                 Console.WriteLine($"Шаг {t}, y={Math.Cos(x)}");
                 s += k;
