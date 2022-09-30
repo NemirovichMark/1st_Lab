@@ -26,13 +26,15 @@ class lub1
         #endregion
 
         #region Lvl1_task9
-        double s9 = 0.0;
-        for (int i9 = 1; i9 < 7; i9++)
-        {
-            s9 = (Math.Pow((-1), i9) * Math.Pow(5, i9)) / Factorial(i9) + s9;
-
-        }
-        Console.WriteLine($"L1,task9 {s9}");
+                    const int m = (-1);
+            double z = 0;
+            double Factorial = 1;
+            for (int ii = 1; ii <= 6; ii++)
+            {
+                Factorial *= ii;
+                z += Math.Pow(m, ii) * Math.Pow(5, ii) / Factorial;
+            }
+            Console.WriteLine(z);
         #endregion
 
         #region lvl1_task15
@@ -140,7 +142,7 @@ class lub1
             int fctr = 1;
             do
             {
-                fctr *= ((2 * i3 - 1) * 1 * 2);
+                fctr *= ((2 * i3 - 1) * i3 * 2);
                 hod = Math.Pow(-1, i3) * Math.Pow(xx, i3 * 2) / (fctr * 2);
                 s33 += hod;
                 i3++;
@@ -165,7 +167,7 @@ class lub1
             int fctr1 = 1;
             do
             {
-                fctr1 *= ((2 * i33 - 1) * 1 * 2);
+                fctr1 *= ((2 * i33 - 1) * i33 * 2);
                 hod1 = Math.Pow(xx1, i33 * 2) / (fctr1 * 2);
                 s333 += hod1;
                 i33++;
