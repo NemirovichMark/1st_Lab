@@ -64,6 +64,7 @@ namespace _1st_Lesson
 
             #region level_1_task_9
             {
+                double factorial_value = 1;
                 double s = 0;
                 int max_num = 6;
                 double p = 1;
@@ -72,7 +73,8 @@ namespace _1st_Lesson
                 {
                     p = -p;
                     five *= 5;
-                    s += p * five / factorial(i);
+                    factorial_value *= i;
+                    s += p * five / factorial_value;
                 }
                 Console.WriteLine($"level_1_task_9: {s}");
             }
@@ -80,30 +82,37 @@ namespace _1st_Lesson
 
             #region level_1_task_15
             {
-                static double fibonacci(int number)
+                int i = 0;
+                int nomenatorStart = 1;
+                int denominatorStart = 1;
+                int DenominatorFinal = 1;
+                int NominatorFinal = 2;
+                int Nominator_t = 0;
+                int Denominator_t = 0;
+
+                for (i = 1; i <= 3; i = i + 1)
                 {
-                    if (number == 1 || number == 2)
-                    {
-                        return 1.0;
-                    }
-                    else
-                    {
-                        return fibonacci(number - 1) + fibonacci(number - 2);
-                    }
+                    Nominator_t = NominatorFinal;
+                    NominatorFinal = NominatorFinal + nomenatorStart;
+                    nomenatorStart = Nominator_t;
+
+                    Denominator_t = DenominatorFinal;
+                    DenominatorFinal = DenominatorFinal + denominatorStart;
+                    denominatorStart = Denominator_t;
 
                 }
-                Console.WriteLine($"Level_1_task_15: {fibonacci(5) / fibonacci(4)}");
+                Console.WriteLine($"level_1_task_15: {NominatorFinal}/{DenominatorFinal}");
             }
             #endregion
 
-            #region task 16 level 1
+                #region task 16 level 1
             {
                 int gramm = 15;
                 int n = 64;
                 int b1 = 1;
 
 
-                double summa = (b1 * (1 - Math.Pow(2.0, n))) / (1.0 - 2.0);
+                double summa = -(b1 * (1 - Math.Pow(2.0, n)));
                 Console.WriteLine($"task 16: {summa / gramm}");
 
             }
@@ -126,16 +135,16 @@ namespace _1st_Lesson
             #region level_2_task_2
             {
                 Console.WriteLine($"task 2 level 2 started");
-                int counter = 1;
-                int current_number = 1;
-                const int L = 30000;
-                while (counter <= L)
+                int n = 1;
+                int L = 1;
+                int d;
+                do
                 {
-                    counter = counter * current_number;
-                    Console.WriteLine($"    {current_number} : {counter}");
-                    current_number += 3;
-                }
-                Console.WriteLine($"Level_2_task_2: {current_number - 6}");
+                    n = n + 3;
+                    L *= n;
+                    d = L * (n + 3);
+                } while (d < 30000);
+                Console.WriteLine($"Level_2_task_2:: {n}");
             }
             #endregion
 
