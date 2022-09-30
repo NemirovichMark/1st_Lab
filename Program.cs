@@ -13,8 +13,16 @@ namespace lab
             Console.WriteLine("№4");
 
             double answ = 0.0;
-            Console.WriteLine("Enter x");
-            int x = Convert.ToInt32(Console.ReadLine());
+            int x = 0;
+            while (x == 0)
+            {
+                Console.WriteLine("Enter x");
+                x = Convert.ToInt32(Console.ReadLine());
+                if (x == 0)
+                {
+                    Console.WriteLine("Error");
+                }
+            }
             for(int i = 1; i <= 9; i++)
             {
                 answ = answ + Math.Cos(x*i) / Math.Pow(x, i - 1);
@@ -27,17 +35,12 @@ namespace lab
             #region I_№9
             Console.WriteLine("№9");
 
-            int Factorial(int n)
-            {
-                if (n == 0) return 1;
-                if (n == 1) return 1;
-                return n * Factorial(n - 1);
-            }
-
             answ = 0.0;
+            int f = 1;
             for(int i = 1; i <=6 ; i++)
             {
-                answ = answ + Math.Pow(-1, i) * Math.Pow(5, i) / Factorial(i);
+                f = f*i;
+                answ = answ + Math.Pow(-1, i) * Math.Pow(5, i) / f;
             }
             Console.WriteLine($"Answer: {answ}");
             Console.WriteLine("--------------------");
@@ -223,7 +226,7 @@ namespace lab
                     }
                     i++;
                 }
-                Console.WriteLine($"f({g}) = {Math.Cos(sum)}");
+                Console.WriteLine($"sum = {sum}; f({g}) = {Math.Cos(g)}");
             }
             Console.WriteLine("--------------------");
 
@@ -250,7 +253,7 @@ namespace lab
                     sum += p;
                     i++;
                 }
-                Console.WriteLine($"f({g}) = {(Math.Pow(e, sum) + Math.Pow(e, (-sum))/2)}");
+                Console.WriteLine($"sum = {sum}; f({g}) = {(Math.Pow(e, g) + Math.Pow(e, (-g))/2)}");
             }
 
             #endregion
