@@ -35,22 +35,20 @@ namespace _1st_Lab
 
             #region Task 1.9 (+)
 
-            double answer_1_4 = 0;
+            double answer_1_9 = 0;
+            int factorial = 1;
+            int pp = 1;
 
             for (int power = 1; power < 7; power++)
             {
+                factorial *= pp;
 
-                int factorial = 1;
-                for (int j = 1; j <= power; j++)
-                {
-                    factorial *= j;
-                }
+                answer_1_9 += Math.Pow(-1, power) * Math.Pow(5, power) / factorial;
 
-                answer_1_4 += Math.Pow(-1, power) * Math.Pow(5, power) / factorial;
-
+                pp++;
             }
 
-            Console.WriteLine($"Answer for task 1.9: {answer_1_4:f3}\n");
+            Console.WriteLine($"Answer for task 1.9: {answer_1_9:f3}\n");
 
             #endregion
 
