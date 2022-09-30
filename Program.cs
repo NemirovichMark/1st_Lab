@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Globalization;
 
 namespace LABA_1
 {
@@ -7,14 +8,32 @@ namespace LABA_1
         static void Main(string[] args)
         {
             #region 1lvl, 4
-            double x = double.Parse(Console.ReadLine());
-            double s = 0;
+
+
+            double angle = 0;
+
+            while (angle <= 0)
+            {
+                try
+                {
+                    Console.Write("Enter angle(degrees): ");
+                    angle = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("no, try again");
+                }
+            }
+
+            double DegreeToRadConverstion = (angle * Math.PI) / 180;
+            double sumOfCos = 0;
             for (int i = 1; i <= 9; i++)
             {
-                s += Math.Cos(x * i) / Math.Pow(x, i - 1);
+                sumOfCos += Math.Cos(DegreeToRadConverstion * i) / Math.Pow(DegreeToRadConverstion, i - 1);
             }
-            Console.WriteLine(s);
-            #endregion;
+            Console.WriteLine($"Lvl1 ==> 4: {sumOfCos}");
+            #endregion
+
 
             #region 1lvl, 9
             double sum = 0;
@@ -72,13 +91,14 @@ namespace LABA_1
             int i = 1;
             while (p <= L)
             {
+
                 p *= i;
                 n = i;
                 i += 3;
             }
 
 
-            Console.WriteLine(n);
+            Console.WriteLine(n - 3);
 
             #endregion;
 
@@ -136,7 +156,7 @@ namespace LABA_1
             #endregion;
 
 
-            #region  lvl 3, 1
+            #region  lvl 3, 1 
             double a = 0.1;
             double b = 1;
             double h = 0.1;
@@ -145,22 +165,25 @@ namespace LABA_1
                 Console.WriteLine("x=" + x);
                 Console.WriteLine("y=" + Math.Cos(x));
                 double z = 1;
+                double j = 1;
                 double sum = 0;
+                double k = 1;
                 for (int i = 0; i <= 10000; i++)
                 {
-                    double j = Math.Pow(-1, i);
-                    double k = Math.Pow(x, 2 * i);
                     double s = (j * k) / z;
+                    Console.WriteLine("  j=" + j + " k=" + k + " z=" + z + " s=" + s);
                     z = z * (i * 2 + 1) * (i * 2 + 2);
                     sum += s;
-                    Console.WriteLine("  " + s);
+                    j = -j;
+                    k = k * x * x;
+
                     if (Math.Abs(s) < 0.0001)
                     {
                         break;
                     }
 
                 }
-                Console.WriteLine("summa s=" + sum);
+                Console.WriteLine("  summa s=" + sum);
             }
             #endregion;
 
@@ -173,15 +196,15 @@ namespace LABA_1
                 Console.WriteLine("x=" + x);
                 Console.WriteLine("y=" + (Math.Pow(x, 2) - Math.Pow(Math.PI, 2) / 3) / 4);
                 double sum = 0;
+                double j = -1;
                 for (int i = 1; i <= 10000; i++)
                 {
-                    double j = Math.Pow(-1, i);
                     double k = Math.Cos(i * x);
-                    double z = Math.Pow(i, 2);
+                    double z = i * i;
                     double s = (j * k) / z;
-
                     sum += s;
-                    Console.WriteLine("  " + s);
+                    Console.WriteLine("  j=" + j + " k=" + k + " z=" + z + " s=" + s);
+                    j = -j;
                     if (Math.Abs(s) < 0.0001)
                     {
                         break;
