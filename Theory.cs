@@ -296,18 +296,25 @@ namespace _1st_Lab
                 
                 
             #region 4
-            double x = Convert.ToDouble(Console.ReadLine());
-            double a, b, S;
-            a = 1;
-            b = 0;
-            S = 0;
-            for (int i = 0; i < 10; i = i + 1)
+                        double x = Convert.ToDouble(Console.ReadLine());
+            if (x != 0)
             {
-                S = S + (Math.Cos(a * x) / Math.Pow(x, b));
-                a = a + 1;
-                b = b + 1;
+                double a, b, S;
+                a = 1;
+                b = 0;
+                S = 0;
+                for (int i = 0; i < 10; i++)
+                {
+                    S += (Math.Cos(a * x) / Math.Pow(x, b));
+                    a++;
+                    b++;
+                }
+                Console.WriteLine(S);
             }
-            Console.WriteLine(S);
+            else 
+            {
+                Console.WriteLine("You entered the wrong nuber");
+            }
             #endregion
                 
                 
@@ -325,22 +332,20 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static int factorial(int n)
-        {if (n == 1) return 1;
-         else return factorial(n - 1) * n;}
-        static void Main(string[] args)
         {
             double a, b, S;
             a = 1;
             b = 1;
+            int fac = 1;
             int c = 1;
             S = 0;
             for (int i = 0; i < 6; i = i + 1)
             {
-                S = S + (Math.Pow(-1, a) * Math.Pow(5, b)) / factorial(c);
+                S = S + (Math.Pow(-1, a) * Math.Pow(5, b)) / fac;
                 a = a + 1;
                 b = b + 1;
-                c = c + 1;
+                c += 1;
+                fac *= c;
             }
             Console.WriteLine(S);
         }
