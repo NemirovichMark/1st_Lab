@@ -1,25 +1,188 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32630.194
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1st_Lab", "1st_Lab.csproj", "{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFC3CB70-C58A-44E9-8AB0-8D2B0E35D2AF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {128847E4-9BF1-431A-9B44-9A15B4196B54}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace lab1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region lab 1 number 4 (1 level)
+            Console.WriteLine("-------------Number 4-------------");
+            double s = 0;
+            double x;
+            Console.WriteLine("enter x");
+            x=Int32.Parse(Console.ReadLine());
+            if (x != 0)
+            {
+                for (int i = 1; i <= 9; i++)
+                {
+                    s += Math.Cos(x * i) / Math.Pow(x, i - 1);
+                }
+                Console.WriteLine("S = {0}",s);
+            }
+            else
+            {
+                Console.WriteLine("cannot be divided by 0");
+            }
+
+            #endregion
+
+            #region lab 1 number 9 (1 level)
+            Console.WriteLine("-------------Number 9-------------");
+            s = 0.0;
+            double a = 5, temp, k = 1;
+            x = -1;
+
+            for (int i = 1; i < 7; i++)
+            {
+                
+                temp = x * a / k;
+                s += temp;
+                k *= i+1; //i!
+                x = -x; //(-1)^i
+                a *= 5; //5^i
+                
+                
+            }
+            Console.WriteLine(s);
+            #endregion
+
+            #region lab 1 number 15 (1 level)
+            Console.WriteLine("-------------Number 15-------------");
+            double numerator = 1, denominator = 1;
+            for (int i = 1; i < 5; i++)
+            {
+                temp = denominator;
+                denominator = numerator;
+                numerator += temp;
+            }
+            Console.WriteLine("{0}/{1}", numerator, denominator);
+            #endregion
+
+            #region lab 1 number 16 (1 level)
+            Console.WriteLine("-------------Number 16-------------");
+            double amount = 1,result = 0;
+            double tonn;
+
+            for (int i=1; i <= 64; i++)
+            {
+                amount *= 2;
+                result += amount;
+
+            }
+            tonn = amount / 15000000.0;
+            Console.WriteLine("answer in tonnes - {0}",tonn);
+            #endregion
+
+            #region lab 1 number 18 (1 level)
+
+            Console.WriteLine("-------------Number 18-------------");
+            int start = 10;
+            for (int i = 3; i < 25; i += 3)
+            {
+                start *= 2;
+                Console.WriteLine("after {0} hours: {1} cells", i, start);
+            }
+            #endregion
+
+            #region lab 1 number 2 (2 level)
+            Console.WriteLine("-------------Number 2-------------");
+            int L = 30000;
+            int p = 1, n = 1;
+            while (p <= L)
+            {
+                n += 3;
+                p *= n;
+            }
+            n -= 3;
+            Console.WriteLine("n = {0}",n);
+            #endregion
+            #region lab 1 number 4 (2 level)
+            Console.WriteLine("-------------Number 4-------------");
+            double x_1;
+            Console.WriteLine("Enter |x|<1");
+            double.TryParse(Console.ReadLine(), out x_1);
+            n = 0;
+            s = 0;
+            x = 1;
+            double e = 0.0001;
+            if (Math.Abs(x_1) < 1)
+            {
+                while (x >= e)
+                {
+                    s += x;
+                    x *= (x_1 * x_1);
+                }
+                Console.WriteLine("s = {0}", s);
+            }
+            else Console.WriteLine("|x| must be <1");
+            #endregion
+            #region lab 1 number 7-8 (2 level)
+            Console.WriteLine("-------------Number 7-8-------------");
+            double x_0 = 10, k_1=1.1;
+            s = x_0;
+            int days = 1;
+            //a
+            while (days!=7)
+            {
+                days++;
+                x_0 *= k_1;
+                s += x_0;
+            }
+            Console.WriteLine("summary {0}", s);
+            //b
+            while (s<100)
+            {
+                days++;
+                x_0 *= k_1;
+                s += x_0;
+            }
+            Console.WriteLine("day {0}", days);
+            //c
+            while (x_0 <= 20)
+            {
+                days++;
+                x_0 *= k_1;
+                s += x_0;
+            }
+            Console.WriteLine("day {0}", days);
+            #endregion
+            #region lab 1 number 1 (3 level)
+            Console.WriteLine("-------------Number 1-------------");
+            double Sum, tempr, j;
+            for(double X = 0.1; X <= 1.000001; X += 0.1)
+            {
+                Sum = 1.0;
+                tempr = 1.0;
+                j = 1;
+                while (Math.Abs(tempr) >= 0.0001)
+                {
+                    tempr = (-tempr) * X * X / ((2 * j - 1) * 2 * j);
+                    Sum += tempr;
+                    j++;
+
+                }
+                Console.WriteLine("y = {0:f10}      f = {1:f10}", Math.Cos(X), Sum);
+            }
+            #endregion
+            #region lab 1 number 4 (3 level)
+            Console.WriteLine("-------------Number 4-------------");
+            double sum, tempp, ji;
+            for (double X = 0.1; X <= 1.0001; X += 0.1)
+            {
+                sum = 1;
+                tempp = 1;
+                ji = 1;
+                while (Math.Abs(tempp) >= 0.0001)
+                {
+                    tempp = tempp * X * X / ji;
+                    sum += tempp*(2*ji+1);
+                    ji++;
+                }
+                Console.WriteLine("y = {0:f10}      f = {1:f10}", (1+2*X*X)*Math.Pow(Math.E,X*X), sum);
+            }
+            //
+            #endregion
+        }
+    }
+}
