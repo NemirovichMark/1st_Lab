@@ -70,6 +70,17 @@ namespace less
            Console.WriteLine(s+1);
            
             #endregion
+            
+   #region task1_18
+int m = 10;
+for (int i = 3; i <= 24; i += 3)
+{
+m *= 2;
+Console.WriteLine("через " + i + " ч - " + m + " клеток ");
+}
+ #engregion
+
+
 
          #region task2_2
             int sum = 1; int p = 1;
