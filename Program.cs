@@ -10,19 +10,26 @@ namespace LB1
     {
         static void Main(string[] args)
         {
-            
+
             #region lvl1
-            
+
             #region ex4
-            
             double s = 0;
-            double x = double.Parse(Console.ReadLine());
-            for (double i = 0; i <= 8; i++)
-                for (double j = 1; j <= 9; j++)
+            double x;
+            Console.WriteLine();
+            x = Int32.Parse(Console.ReadLine());
+            if (x != 0)
+            {
+                for (int i = 1; i <= 9; i++)
                 {
-                    s = s + Math.Cos(j * x) / Math.Pow(x, i);
+                    s += Math.Cos(x * i) / Math.Pow(x, i - 1);
                 }
-            Console.WriteLine(s);
+                Console.WriteLine(s);
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
             #endregion
 
             #region ex9
@@ -80,18 +87,20 @@ namespace LB1
             #endregion
 
             #region lvl2
-            
+
             #region ex2
-            s = 1;
-            double n = 0;
-            for (double i5 = 1; s * n < 30000; i5 += 3)
+            s = 30000;
+            a = 1; 
+            b = 1;
+            while (a <= s)
             {
-                s = s * i5;
-                n = i5;
+                b += 3;
+                a *= b;
             }
-            Console.WriteLine(n);
+            b -= 3;
+            Console.WriteLine(b);
             #endregion
-            
+
             #region ex4
             x = Convert.ToDouble(Console.ReadLine());
             const double eps1 = 0.0001;
@@ -160,6 +169,8 @@ namespace LB1
             #endregion
 
             #region lvl3
+
+            #region ex1
             double lg = 0.1;
             double ug = 1;
             double step = 0.1;
@@ -178,10 +189,33 @@ namespace LB1
 
                 }while (Math.Abs(elem) >= 0.0001);
                 Console.WriteLine("arg = {0:f2}   sf = {1:f2}   y = {2:f2}", arg, sf, Math.Cos(arg));
-
             }
             #endregion
-            
+
+            #region ex6
+            Console.WriteLine("------------------");
+            lg = 0.1;
+            ug = 1;
+            step = 0.1;
+            for (double arg = lg; arg <= ug; arg += step)
+            {
+                double sf = 0;
+                int i = 1;
+                double elem;
+                do
+                {
+                    elem = Math.Pow(-1, i + 1) * (Math.Pow(arg, 2 * i + 1) / (4 * (Math.Pow(i, 2)) - 1));
+                    sf += elem;
+                    i++;
+                } while (Math.Abs(elem) >= 0.0001);
+                double yx = (Math.Atan(arg) * (1 + Math.Pow(arg, 2))) / 2 - arg / 2;
+                Console.WriteLine("arg = {0:f4}   sf = {1:f4}   y = {2:f4}", arg, sf, (Math.Atan(arg) * (1 + Math.Pow(arg, 2))) / 2 - arg / 2);
+            }
+            #endregion
+            #endregion
+
+
+
         }
     }
 }
