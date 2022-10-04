@@ -10,7 +10,7 @@ namespace FirstLab
 
             double sum = 0;
 
-            Console.Write("Input: ");
+            Console.Write("1.4 Input: ");
             string input = Console.ReadLine();
             bool result = float.TryParse(input, out var x);
             if (result == false || x == 0)
