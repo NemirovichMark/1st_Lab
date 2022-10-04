@@ -17,7 +17,7 @@ namespace Lab_1
                 if ((x <= 0) | (k != 1))
                 {
                     Console.WriteLine(ERROR);
-                    goto Task_1_9;
+                    return;
                 }
                 for (i = 1; i <= 9; i = i + 1)
                 {
@@ -34,7 +34,6 @@ namespace Lab_1
         #endregion
 
             #region Task_1_9
-            Task_1_9:
             Console.WriteLine("Task 1.9");
             s = 0;
             int fact = 1 , upper = 1;
@@ -100,11 +99,10 @@ namespace Lab_1
                 if (p1 <= 30000)
                 {
                     p1 *= j;
-                    p2 += 3;
+                    p2 = j - 3;
                 }
                 else
                 {
-                    p2 -= 6;
                     Console.WriteLine($"The biggest last member: {p2}\n");
                     break;
                 }
