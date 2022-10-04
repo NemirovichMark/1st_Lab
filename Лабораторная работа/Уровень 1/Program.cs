@@ -13,7 +13,7 @@ namespace FirstLab
             Console.Write("Input: ");
             string input = Console.ReadLine();
             bool result = float.TryParse(input, out var x);
-            if (result == false)
+            if (result == false || x == 0)
             {
                 Console.WriteLine("Incorrect data");
 
