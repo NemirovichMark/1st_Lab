@@ -467,10 +467,10 @@ for (x2 = 0.1; x2 <= 1; x2 += 0.05)
 {
     c2 = 1+2*x2;
     t2 = 2*x2;
-    for (i2 = 2; Math.Abs(t2 * 2 * x2  / (i2 * (i2 - 1))) > 0.0001; i2 += 0.05)
+    for (i2 = 2; Math.Abs(t2 * 2 * x2  /i2) > 0.0001; i2 += 1)
     {
-        c2 += t2 * 2 * x2 / i2 * (i2 - 1); 
-        t2 *= 2 * x2 * 2 * x2 / i2 * (i2 - 1); 
+        c2 += t2 * 2 * x2 / i2; 
+        t2 *=  2 * x2 / i2; 
     }
     Console.WriteLine($"c={c2}|y={Math.Pow(Math.E,2*x2)}");
 }
