@@ -17,17 +17,15 @@ namespace Sololearn
                 sum=0;
                 meat=1;
                 y=0;
+                int fact=1;
                 for(int i=0;abs(meat)>=0.0001;i++){
-                    meat=Math.Pow(-1,i)*Math.Pow(x,2*i)/fact(2*i);
+                    meat=Math.Pow(-1,i)*Math.Pow(x,2*i)/fact;
+                    fact*=(2*i-1)*2*i;
                     sum+=meat;
                 }
                 y=Math.Cos(x);
                 Console.WriteLine($"X: {x}, S: {sum}, Y: {y}");
             }
-        }
-        static int fact(int n){
-            if(n<=1) return 1;
-            return n*fact(n-1);
         }
         static double abs(double n){
             if(n>0) return n;
