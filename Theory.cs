@@ -293,3 +293,185 @@ namespace _1st_Lab
         }
     }
 }
+
+#region 4_task
+using System.Runtime.CompilerServices;
+
+int i, x;
+double s;
+for (x = 1; x <= 9; x++)
+{
+    s = 0;
+    for (i = 1; i <= 9; i++)
+    {
+        s = +Math.Cos(i * x) / Math.Pow(x, i - 1);
+    }
+    Console.WriteLine($"x={x}|={s}");
+}
+#endregion
+
+#region 9_task
+//(-1)^l*5^l/l!+(-1)^(l+1)*5^(l+1)/(l+1)!
+Console.WriteLine("номер 9");
+int l;
+double s0 = -5.0;
+double s2 = -5.0;
+for (l = 2; l <= 6; l++)
+{
+    //0 - (-5.0) 1- 25/2 125/6
+    s2 = s2 * (-5) / l;
+    s0 = s0 + s2;
+}
+Console.WriteLine($"s0={s0}");
+#endregion
+
+#region 15_task
+//1:1 2:1 3:2 5:3 8:5
+Console.WriteLine("номер 15");
+double ch = 1;
+double z = 1;
+double s3;
+int k;
+for (k = 2; k <= 5; k++)
+{
+    s3 = ch + z;
+    z = ch;
+    ch = s3;
+}
+Console.WriteLine($"{ch}/{z}");
+#endregion
+
+#region 16_task
+Console.WriteLine("номер 16");
+double kl;
+double zz = 1;
+double kolvozerna = 1;
+for (kl = 2; kl <= 64; kl++)
+{
+    zz = zz * 2;
+    kolvozerna = zz + kolvozerna;
+}
+Console.WriteLine($"кол-во зерна={kolvozerna}");
+Console.WriteLine($"вес зерна в граммах={kolvozerna / 15}");
+Console.WriteLine($"вес зерна в килограммах={kolvozerna / 15 / 1000}");
+#endregion
+
+#region 18_task
+Console.WriteLine("номер 18");
+double am = 10;
+double time;
+for (time = 3; time <= 24; time = time + 3)
+{
+    am = am * 2;
+    Console.WriteLine($"number of amoebas={am}");
+}
+#endregion
+
+
+#region 2_task
+Console.WriteLine("номер 2");
+double n=4;
+double ll;
+double somnogitel = 1;
+for (ll = n; ll <= 30000; ll = ll * n)
+{
+    n += 3;
+    somnogitel = somnogitel + 3;
+}
+Console.WriteLine($"сомножитель={somnogitel}");
+#endregion
+
+#region 4_task
+Console.WriteLine("номер 4");
+int ii;
+double summa;
+double xx;
+double t = 1;
+Console.Write("Введите x=");
+xx = Convert.ToDouble(Console.ReadLine());
+while (!(xx < 1 && xx > -1))
+{
+    Console.Write("Неверные входные данные\nВведите x=");
+    xx =Convert.ToDouble(Console.ReadLine());
+}
+summa = 1;
+for (ii = 2; t * xx * xx > 0.0001; ii += 2)
+{
+    summa += t * xx * xx;
+    t *= xx * xx;
+}
+Console.WriteLine($"s={summa},вычисление прекращается при x^({ii})");
+#endregion
+
+#region 7_task
+Console.WriteLine("номер 7 (8a)");
+double uvelichenienormi = 1.1;
+double km1 = 10;
+double den;
+double km7 = 10;
+for (den = 2; den <= 7; den++)
+{
+    km1 = km1 * uvelichenienormi;
+    km7 = km7 + km1;
+}
+Console.WriteLine($"суммарно за 7 дней {km7}");
+#endregion
+
+#region 8_task
+Console.WriteLine("номер 8 б");
+double kmvden;
+double kolvodney = 1;
+for (kmvden = 10; kmvden <= 101; kmvden = kmvden * 1.1)
+{
+    kolvodney = kolvodney + 1;
+}
+Console.WriteLine($"100 км за {kolvodney} дней");
+#endregion
+
+#region 8_task
+Console.WriteLine("номер 8 в");
+double kilometrovvden;
+double nomerdnya = 1;
+for (kilometrovvden = 10; kilometrovvden <= 21; kilometrovvden = kilometrovvden * 1.1)
+{
+    nomerdnya = nomerdnya + 1;
+}
+Console.WriteLine($"20 км в {nomerdnya} дeнь");
+#endregion
+
+#region 1_task
+Console.WriteLine(" номер 1");
+double i1;
+double s1;
+double x1, t1;
+for (x1 = 0.1; x1 <= 1; x1 += 0.1)
+{
+    s1 = 1;
+    t1 = 1;
+    for (i1 = 1; Math.Abs(t1 * (-1) * x1 * x1 / (2 * i1 * (2 * i1 - 1))) > 0.0001; i1 += 1)
+    {
+        s1 += t1 * (-1) * x1 * x1 / (2 * i1 * (2 * i1 - 1));
+        t1 *= (-1) * x1 * x1 / (2 * i1 * (2 * i1 - 1));
+    }
+    Console.WriteLine($"s={s1}|y={Math.Cos(x1)}");
+}
+#endregion
+
+#region 8_task
+Console.WriteLine("номер 8");
+double i2;
+double c2;
+double x2;
+double t2;
+for (x2 = 0.1; x2 <= 1; x2 += 0.05)
+{
+    c2 = 1;
+    t2 = 1;
+    for (i2 = 1; t2 * 2 * x2  /i2 > 0.0001; i2 += 1)
+    {
+        c2 += t2 * 2 * x2 / i2; 
+        t2 *=  2 * x2 / i2; 
+    }
+    Console.WriteLine($"c={c2}|y={Math.Pow(Math.E,2*x2)}");
+}
+#endregion
