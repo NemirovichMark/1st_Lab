@@ -88,17 +88,20 @@ namespace Lab1
             #region 2.2
             Console.WriteLine($"Task 2.2");
             int u = 1;
-            for (int i = 4; ; i += 3)
+            int result = 1;
+            for (int i = 1; ; i += 3)
             {
-                if (u * i < 30000)
+                if (u <= 30000)
                 {
                     u *= i;
+                    result = i - 3;
                 }
                 else
                 {
+                    Console.WriteLine($"The biggest number is {result}");
                     break;
                 }
-                Console.WriteLine($"The result is {i}");
+                
             }
             #endregion
             #region 2.4
@@ -163,45 +166,65 @@ namespace Lab1
             #endregion
             #region 3.1
             Console.WriteLine("Task 3.1");
-            double summe = 0.0;
-            for (double x = 0.1; x <= 1.0; x += 0.1)
+            double a = 0.1;
+            double bb = 1.0;
+            double h = 0.1;
+            double sume = 1.0;
+            double devi;
+            double t;
+            double c;
+            for (double x = a; x <= bb; x += h)
             {
                 x = Math.Round(x, 1);
-                int i = 0;
-                double member = 0.0, dev = 1.0;
+                t = 0.0;
+                int j = 0;
+                devi = 1.0;
+                c = -1;
                 do
                 {
-                    member = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / dev;
-                    summe += member;
-                    i += 1;
-                    dev *= 2 * i * (2 * i - 1);
-                } while (Math.Abs(member) >= 0.0001);
+                    c = -c;
+                    t = c * Math.Pow(x, 2 * j) / devi;
+                    j++;
+                    sume += t;
+                    devi *= 2 * j * (2 * j - 1);
+
+                }
+                while (t >= 0.0001);
                 double y = Math.Cos(x);
-                Console.WriteLine($"x is {x} summ is {summe} y is {y}");
+                Console.WriteLine($" x is {x} s is {sume}; y = {y}");
+
+                Console.WriteLine(sume);
             }
-            Console.WriteLine("\n");
             #endregion
             #region 3.9
             Console.WriteLine("Task 3.9");
-            double sum = 0.0;
-            for (double x = 0.1; x <= 0.5; x += 0.05)
+            double summ_9 = 0.0;
+            double a_9 = 0.1;
+            double b_9 = 0.5;
+            double h_9 = 0.05;
+            double t_9;
+            double j_9;
+            double c_9;
+            for (double x_9 = a_9; x_9 <= b_9; x_9 += h_9)
             {
-                x = Math.Round(x, 2);
-                int i = 0;
-                double member = 0.0, dev = 1.0;
+                x_9 = Math.Round(x_9, 2);
+                t_9 = 0.0;
+                j_9 = 0.0;
+                c_9 = -1;
                 do
                 {
-                    member = Math.Pow(-1, i) * Math.Pow(x, 2*i + 1) / dev;
-                    sum += member;
-                    i += 1;
-                    dev *= 2 * i + 1;
-                } while (Math.Abs(member) >= 0.0001);
-                double y = Math.Atan(x);
-                Console.WriteLine($"x is {x} summ is {sum} y is {y}");
+                    c_9 = -c_9;
+                    t_9 = c_9 * Math.Pow(x_9, 2 * j_9 + 1) / (2 * j_9 + 1);
+                    j_9++;
+                    summ_9 += t_9;
+                }
+                while (t_9 >= 0.0001);
+                double y_9 = Math.Atan(x_9);
+                Console.WriteLine($" x is {x_9} s is {summ_9} y is {y_9}");
             }
-            Console.WriteLine("\n");
+            Console.WriteLine(summ_9);
+            
             #endregion
-
 
 
 
