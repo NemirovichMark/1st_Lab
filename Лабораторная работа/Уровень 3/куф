@@ -1,1 +1,37 @@
 
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region Task_3.1
+            double c;
+            double a;
+
+
+            for (double x = 0.1; x <= 1; x += 0.1)
+            {
+                a = 0;
+                c = 1;
+                double sum = 1;
+                double i = 1;
+                double v = 1;
+                do
+                {
+                    v = v * x * x;
+                    c = -c * v / ((2 * i - 1) * (2 * i));
+                    a = c * (2 * i - 1);
+                    sum += a;
+                    i++;
+                } while (Math.Abs(a) >= 0.0001);
+                Console.WriteLine($"Прирост суммы {sum:f4} стал очень мал при {i} для x = {x}, y = {Math.Cos(x)}");
+            }
+
+            #endregion
+        }
+    }
+    
+}
