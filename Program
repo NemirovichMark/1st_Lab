@@ -9,17 +9,26 @@ namespace less
        public static void Main(string[] args)
        {
            #region task1_4
-           Console.WriteLine("Введи угол:");
-           string t = Console.ReadLine();
-           int y = Convert.ToInt32(t);
-           double x = (y * Math.PI / 180);
-           double S = 0;
-           for (int i = 1; i <= 9; i++)
-           {
-               S = S + Math.Cos(x * i) / Math.Pow(x, (i - 1));
-
-           }
-           Console.WriteLine(S);
+           
+           
+          Console.WriteLine("Введи угол:");
+            string t = Console.ReadLine(); 
+            int y = Convert.ToInt32(t); 
+             
+            if (y == 0)
+            {Console.WriteLine("Введите другой угол");}
+            else {
+         
+            double x = (y * Math.PI / 180); 
+            double S = 0; 
+            for (int i = 1; i <= 9; i++) 
+            { 
+                S = S + Math.Cos(x * i) / Math.Pow(x, (i - 1)); 
+ 
+            } 
+            Console.WriteLine(S);
+    
+            }
 
            #endregion
        
@@ -120,38 +129,55 @@ Console.WriteLine("через " + i + " ч - " + m + " клеток ");
           #endregion
 
           #region task3_1
-            double s,sum,i,fact;
-
-             for (double x = 0.1; x <= 1; x += 0.1)
-             {
-                 i = 0;
-                 fact = 1;
-                 s = 0;
+            double s, sum, st, fact, t, step;
+            int i;
+            for (double x = 0.1; x <= 1; x += 0.1)
+            {
+                
+                t = -1;
+                i = 0;
+                fact = 1;
+                s = 0;
+                st = 1;
                 do
                 {
-                    sum = Math.Pow(-1, i) * Math.Pow(x, 2 * i) / fact;
+                    
+                    t *= -1;
+                    sum = t * st/ fact;
+                    st *= x * x;
                     i++;
                     fact *= (2 * i) * (2 * i - 1);
                     s += sum;
                 }
                 while (Math.Abs(sum) > 0.0001);
-                 double y = Math.Cos(x);
+                double y = Math.Cos(x);
 
-                 Console.WriteLine(s  + "  " + y);
+                Console.WriteLine(s + "  " + y);
 
-             }
+            }
+
             #endregion
+
+
+
+  
+        
 
            #region task3_6
            
-            for ( double x = 0.1; x <= 1; x += 0.1)
-            {   double i = 1;
-                double s = 0;
+            for (double x = 0.1; x <= 1; x += 0.1)
+            {
+                double t = -1;
                 double sum = 0;
-
+                double st = 1;
+                int i = 1;
+                double s = 0;
                 do
                 {
-                    sum = Math.Pow(-1, i + 1) * Math.Pow(x, 2 * i+1) / (4 * i * i - 1);
+                    
+                    t *= -1;
+                    st *= x * x;
+                    sum = t * x *st / (4 * i * i - 1);
                     i++;
                     s += sum;
 
@@ -159,9 +185,6 @@ Console.WriteLine("через " + i + " ч - " + m + " клеток ");
 
                 double y = (1 + x * x) * Math.Atan(x) / 2 - x / 2;
                 Console.WriteLine(s + "    " + y);
-
-
-
             }
              
             #endregion
