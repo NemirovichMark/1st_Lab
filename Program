@@ -1,0 +1,200 @@
+# 1st_Lab
+using System;
+
+namespace less
+{
+
+   class prgogam
+   {
+       public static void Main(string[] args)
+       {
+           #region task1_4
+           
+           
+          Console.WriteLine("Введи угол:");
+            string t = Console.ReadLine(); 
+            int y = Convert.ToInt32(t); 
+             
+            if (y == 0)
+            {Console.WriteLine("Введите другой угол");}
+            else {
+         
+            double x = (y * Math.PI / 180); 
+            double S = 0; 
+            for (int i = 1; i <= 9; i++) 
+            { 
+                S = S + Math.Cos(x * i) / Math.Pow(x, (i - 1)); 
+ 
+            } 
+            Console.WriteLine(S);
+    
+            }
+
+           #endregion
+       
+         #region task1_9
+            double s = 0;
+            int x = 1;
+            for (int i = 1; i <= 6; i++)
+            {
+                x *= i;
+                s += Math.Pow((-1), i) * Math.Pow(5, i) / x;
+            }
+            Console.WriteLine(s);
+
+        #endregion
+
+#region task1_15
+            double a = 1, b = 2, c = 1;
+
+            double d = 0,e = 0, s = 1;
+
+
+            for (int i = 1; i <= 3; i++)
+            {
+                d = a + b;
+                a = b;
+                b = d;
+
+
+                e = c + s;
+                c = s;
+                s = e;
+            }
+
+            Console.WriteLine(d/e);
+            #endregion
+
+
+          #region task1_16
+         
+           double s = 0;
+           double x = 1;
+           for (int i = 1; i <= 64  ; i++)
+           {
+               x = x * 2;
+               s = s + x;
+
+           }
+           Console.WriteLine(s+1);
+           
+            #endregion
+            
+   #region task1_18
+int m = 10;
+for (int i = 3; i <= 24; i += 3)
+{
+m *= 2;
+Console.WriteLine("через " + i + " ч - " + m + " клеток ");
+}
+ #engregion
+
+
+
+         #region task2_2
+            int sum = 1; int p = 1;
+            do
+            {
+                sum = sum * p;
+                p = p + 3;
+                Console.WriteLine(p);
+            } while (sum < 30000);
+
+          #endregion
+
+      #region task2_4
+            double s = 0.1 , i = 0, sum = 0, d = 0.1;
+            while(d > 0.0001)
+            {
+
+                sum = sum + Math.Pow(s, i);
+                i = i + 2;
+                d = Math.Pow(s, i);
+            }
+            Console.WriteLine(sum);
+
+            #endregion
+
+           #region task2_7/8
+            double s = 10, d = 0; int n = 0;
+            for (int i = 0; i <= 6; i++)
+            {
+                s = s + 0.1 * s;
+                d = d + s;
+                n++;// n - кол-во дней
+            }
+            Console.WriteLine(d);
+            Console.WriteLine(n+1)
+
+          #endregion
+
+          #region task3_1
+            double s, sum, st, fact, t, step;
+            int i;
+            for (double x = 0.1; x <= 1; x += 0.1)
+            {
+                
+                t = -1;
+                i = 0;
+                fact = 1;
+                s = 0;
+                st = 1;
+                do
+                {
+                    
+                    t *= -1;
+                    sum = t * st/ fact;
+                    st *= x * x;
+                    i++;
+                    fact *= (2 * i) * (2 * i - 1);
+                    s += sum;
+                }
+                while (Math.Abs(sum) > 0.0001);
+                double y = Math.Cos(x);
+
+                Console.WriteLine(s + "  " + y);
+
+            }
+
+            #endregion
+
+
+
+  
+        
+
+           #region task3_6
+           
+            for (double x = 0.1; x <= 1; x += 0.1)
+            {
+                double t = -1;
+                double sum = 0;
+                double st = 1;
+                int i = 1;
+                double s = 0;
+                do
+                {
+                    
+                    t *= -1;
+                    st *= x * x;
+                    sum = t * x *st / (4 * i * i - 1);
+                    i++;
+                    s += sum;
+
+                } while (Math.Abs(sum) > 0.0001);
+
+                double y = (1 + x * x) * Math.Atan(x) / 2 - x / 2;
+                Console.WriteLine(s + "    " + y);
+            }
+             
+            #endregion
+
+       }
+
+   }
+
+
+}
+
+
+   
