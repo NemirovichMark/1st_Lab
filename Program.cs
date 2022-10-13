@@ -12,16 +12,19 @@ namespace _1st_Lab_P3
 
             for (double x = 0; x <= 1; x += 0.1)
             {
+                s = 0;
+                fact = 1;
                 Console.WriteLine($"y = {Math.Cos(x)}");
 
                 while (i < 9999)
                 {
+
                     if (i > 0)
                     {
                         fact *= (2 * i * (2 * i - 1));
                     }
-                    s += Math.Pow(-1, i) * (Math.Pow(x, 2 * i) / fact);
                     cur = Math.Pow(-1, i) * (Math.Pow(x, 2 * i) / fact);
+                    s += cur;
                     i++;
                     if (Math.Abs(cur) < 0.0001)
                     {
@@ -41,6 +44,9 @@ namespace _1st_Lab_P3
             fact = 1;
             for (double z = 0; z <= 1; z += 0.05)
             {
+                fact = 1;
+                i = 0;
+                s = 0;
                 Console.WriteLine($"y = {Math.Pow(Math.E, 2 * z)}");
                 while (i < 99999)
                 {   
