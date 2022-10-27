@@ -11,14 +11,13 @@ namespace Sololearn
     {
         static void Main(string[] args)
         {
-            double s=0;
+            double s=0,pow1=-1,pow2=5;
             for(int i=1; i<=6; i++){
-                s+=Math.Pow(-1,i)*Math.Pow(5,i)/i;
+                s+=pow1*pow2/i;
+                pow1*=-1;
+                pow2*=5;
             }
             Console.WriteLine(s);
-        }
-        static int fact(int n){
-            return n*fact(n-1);
         }
     }
 }
