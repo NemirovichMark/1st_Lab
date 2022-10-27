@@ -11,21 +11,12 @@ namespace Sololearn
     {
         static void Main(string[] args)
         {
-            double s=0,x=0;
-            string vvod;
-            while(true){
-                vvod = Console.ReadLine();
-                double.TryParse(vvod,out x);
-                if(x>=1||x<=-1){
-                    Console.WriteLine("|x| need to be less than 1, try again: ");
-                }
-                else if(x==0&&vvod!="0") Console.WriteLine("Something's wrong, try type it again: ");
-                else break;
+            double s=0,x=double.Parse(Console.ReadLine()),pow=1;
+            for(int n=0; pow>=0.0001;n+=2){
+                s+=pow;
+                Console.WriteLine($"n: {n} S: {s}");
+                pow*=(x*x);
             }
-            for(int i=0; Math.Pow(x,i)>=0.0001;i+=2){
-                s+=Math.Pow(x,i);
-            }
-            Console.WriteLine(s);
         }
     }
 }
