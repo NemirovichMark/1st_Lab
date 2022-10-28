@@ -12,15 +12,16 @@ namespace SoloLearn
 		static void Main(string[] args)
 		{
 			double a=0.1, b=1, h=0.05;
-            double sum = 0, meat = 1, y=0;
-	    int fact=1;
+            double sum = 0, meat = 1, y=0, fact=1, pow=1;
             for(double x=a;x<=b;x+=h){
                 sum=0;
                 meat=1;
                 y=0;
 		fact=1;
+		pow=1;
                 for(int i=0;abs(meat)>=0.0001;i++){
-                    meat=Math.Pow(2*x,i)/fact;
+                    meat=pow/fact;
+                    pow*=2*x;
                     sum+=meat;
 		    fact*=(fact+1);
                 }
