@@ -11,7 +11,7 @@ namespace Sololearn
     {
         static void Main(string[] args)
         {
-            double s=0,x=1;
+            double s=0,x=1,pow=1;
             do{
                 Console.WriteLine("Introduce the value of x(x!=0): ");
                 double.TryParse(Console.ReadLine(),out x);
@@ -19,7 +19,8 @@ namespace Sololearn
             }
             while(x==0);
             for(int i=1; i<=9; i++){
-                s+=Math.Cos(x*i)/Math.Pow(x,i-1);
+                s+=Math.Cos(x*i)/pow;
+                pow*=x;
             }
             Console.WriteLine(s);
         }
