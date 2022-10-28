@@ -1,0 +1,212 @@
+using System;
+
+namespace _1st_Lab
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            #region lvl_1
+            #region Num_4
+            double x;
+            if (double.TryParse(Console.ReadLine(), out x))
+            {
+                if (x == 0)
+                {
+                    Console.WriteLine("Error");
+                    return;
+                }
+
+                double s = 0;
+                for (int i = 0; i < 9; ++i)
+                {
+                    s += Math.Cos(x * (i + 1)) / Math.Pow(x, i);
+                }
+                Console.WriteLine(s);
+            }
+            #endregion
+
+            #region Num_9
+            double s1 = 0;
+            int k = 1;
+            for (int i = 0; i < 6; ++i)
+            {
+                k *= (i + 1);
+                s1 += Math.Pow(-1, (i + 1)) * Math.Pow(5, (i + 1)) / k;
+            }
+            Console.WriteLine(s1);
+            #endregion
+
+            #region Num_15
+            double up = 1;
+            double down = 1;
+            for (int i = 0; i < 4; ++i)
+            {
+                up += down;
+                down = up - down;
+
+            }
+            Console.WriteLine(up / down);
+            #endregion
+
+            #region Num_16
+            double s2 = 0;
+            for (int i = 0; i < 64; ++i)
+            {
+                s2 += Math.Pow(2, i);
+            }
+            Console.WriteLine(s2 / 15);
+            #endregion
+
+            #region Num_18
+            double colvo = 10;
+            for (int i = 3; i <= 24; i += 3)
+            {
+                colvo *= 2;
+                Console.WriteLine($"{i} hours = {colvo}");
+            }
+
+            #endregion
+            #endregion
+
+            #region lvl_2
+
+            #region Num_2
+            double p = 1;
+            double n = 1;
+            while (p < 30000)
+            {
+                n += 3;
+                p *= n;
+            }
+            n -= 3;
+            Console.WriteLine(n);
+            #endregion
+
+            #region Num_4
+
+            double x1;
+            double sum = 1;
+            double degree = 2;
+            if (double.TryParse(Console.ReadLine(), out x1))
+            {
+                if (Math.Abs(x1) >= 1)
+                {
+                    Console.WriteLine("Error");
+                    return;
+                }
+                while (Math.Pow(x1, degree) >= 0.0001)
+                {
+                    sum += Math.Pow(x1, degree);
+                    degree *= 2;
+                }
+                Console.WriteLine(sum);
+            }
+            #endregion
+
+            #region Num_7&8
+            double start = 10;
+            double summ = 10;
+            for (int i = 0; i < 6; ++i)
+            {
+                start *= 1.1;
+                summ += start;
+            }
+            Console.WriteLine(summ);
+
+            start = 10;
+            summ = 10;
+            double days = 1;
+            while (summ < 100)
+            {
+                start *= 1.1;
+                summ += start;
+                ++days;
+            }
+            Console.WriteLine(days);
+
+            start = 10;
+            days = 1;
+            while (start < 20)
+            {
+                start *= 1.1;
+                ++days;
+            }
+            Console.WriteLine(days);
+            #endregion
+
+
+            #endregion
+
+            #region Lvl_3.1
+        Console.WriteLine("choose task (3 or 7)");
+        int numb = Convert.ToInt32(Console.ReadLine());
+        double a = 0.0;
+        double b = 0.0;
+        double h = 0.0;
+        if (numb == 3)
+        {
+            a = 0.1;
+            b = 1;
+            h = 0.1;
+        }
+        else if (numb == 7)
+        {
+            a = 0.1;
+            b = 1;
+            h = 0.05;
+        }
+        else
+        { Console.WriteLine("None"); }
+        if ((numb == 3) || (numb == 7))
+        {
+            double s;
+            if (numb == 3) s = 1.0;
+            else s = 1.0;
+            double x = a;
+            int i = 1;
+            int fact = 1;
+            int fact1 = 1;
+            double ax;
+            double obj1 = 0.0;
+            while ((x >= a) && (x <= b))
+            {
+                ax = 0.0;
+                do
+                {
+                    fact = fact * (2 * i) * (2 * i - 1);
+                    fact1 = fact1 * i;
+                    ax = x * x;
+                    if (numb == 7)
+                        obj1 = (x * x * ax / fact);//седьмое задание
+
+                    else obj1 = Math.Cos(i * x) / fact1;
+                    s = s + obj1;
+                    i = i + 1;
+                } while (Math.Abs(obj1) > 0.0001);
+                i = 1;
+                fact = 1;
+                fact1 = 1;
+                x = x + h;
+                Console.WriteLine($"result -> {s}");
+                Console.WriteLine((Math.Pow(Math.E, x) + Math.Pow(Math.E, -x)) / 2);
+            }
+
+            //Console.WriteLine($"result -> {s}");
+            Console.WriteLine("Do you want to see a function please write 1 - yes; 0 -  no");
+            int yesorno = Convert.ToInt32(Console.ReadLine());
+            if (yesorno == 1)
+            {
+                for (double xx = a; xx <= b; xx += h)
+                {
+                    if (numb == 3) Console.WriteLine((Math.Pow(Math.E, Math.Cos(x))) * Math.Cos(Math.Sin(x)));
+                }
+            }
+        }
+        else Console.WriteLine("None");
+        #endregion
+    }
+}
+
+
+            
