@@ -12,6 +12,7 @@ namespace Sololearn
         static void Main(string[] args)
         {
             double s=0,x=double.Parse(Console.ReadLine()),pow=1;
+            if(!double.TryParse(Console.ReadLine(),out x) || x<=-1 || x>=1) return 0;
             for(int n=0; pow>=0.0001;n+=2){
                 s+=pow;
                 Console.WriteLine($"n: {n} S: {s}");
