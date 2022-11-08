@@ -82,21 +82,25 @@ namespace _1st_Lab
 			}
 
 			Console.WriteLine($"task 2: {o - 3}");
-			#endregion
-			#region lvl2_task4
-			double aс = 1;
-            double E = 0.0001;
-            double xс = double.Parse(Console.ReadLine());
-            double sс = 0;
-            while (Math.Abs(aс) >= E)
+            #endregion
+            #region lvl2_task4
+            double ws = 1, wp = 0, wx = Convert.ToDouble(Console.ReadLine());
+            if (wx <= -1 || wx >= 1)
             {
-                sс += a;
-                aс *= xс * xс;
+                Console.WriteLine("|wx|>1");
             }
-            Console.WriteLine(s);
-			#endregion
-			#region lvl2_task7-8
-			double start = 10;
+            else
+            {
+                while (Math.Pow(wx, wp) >= 0.0001)
+                {
+                    wp += 2;
+                    ws += Math.Pow(wx, wp);
+                }
+                Console.WriteLine("ws = " + ws);
+            }
+            #endregion
+            #region lvl2_task7-8
+            double start = 10;
 			double summ = 10;
 			for (int i = 0; i < 6; ++i)
 			{
@@ -150,7 +154,7 @@ namespace _1st_Lab
             }
 
             #endregion
-			#region lvl3_task1
+			#region lvl3_task6
 			Console.WriteLine("\nНОМЕР 3.6:");
 
             double sh = 1.0;
