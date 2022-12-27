@@ -297,37 +297,39 @@ namespace lab1
     {
         static void Main(string[] args)
         {
-            #region 1-4
+        #region 1-4
+        {
             double x = Convert.ToDouble(Console.ReadLine());
-            double S = Math.Cos(x);
-
+            double s = 0, a;
+            int i = 1, z = 1;
             if (x != 0)
             {
-                for (int i = 2; i < 9; i++)
+                for (i = 1; i < 9; i = i + 1)
                 {
-                    S += Math.Cos(i * x) / Math.Pow(x, i - 1);
-                }
-                Console.WriteLine(S);
-            }
-            else
-            {
-                Console.WriteLine("error");
-            }
-            #endregion
-            #region 1-9
-            {
-                double S0 = 0;
+                    for (z = 1; z < 8; z += 1)
+                    {
+                        a = Math.Cos(x * i) / (x * z);
+                        s = s + a;
+                        Console.WriteLine(s);
 
-                int h = 1;
-
-                for (int i = 1; i < 7; i++)
-                {
-                    h *= i;
-                    S0 += Math.Pow(-1, i) * Math.Pow(5, i) / h;
+                    }
                 }
-                Console.WriteLine(S0);
             }
-            #endregion
+        }
+        #endregion  
+        #region 1-9
+        {
+            double S0 = 0;
+            double i = 1;
+            double n = 1;
+            for (i = 1; i <= 6; i = i + 1) 
+            {
+                S0 = S0 + ((-1) * (-1)) * (5 * 5) / (n * (n + 1));
+
+            }
+            Console.WriteLine(S0);
+        }
+        #endregion
             #region 1-16
             {
                 double sum = 0.0;
@@ -344,12 +346,14 @@ namespace lab1
             #endregion
             #region 1-18
             {
-                double g = 0;
-                for (int i = 0; i <= 8; i++)
+                int k = 10;
+                int i;
+                for (i = 3; i <= 24; i += 3)
                 {
-                    g = 10 * Math.Pow(2, i);
-                    Console.WriteLine(g);
+                    k = k * 2;
+                    Console.WriteLine(k);
                 }
+
             }
             #endregion
             #region 1-15
@@ -433,45 +437,61 @@ namespace lab1
             #endregion
             #region 3-1
             {
-                double s = 1.0;
-                for (double l = 0.1; l <= 1; l += 0.1)
+            double s, a, x, y;
+            double z;
+            double zxc;
+            z = 1;
+
+            for (x = 0.1; x <= 1; x += 0.1)
+            {
+
+                s = 1;
+                a = 1;
+                z = -1;
+
+                for (int i = 1; Math.Abs(a) > 0.0001; i++)
                 {
-                    l = Math.Round(l, 1);
-                    int i = 0;
-                    double t = 0.0;
-                    double zxc = 1.0;
+                    z = -z;
+                    zxc = 2;
+
+                    if (2 * i > 2)
+                    {
+                        zxc *= (2 * i) * (2 * i - 1);
+                    }
+                    a = z * Math.Pow(x, 2 * i) / (zxc);
+                    s = s + a;
+
+                }
+                y = Math.Cos(x);
+
+                Console.WriteLine($"x={x} y={y} s={s}");
+
+            }
+            }
+            #endregion
+            #region 3-9
+            {
+                for (double x = 0.1; x <= 0.5; x += 0.05)
+                {
+                    double s = x;
+                    double i = 2.0;
+                    double a = -(x * x * x / 3);
+                    s += a;
+                    double d = -(x * x * (2 * i - 1) / (2 * (i - 1) - 1));
                     do
                     {
-                        t = Math.Pow(-1, i) * Math.Pow(l, 2 * i) / zxc;
-                        i++;
-                        s += t;
-                        zxc *= 2 * i * (2 * i - 1);
-                    } while (t >= 0.0001);
-                    double y = Math.Cos(l);
-                    Console.WriteLine($"x = {l};    s = {s};    y = {y}");
+                        a *= d;
+                        s += a;
+                        i += 1;
+                        d = -(x * x * (2 * i - 1) / (2 * (i - 1) - 1));
+                    }
+                    while ((a * d) > 0.0001);
+                    double y = Math.Atan(x);
+                    Console.WriteLine($"x= {x}; s = {s}; y={y}");
                 }
             }
             #endregion
 
-            #region 3-9
-            {
-                double s = 1.0;
-                for (double c = 0.1; c <= 0.5; c += 0.05)
-                {
-                    c = Math.Round(c, 3);
-                    int i = 0;
-                    double t = 0.0;
-                    do
-                    {
-                        t = Math.Pow(-1, i) * (Math.Pow(c, 2 * i + 1) / (2 * i + 1));
-                        i++;
-                        s += t;
-                    } while (t >= 0.0001);
-                    double y = Math.Atan(c);
-                    Console.WriteLine($"x = {c};    s = {s};    y = {y}");
-                }
-            }
-            #endregion 
 
         }
     }
